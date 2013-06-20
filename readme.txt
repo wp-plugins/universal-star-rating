@@ -43,10 +43,10 @@ Alternatively
 
 = 1.2.0 =
 * Code optimization
-* Implementation of lokalization (English and German)
+* Implementation of localization (English and German)
 * Added a settings page for
  1. Some information about this plugin
- 2. Lokalization
+ 2. Localization
  3. Star size
  4. Amount of stars (Doesn't work correct at this time)
 
