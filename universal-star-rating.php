@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.2.2
+Version: 1.2.3
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -32,7 +32,6 @@ License: GPL3
   - Add some more GFXs to choose the preferred one
   - Add a function to calculate the average rating value which can be used
   - Add a Button to the WYSIWYG editor to add a rating to the post
-  - Add a readme / host this plugin at wordpress.org
 	
 */
 
@@ -47,6 +46,7 @@ License: GPL3
 //Including locale files
 include('includes/locale.en');
 include('includes/locale.de');
+include('includes/locale.fr');
 
 //Define used names
 $usrPluginName = __("Universal Star Rating", 'universal-star-rating');
@@ -71,7 +71,7 @@ function getUsableRating($ratingValue){
 
   //If rating value is higher than max it will be set to max
   if ($ratingValue > $usrMaxStars){
-    $ratingValue = 10;
+    $ratingValue = $usrMaxStars;
   //...and if it's below 0 or not set it's set to 0
   } elseif ($ratingValue < 0) {
     $ratingValue = 0;
@@ -292,7 +292,9 @@ function usrOptionsPage() {
             if($usrLang == "en"){echo ' selected';}
           echo '>English</option><option value="de"';
             if($usrLang == "de"){echo ' selected';}
-          echo '>Deutsch</option></select>';
+          echo '>Deutsch</option><option value="fr"';
+            if($usrLang == "fr"){echo ' selected';}
+          echo '>Francais</option></select>';
           
 					?>
           </td><td><?php _e($OUTPUT_MSG['DefaultLanguage'][$usrLang], 'universal-star-rating'); ?></td>
