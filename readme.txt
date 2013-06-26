@@ -38,7 +38,7 @@ Alternatively
 
 = 1.2.3 =
 * Added a french language package
-* Bugfix: Ratings which are to high are now set to the maximum amount of stars and not to 10 (which is the default value for the maximum)
+* Bugfix: Ratings which are too high are now set to the maximum amount of stars and not to 10 (which is the default value for the maximum)
 
 = 1.2.2 =
 * Added a readme file
