@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.5.2
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -32,7 +32,13 @@ Alternatively
 
 1. This screen shot shows a list of ratings inside a (german) post using the `[usrlist (...)]` shorttag.
 
+2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
+
 == Changelog ==
+
+= 1.2.3 =
+* Added a french language package
+* Bugfix: Ratings which are to high are now set to the maximum amount of stars and not to 10 (which is the default value for the maximum)
 
 = 1.2.2 =
 * Added a readme file
@@ -60,8 +66,11 @@ Alternatively
 
 == Upgrade Notice ==
 
+= 1.2.3 =
+This package includes a french language package and a bugfix.
+
 = 1.2.2 =
-Just added this readme file which is necessary if I want to host this plugin on wordpress.org
+Just added a readme file which is necessary to host this plugin on wordpress.org
 
 = 1.2.1 =
 This is just a bugfix release. Nothing to worry about!

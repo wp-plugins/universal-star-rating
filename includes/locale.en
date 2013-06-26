@@ -1,35 +1,35 @@
 <?php
 
-$ERR_MSG['NotEnoughParameters']['en'] = '[ERROR] You have to use more than 1 name/rating. If there is just 1 name/rating use <code>[usr=8.2]</code> instead.';
-$ERR_MSG['NoAdminAccess']['en'] = '[ERROR] You are not allowed to access this part of the site.';
-$ERR_MSG['StarSizeNotNumeric']['en'] = '[ERROR] Entered Star Size is not a numeric value!';
-$ERR_MSG['StarCountNotInt']['en'] = '[ERROR] Entered max. amount of stars is not an integer value!';
+$ERR_MSG['NotEnoughParameters']['en'] = "[ERROR] You have to use more than 1 name/rating. If there is just 1 name/rating use <code>[usr=8.2]</code> instead.";
+$ERR_MSG['NoAdminAccess']['en'] = "[ERROR] You are not allowed to access this part of the site.";
+$ERR_MSG['StarSizeNotNumeric']['en'] = "[ERROR] Entered Star Size is not a numeric value!";
+$ERR_MSG['StarCountNotInt']['en'] = "[ERROR] Entered max. amount of stars is not an integer value!";
 
 
-$OUTPUT_MSG['DecimalMark']['en'] = '.';
-$OUTPUT_MSG['SubmitButton']['en'] = 'Save Changes';
-$OUTPUT_MSG['Settings']['en'] = 'Settings';
-$OUTPUT_MSG['OptionsUpdated']['en'] = 'Options updated';
-$OUTPUT_MSG['NotesOnUsage']['en'] = 'Notes on usage';
-$OUTPUT_MSG['ShortCodeDefinition']['en'] = 'Shortcodes are used to insert tags which provide special functionality. In this case the plugin USR provides 2 shortcodes to use in posts.';
-$OUTPUT_MSG['HowToUSR']['en'] = 'To insert a Universal Star Rating inside a post just type <code>[usr=5]</code> where 5 is the amount of stars.';
-$OUTPUT_MSG['HowToUSRList']['en'] = 'To insert a list of Universal Star Ratings inside a post just type <code>[usrlist "Pizza:7" "Ice Cream:8.5" (...)]</code> where the first value is what you want to rate and the second value is the rating. Your list can be as long as you want it to be but it must consist more than 1 key:value pairs.';
-$OUTPUT_MSG['Options']['en'] = 'Options';
-$OUTPUT_MSG['ExplainOptions']['en'] = 'These options can change the behavior and the style of <em>Universal Star Rating</em> inside your posts.';
-$OUTPUT_MSG['ExplainLanguageSetting']['en'] = 'Language:';
-$OUTPUT_MSG['ExplainStarSizeSetting']['en'] = 'Star size:';
-$OUTPUT_MSG['ExplainStarCountSetting']['en'] = 'Max. star count:';
-$OUTPUT_MSG['DefaultLanguage']['en'] = '<em>Default: <code>English</code></em>';
-$OUTPUT_MSG['DefaultStarSize']['en'] = '<em>Default: <code>12</code> (in px)</em>';
-$OUTPUT_MSG['DefaultStarCount']['en'] = '<em>Default: <code>10</code>; Minimum: 1 (as integer)</em><br/>NO EFFECT TO THE STARS AT THE MOMENT!';
-$OUTPUT_MSG['Preview']['en'] = 'Preview';
-$OUTPUT_MSG['Example']['en'] = '<strong>Example</strong>';
-$OUTPUT_MSG['ExampleResult']['en'] = '<strong>Result</strong>';
-$OUTPUT_MSG['ExampleUsr']['en'] = 'Nice Movie: [usr=8.5]';
-$OUTPUT_MSG['ExampleUsrResult']['en'] = 'Nice Movie: ';
-$OUTPUT_MSG['ExampleUsrList']['en'] = '[usrlist Pizza:7 "Ice Cream:8.5" Dirt]';
-$OUTPUT_MSG['ExampleUsrListResult']['en'][1] = 'Pizza:7';
-$OUTPUT_MSG['ExampleUsrListResult']['en'][2] = 'Ice Cream:8.5';
-$OUTPUT_MSG['ExampleUsrListResult']['en'][3] = 'Dirt';
+$OUTPUT_MSG['DecimalMark']['en'] = ".";
+$OUTPUT_MSG['SubmitButton']['en'] = "Save Changes";
+$OUTPUT_MSG['Settings']['en'] = "Settings";
+$OUTPUT_MSG['OptionsUpdated']['en'] = "Options updated";
+$OUTPUT_MSG['NotesOnUsage']['en'] = "Notes on usage";
+$OUTPUT_MSG['ShortCodeDefinition']['en'] = "Shortcodes are used to insert tags which provide special functionality. In this case the plugin USR provides 2 shortcodes to use in posts.";
+$OUTPUT_MSG['HowToUSR']['en'] = "To insert a Universal Star Rating inside a post just type <code>[usr=5]</code> where 5 is the amount of stars.";
+$OUTPUT_MSG['HowToUSRList']['en'] = "To insert a list of Universal Star Ratings inside a post just type <code>[usrlist &quot;Pizza:7&quot; &quot;Ice Cream:8.5&quot; (...)]</code> where the first value is what you want to rate and the second value is the rating. Your list can be as long as you want it to be but it must consist more than 1 key:value pairs.";
+$OUTPUT_MSG['Options']['en'] = "Options";
+$OUTPUT_MSG['ExplainOptions']['en'] = "These options can change the behavior and the style of <em>Universal Star Rating</em> inside your posts.";
+$OUTPUT_MSG['ExplainLanguageSetting']['en'] = "Language:";
+$OUTPUT_MSG['ExplainStarSizeSetting']['en'] = "Star size:";
+$OUTPUT_MSG['ExplainStarCountSetting']['en'] = "Max. star count:";
+$OUTPUT_MSG['DefaultLanguage']['en'] = "<em>Default: <code>English</code></em>";
+$OUTPUT_MSG['DefaultStarSize']['en'] = "<em>Default: <code>12</code> (in px)</em>";
+$OUTPUT_MSG['DefaultStarCount']['en'] = "<em>Default: <code>10</code>; Minimum: 1 (as integer)</em><br/>NO EFFECT TO THE STARS AT THE MOMENT!";
+$OUTPUT_MSG['Preview']['en'] = "Preview";
+$OUTPUT_MSG['Example']['en'] = "<strong>Example</strong>";
+$OUTPUT_MSG['ExampleResult']['en'] = "<strong>Result</strong>";
+$OUTPUT_MSG['ExampleUsr']['en'] = "Nice Movie: [usr=8.5]";
+$OUTPUT_MSG['ExampleUsrResult']['en'] = "Nice Movie: ";
+$OUTPUT_MSG['ExampleUsrList']['en'] = "[usrlist Pizza:7 &quot;Ice Cream:8.5&quot; Dirt]";
+$OUTPUT_MSG['ExampleUsrListResult']['en'][1] = "Pizza:7";
+$OUTPUT_MSG['ExampleUsrListResult']['en'][2] = "Ice Cream:8.5";
+$OUTPUT_MSG['ExampleUsrListResult']['en'][3] = "Dirt";
 
 ?>
