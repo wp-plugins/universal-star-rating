@@ -20,6 +20,7 @@ $OUTPUT_MSG['ExplainOptions']['fr'] = "Ces options sont susceptibles de changer 
 $OUTPUT_MSG['ExplainLanguageSetting']['fr'] = "Langage:";
 $OUTPUT_MSG['ExplainStarSizeSetting']['fr'] = "Taille de l'étoile:";
 $OUTPUT_MSG['ExplainStarCountSetting']['fr'] = "Nombre d'étoiles max.:";
+$OUTPUT_MSG['ExplainStarImage']['fr'] = "Image:";
 $OUTPUT_MSG['DefaultLanguage']['fr'] = "<em>Defaut: <code>Anglais</code></em>";
 $OUTPUT_MSG['DefaultStarSize']['fr'] = "<em>Defaut: <code>12</code> (in px)</em>";
 $OUTPUT_MSG['DefaultStarCount']['fr'] = "<em>Defaut: <code>10</code>; Minimum: 1 (entier)</em><br/>AUCUN EFFET SUR LES ÉTOILES ACTUELLEMENT!";

@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.2.3
+Version: 1.3.0
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -30,6 +30,8 @@ License: GPL3
 
 	Todos:
   - Add some more GFXs to choose the preferred one
+  - Graphics shall be smaller / Change the way the graphics will be build
+  - Add a function to override standard image in single posts
   - Add a function to calculate the average rating value which can be used
   - Add a Button to the WYSIWYG editor to add a rating to the post
 	
@@ -98,11 +100,12 @@ function getFormattedRating($ratingValue){
 function getImageString($ratingValue){
   $usrStarSize = get_option('usrStarSize');
   $usrMaxStars = get_option('usrMaxStars');
+  $usrStarImage = get_option('usrStarImage');
   
   //Just in case it is not done yet...
   $ratingValue = getUsableRating($ratingValue);
   $formattedRatingValue = getFormattedRating($ratingValue);
-  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?r='.$ratingValue.'" height="'.$usrStarSize.'px" /> ('.$formattedRatingValue.' / '.$usrMaxStars.')';
+  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?r='.$ratingValue.'&t='.$usrStarImage.'" height="'.$usrStarSize.'px" /> ('.$formattedRatingValue.' / '.$usrMaxStars.')';
 
   return $imageString;
 }
@@ -199,6 +202,7 @@ add_shortcode('usrlist', 'insertUSRList');
 add_option('usrLang', 'en', '', 'yes');
 add_option('usrStarSize', '12', '', 'yes');
 add_option('usrMaxStars', '10', '', 'yes');
+add_option('usrStarImage', '1', '', 'yes');
 
 
 //Initialize admin area
@@ -252,6 +256,10 @@ function usrOptionsPage() {
     if($usrMaxStars < 1){$usrMaxStars=1;}; 
     update_option("usrMaxStars", $usrMaxStars);
 
+    //Update star image
+    $usrStarImage = $_POST["usrStarImage"];
+    update_option("usrStarImage", $usrStarImage);
+    
 		//Tell user that options are updated
 		echo '<div class="updated fade"><p><strong>' . __($OUTPUT_MSG["OptionsUpdated"][$usrLang], "universal-star-rating") . '</strong></p></div>';
 	}
@@ -318,6 +326,19 @@ function usrOptionsPage() {
 					echo "value='".get_option('usrMaxStars')."' />\n";
 					?></td>
           <td><?php _e($OUTPUT_MSG['DefaultStarCount'][$usrLang], 'universal-star-rating'); ?></td>
+          </tr>
+          <tr>
+          <td valign="top"><?php _e($OUTPUT_MSG['ExplainStarImage'][$usrLang], 'universal-star-rating'); ?></td>
+          <td colspan="2">
+            <input type="radio" name="usrStarImage" value="1"<?php if(get_option('usrStarImage') == "1"){echo ' checked';} ?>>
+            <img src="<?php echo content_url(); ?>/plugins/universal-star-rating/images/1_preview.png" height="<?php echo get_option('usrStarSize'); ?>px">
+            <br>
+            <input type="radio" name="usrStarImage" value="2"<?php if(get_option('usrStarImage') == "2"){echo ' checked';} ?>>
+            <img src="<?php echo content_url(); ?>/plugins/universal-star-rating/images/2_preview.png" height="<?php echo get_option('usrStarSize'); ?>px">
+            <br>
+            <input type="radio" name="usrStarImage" value="3"<?php if(get_option('usrStarImage') == "3"){echo ' checked';} ?>>
+            <img src="<?php echo content_url(); ?>/plugins/universal-star-rating/images/3_preview.png" height="<?php echo get_option('usrStarSize'); ?>px">
+          </td>
           </tr>
           </table>
           

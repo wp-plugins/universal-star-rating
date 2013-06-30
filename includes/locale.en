@@ -19,6 +19,7 @@ $OUTPUT_MSG['ExplainOptions']['en'] = "These options can change the behavior and
 $OUTPUT_MSG['ExplainLanguageSetting']['en'] = "Language:";
 $OUTPUT_MSG['ExplainStarSizeSetting']['en'] = "Star size:";
 $OUTPUT_MSG['ExplainStarCountSetting']['en'] = "Max. star count:";
+$OUTPUT_MSG['ExplainStarImage']['en'] = "Image:";
 $OUTPUT_MSG['DefaultLanguage']['en'] = "<em>Default: <code>English</code></em>";
 $OUTPUT_MSG['DefaultStarSize']['en'] = "<em>Default: <code>12</code> (in px)</em>";
 $OUTPUT_MSG['DefaultStarCount']['en'] = "<em>Default: <code>10</code>; Minimum: 1 (as integer)</em><br/>NO EFFECT TO THE STARS AT THE MOMENT!";

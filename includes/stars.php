@@ -25,10 +25,16 @@ function LoadPNG($imgname)
 
 header('Content-Type: image/png');
 
-$img_back = LoadPNG('../images/dark_stars.png');
-$img_fore = LoadPNG('../images/bright_stars.png');
+if(isset($_GET['t'])){
+  $imgPrefix = $_GET['t'];
+} else {
+  $imgPrefix = "1";
+}
 
-list($width, $height) = getimagesize("../images/bright_stars.png");
+$img_back = LoadPNG('../images/'.$imgPrefix.'_dark.png');
+$img_fore = LoadPNG('../images/'.$imgPrefix.'_bright.png');
+
+list($width, $height) = getimagesize("../images/".$imgPrefix."_bright.png");
 
 $offset_x = 0;
 $offset_y = 0;
@@ -36,10 +42,10 @@ $offset_y = 0;
 $new_height = $height;
 $new_width = $width;
 
-if(!$_GET['r']){
-  $new_width = 0;
-} else {
+if(isset($_GET['r'])){
   $new_width = $_GET['r']*$width/10;
+} else {  
+  $new_width = 0;
 }
 
 imagecopy($img_back, $img_fore, 0, 0, $offset_x, $offset_y, $new_width, $height);

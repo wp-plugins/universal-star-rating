@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.5.2
-Stable tag: 1.2.3
+Stable tag: 1.3.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -36,6 +36,10 @@ Alternatively
 
 == Changelog ==
 
+= 1.3.0 =
+* Added new images
+* Modified settings page 
+
 = 1.2.3 =
 * Added a french language package
 * Bugfix: Ratings which are too high are now set to the maximum amount of stars and not to 10 (which is the default value for the maximum)
@@ -65,6 +69,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.3.0 =
+Added some images and modified settings page so that you can choose one of them for your posts
 
 = 1.2.3 =
 This package includes a french language package and a bugfix.

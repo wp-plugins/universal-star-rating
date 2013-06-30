@@ -19,6 +19,7 @@ $OUTPUT_MSG['ExplainOptions']['de'] = "Diese Optionen k&ouml;nnen das Verhalten 
 $OUTPUT_MSG['ExplainLanguageSetting']['de'] = "Sprache:";
 $OUTPUT_MSG['ExplainStarSizeSetting']['de'] = "Sternengr&ouml;&szlig;e:";
 $OUTPUT_MSG['ExplainStarCountSetting']['de'] = "Max. Anzahl Sterne:";
+$OUTPUT_MSG['ExplainStarImage']['de'] = "Grafik:";
 $OUTPUT_MSG['DefaultLanguage']['de'] = "<em>Standard: <code>English</code></em>";
 $OUTPUT_MSG['DefaultStarSize']['de'] = "<em>Standard: <code>12</code> (in px)</em>";
 $OUTPUT_MSG['DefaultStarCount']['de'] = "<em>Standard: <code>10</code>; Minimum: 1 (als ganze Zahl)</em><br/>HAT MOMENTAN KEINE AUSWIRKUNG AUF DIE STERNE!";
