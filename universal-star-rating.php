@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.3.0
+Version: 1.3.1
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -30,7 +30,7 @@ License: GPL3
 
 	Todos:
   - Add some more GFXs to choose the preferred one
-  - Graphics shall be smaller / Change the way the graphics will be build
+  - Change the images so that the output is build just by 1 source image
   - Add a function to override standard image in single posts
   - Add a function to calculate the average rating value which can be used
   - Add a Button to the WYSIWYG editor to add a rating to the post
@@ -105,7 +105,7 @@ function getImageString($ratingValue){
   //Just in case it is not done yet...
   $ratingValue = getUsableRating($ratingValue);
   $formattedRatingValue = getFormattedRating($ratingValue);
-  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?r='.$ratingValue.'&t='.$usrStarImage.'" height="'.$usrStarSize.'px" /> ('.$formattedRatingValue.' / '.$usrMaxStars.')';
+  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?t='.$usrStarImage.'&m='.$usrMaxStars.'&r='.$ratingValue.'" height="'.$usrStarSize.'px" /> ('.$formattedRatingValue.' / '.$usrMaxStars.')';
 
   return $imageString;
 }

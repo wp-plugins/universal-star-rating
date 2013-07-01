@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.5.2
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -35,6 +35,11 @@ Alternatively
 2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
 
 == Changelog ==
+
+= 1.3.1 =
+* Made the source images smaller
+* Changed the way the output images are created
+* Bugfix: The setting for the max amount of stars is now working
 
 = 1.3.0 =
 * Added new images
@@ -69,6 +74,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+The setting for the max amount of stars is now working and I changed the way images are build so that the source images are now much smaller.
 
 = 1.3.0 =
 Added some images and modified settings page so that you can choose one of them for your posts
