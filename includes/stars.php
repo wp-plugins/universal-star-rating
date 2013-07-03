@@ -25,50 +25,66 @@ function LoadPNG($imgname)
 
 header('Content-Type: image/png');
 
-if(isset($_GET['t'])){
-  $imgPrefix = $_GET['t'];
+//read the needed information - if not set use defaults
+if(isset($_GET['img'])){
+  $imgName = $_GET['img'];
 } else {
-  $imgPrefix = "1";
+  $imgName = "01.png";
 }
-
-if(isset($_GET['m'])){
-  $imgCount = $_GET['m'];
+if(isset($_GET['max'])){
+  $imgCount = $_GET['max'];
 } else {
   $imgCount = "10";
 }
-
-if(isset($_GET['r'])){
-  $imgRating = $_GET['r'];
+if(isset($_GET['rat'])){
+  $imgRating = $_GET['rat'];
 } else {  
   $imgRating = 0;
 }
 
-$imgBackTemp = LoadPNG('../images/'.$imgPrefix.'_dark.png');
-$imgForeTemp = LoadPNG('../images/'.$imgPrefix.'_bright.png');
+//load the source image
+$imgTemp = LoadPNG('../images/'.$imgName);
 
-//list($width, $height) = getimagesize("../images/".$imgPrefix."_bright.png");
-$imgWidth = imagesx($imgBackTemp);
-$imgHeight = imagesy($imgBackTemp);
+//set x and y for temp images
+$imgWidth = imagesx($imgTemp)/2;
+$imgHeight = imagesy($imgTemp);
 
-$imgOutputBackground = imagecreate($imgWidth*$imgCount, $imgHeight);
-//$black = imagecolorallocate($imgOutputBackground, 0, 0, 0);
-imagecolortransparent($imgOutputBackground, imagecolorallocate($imgOutputBackground, 0, 0, 0));
+//create an output image with transparent background
+$imgOutput = imagecreate($imgWidth*$imgCount, $imgHeight);
+$black = imagecolorallocate($imgOutput, 0, 0, 0);
+imagecolortransparent($imgOutput, $black);
 
-//be picasso
-$roundedImgSize = floor($imgRating);
-$moduloImgSize = fmod($imgRating, 1);
+//create two temp images (1 bright / 1 dark) with transparent background
+$imgTempFore = imagecreate($imgWidth, $imgHeight);
+$imgTempBack = imagecreate($imgWidth, $imgHeight);
+$black = imagecolorallocate($imgTempFore, 0, 0, 0);
+imagecolortransparent($imgTempFore, $black);
+$black = imagecolorallocate($imgTempBack, 0, 0, 0);
+imagecolortransparent($imgTempBack, $black);
 
+//insert source image parts into the temp images
+imagecopy($imgTempFore, $imgTemp, 0, 0, 0, 0, $imgWidth, $imgHeight);
+imagecopy($imgTempBack, $imgTemp, 0, 0, $imgWidth, 0, $imgWidth*2, $imgHeight);
+
+//set helper variables to fill the stars correct
+$roundedImgCount = floor($imgRating);
+$moduloImgCount = fmod($imgRating, 1);
+
+//be Picasso
 for ($i = 0; $i <= $imgCount; $i++) {
-  imagecopy($imgOutputBackground, $imgBackTemp, $i*$imgWidth, 0, 0, 0, $imgWidth, $imgHeight);
+  if($i < $roundedImgCount){
+    imagecopy($imgOutput, $imgTempFore, $i*$imgWidth, 0, 0, 0, $imgWidth, $imgHeight);
+  } else {
+    imagecopy($imgOutput, $imgTempBack, $i*$imgWidth, 0, 0, 0, $imgWidth, $imgHeight);
+  }
 }
-for ($i = 0; $i < $roundedImgSize; $i++) {
-  imagecopy($imgOutputBackground, $imgForeTemp, $i*$imgWidth, 0, 0, 0, $imgWidth, $imgHeight);
-}
-imagecopy($imgOutputBackground, $imgForeTemp, $roundedImgSize*$imgWidth, 0, 0, 0, $imgWidth*$moduloImgSize, $imgHeight);
+imagecopy($imgOutput, $imgTempFore, $roundedImgCount*$imgWidth, 0, 0, 0, $imgWidth*$moduloImgCount, $imgHeight);
 
-imagepng($imgOutputBackground);
-imagedestroy($imgForeTemp);
-imagedestroy($imgBackTemp);
-imagedestroy($imgOutputBackground);
+//output and destroy
+imagepng($imgOutput);
+imagedestroy($imgTemp);
+imagedestroy($imgTempFore);
+imagedestroy($imgTempBack);
+imagedestroy($imgOutput);
 
 ?>

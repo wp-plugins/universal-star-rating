@@ -1,37 +1,55 @@
 <?php
 
-$ERR_MSG['NotEnoughParameters']['fr'] = "[ERREUR] Vous devez utiliser strictement plus d'un nom/note. Si vous devez utiliser un nom/note, veuillez utilisez <code>[usr=8.2]</code> à la place.";
-$ERR_MSG['NoAdminAccess']['fr'] = "[ERREUR] Vous n'êtes pas autorisés à accéder cette partie du site.";
-$ERR_MSG['StarSizeNotNumeric']['fr'] = "[ERREUR] Le nombre d'étoiles entré doit être une valeur numérique!";
-$ERR_MSG['StarCountNotInt']['fr'] = "[ERREUR] Le nombre maximum d'étoiles entré doit être un entier!";
+//Error Messages
+$MESSAGES['ERROR']['NotEnoughParameters']['fr'] = "[ERREUR] Vous devez utiliser strictement plus d'un nom/note. Si vous devez utiliser un nom/note, veuillez utilisez <code>[usr=8.2]</code> à la place.";
+$MESSAGES['ERROR']['NoAdminAccess']['fr'] = "[ERREUR] Vous n'êtes pas autorisés à accéder cette partie du site.";
+$MESSAGES['ERROR']['StarSizeNotNumeric']['fr'] = "[ERREUR] Le nombre d'étoiles entré doit être une valeur numérique!";
 
+//Info Messages
+$MESSAGES['INFO']['SettingsUpdated']['fr'] = "Paramètres modifiées";
 
-$OUTPUT_MSG['DecimalMark']['fr'] = ",";
-$OUTPUT_MSG['SubmitButton']['fr'] = "Enregistrer les modifications";
-$OUTPUT_MSG['Settings']['fr'] = "Paramètres";
-$OUTPUT_MSG['OptionsUpdated']['fr'] = "Options modifiées";
-$OUTPUT_MSG['NotesOnUsage']['fr'] = "Notices d'utilisation";
+//Configuration
+$CONFIGURATION['DecimalMark']['fr'] = ",";
 
-$OUTPUT_MSG['ShortCodeDefinition']['fr'] = "Les <em>shortcodes</em> sont utilisés pour créer des <em>tags</em> avec des fonctionnalités spéciales. Le plugin USR met à votre disposition 2 codes à utiliser dans vos billets.";
-$OUTPUT_MSG['HowToUSR']['fr'] = "Pour ajouter un Universal Star Rating dans un de vos billets, entrez simplement <code>[usr=5]</code> où 5 est le nombre d'étoiles.";
-$OUTPUT_MSG['HowToUSRList']['fr'] = "Pour insérer une liste d'Universal Star Ratings dans un billet, entrez <code>[usrlist &quot;Pizza:7&quot; &quot;Milk Shake:8.5&quot; (...)]</code> où la première valeur représence ce qui est à noter et la seconde la note elle même. Cette liste peut-être aussi longue que vous le souhaitez mais elle doit contenir strictement plus d'un couple clé-valeur.";
-$OUTPUT_MSG['Options']['fr'] = "Options";
-$OUTPUT_MSG['ExplainOptions']['fr'] = "Ces options sont susceptibles de changer le comportement et le style de <em>Universal Star Rating</em> au sein de vos billets.";
-$OUTPUT_MSG['ExplainLanguageSetting']['fr'] = "Langage:";
-$OUTPUT_MSG['ExplainStarSizeSetting']['fr'] = "Taille de l'étoile:";
-$OUTPUT_MSG['ExplainStarCountSetting']['fr'] = "Nombre d'étoiles max.:";
-$OUTPUT_MSG['ExplainStarImage']['fr'] = "Image:";
-$OUTPUT_MSG['DefaultLanguage']['fr'] = "<em>Defaut: <code>Anglais</code></em>";
-$OUTPUT_MSG['DefaultStarSize']['fr'] = "<em>Defaut: <code>12</code> (in px)</em>";
-$OUTPUT_MSG['DefaultStarCount']['fr'] = "<em>Defaut: <code>10</code>; Minimum: 1 (entier)</em>";
-$OUTPUT_MSG['Preview']['fr'] = "Aperçu";
-$OUTPUT_MSG['Example']['fr'] = "<strong>Exemple</strong>";
-$OUTPUT_MSG['ExampleResult']['fr'] = "<strong>Résultat</strong>";
-$OUTPUT_MSG['ExampleUsr']['fr'] = "Chouette film: [usr=8.5]";
-$OUTPUT_MSG['ExampleUsrResult']['fr'] = "Chouette film: ";
-$OUTPUT_MSG['ExampleUsrList']['fr'] = "[usrlist Pizza:7 Glace:8.5 &quot;Milk Shake&quot;]";
-$OUTPUT_MSG['ExampleUsrListResult']['fr'][1] = "Pizza:7";
-$OUTPUT_MSG['ExampleUsrListResult']['fr'][2] = "Glace:8.5";
-$OUTPUT_MSG['ExampleUsrListResult']['fr'][3] = "Milk Shake";
+//Settings Global
+$SETTINGS['GLOBAL']['Settings']['fr'] = "Paramètres";
+$SETTINGS['GLOBAL']['SubmitButton']['fr'] = "Enregistrer les modifications";
+
+//Settings "Notes on usage"
+$SETTINGS['NOU']['NotesOnUsage']['fr'] = "Notices d'utilisation";
+$SETTINGS['NOU']['ShortCodeDefinition']['fr'] = "Les <em>shortcodes</em> sont utilisés pour créer des <em>tags</em> avec des fonctionnalités spéciales. Le plugin USR met à votre disposition 2 codes à utiliser dans vos billets.";
+$SETTINGS['NOU']['HowToUSR']['fr'] = "Pour ajouter un Universal Star Rating dans un de vos billets, entrez simplement <code>[usr=5]</code> où 5 est le nombre d'étoiles.";
+$SETTINGS['NOU']['HowToUSRList']['fr'] = "Pour insérer une liste d'Universal Star Ratings dans un billet, entrez <code>[usrlist &quot;Pizza:7&quot; &quot;Milk Shake:8.5&quot; (...)]</code> où la première valeur représence ce qui est à noter et la seconde la note elle même. Cette liste peut-être aussi longue que vous le souhaitez mais elle doit contenir strictement plus d'un couple clé-valeur.";
+$SETTINGS['NOU']['HowToShortCodes']['fr'] = "Les deux <em>shortcodes</em> peuvent être utilisés avec des paramètres pour remplacer les paramètres par défaut:<li type=square><code>img=&quot;image.name&quot;</code> remplace l'image par défaut. Le nom doit être orthographié correctement!</li><li type=square><code>max=10</code> remplace l'option pour le nombre d'étoiles max.</li><li type=square><code>text=false</code> remplace l'option de sortie textuelle (peut être &quot;true&quot; ou &quot;false&quot;)</li>";
+
+//Settings "Options"
+$SETTINGS['OPT']['Options']['fr'] = "Options";
+$SETTINGS['OPT']['ExplainOptions']['fr'] = "Ces options sont susceptibles de changer le comportement et le style de <em>Universal Star Rating</em> au sein de vos billets.";
+$SETTINGS['OPT']['ExplainLanguageSetting']['fr'] = "Langage:";
+$SETTINGS['OPT']['ExplainStarSizeSetting']['fr'] = "Taille de l'étoile:";
+$SETTINGS['OPT']['ExplainStarCountSetting']['fr'] = "Nombre d'étoiles max.:";
+$SETTINGS['OPT']['ExplainStarText']['fr'] = "Texte:";
+$SETTINGS['OPT']['ExplainStarImage']['fr'] = "Image:";
+$SETTINGS['OPT']['DefaultLanguage']['fr'] = "<em>Defaut: <code>English</code></em>";
+$SETTINGS['OPT']['DefaultStarSize']['fr'] = "<em>Defaut: <code>12</code> (in px)</em>";
+$SETTINGS['OPT']['DefaultStarCount']['fr'] = "<em>Defaut: <code>10</code>; Minimum: 1 (entier)</em>";
+$SETTINGS['OPT']['StarTextEnabled']['fr'] = "Activé";
+$SETTINGS['OPT']['StarTextDisabled']['fr'] = "Désactivé";
+$SETTINGS['OPT']['DefaultStarText']['fr'] = "<em>Defaut: <code>Activé</code></em>";
+
+//Settings "Preview"
+$SETTINGS['PREV']['Preview']['fr'] = "Aperçu";
+$SETTINGS['PREV']['Example']['fr'] = "<strong>Exemple</strong>";
+$SETTINGS['PREV']['ExampleResult']['fr'] = "<strong>Résultat</strong>";
+$SETTINGS['PREV']['ExampleUsr']['fr'] = "Chouette film: [usr=8.5]";
+$SETTINGS['PREV']['ExampleUsrResult']['fr'] = "Chouette film: ";
+$SETTINGS['PREV']['ExampleUsrList']['fr'] = "[usrlist Pizza:7 Glace:8.5 &quot;Milk Shake&quot;]";
+$SETTINGS['PREV']['ExampleUsrListResult']['fr'][1] = "Pizza:7";
+$SETTINGS['PREV']['ExampleUsrListResult']['fr'][2] = "Glace:8.5";
+$SETTINGS['PREV']['ExampleUsrListResult']['fr'][3] = "Milk Shake";
+$SETTINGS['PREV']['ExampleUsrOverriddenImage']['fr'] = "Chouette film: [usr=8.5 img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenText']['fr'] = "Chouette film: [usr=8.5 text=&quot;false&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenMax']['fr'] = "Chouette film: [usr=8.5 max=&quot;5&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['fr'] = "Chouette film: [usr=8.5 max=&quot;5&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
 
 ?>
