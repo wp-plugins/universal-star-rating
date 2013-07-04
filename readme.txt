@@ -43,7 +43,7 @@ Alternatively
 * Added a new option to enable/disable text output
 * Added functionalities to override the standard settings in shortcodes
 * Updated localization and settings page
-* Code optimization 
+* Code optimization  
 
 = 1.3.1 =
 * Made the source images smaller
