@@ -52,4 +52,4 @@ $SETTINGS['PREV']['ExampleUsrOverriddenText']['de'] = "Toller Film: [usr=8.5 tex
 $SETTINGS['PREV']['ExampleUsrOverriddenMax']['de'] = "Toller Film: [usr=8.5 max=&quot;5&quot;]";
 $SETTINGS['PREV']['ExampleUsrOverriddenAll']['de'] = "Toller Film: [usr=8.5 max=&quot;5&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
 
-?>                                                            
+?>
