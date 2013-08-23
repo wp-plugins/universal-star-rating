@@ -3,7 +3,7 @@ Contributors: Chasil
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%40jroene%2ede&lc=DE&item_name=Universal%20Star%20Rating%20%2d%20Cizero%2ede&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
-Tested up to: 3.5.2
+Tested up to: 3.6
 Stable tag: 1.4.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -43,7 +43,7 @@ Alternatively
 * Added a new option to enable/disable text output
 * Added functionalities to override the standard settings in shortcodes
 * Updated localization and settings page
-* Code optimization  
+* Code optimization
 
 = 1.3.1 =
 * Made the source images smaller
