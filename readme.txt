@@ -38,7 +38,7 @@ Alternatively
 
 = 1.4.2 =
 * Added a sort function to the usable images inside the admin panel
-* Edited the img-tag because of an reported error with safari browsers
+* Edited the img-tag because of an reported error with safari browsers 
 
 = 1.4.1 =
 * Fixed the German locale because of an reported error
