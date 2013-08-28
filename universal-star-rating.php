@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.4.1
+Version: 1.4.2
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -97,7 +97,7 @@ function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText)
   //Just in case it is not done yet...
   $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
   $formattedRatingValue = getFormattedRating($ratingValue);
-  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" height="'.$usrStarSize.'px" />';
+  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" height="'.$usrStarSize.'" />';
   if ($usrStarText == "true"){
     $imageString .= ' ('.$formattedRatingValue.' / '.$usrMaxStars.')';
   }
@@ -374,21 +374,27 @@ function usrOptionsPage() {
                   //Let's have a look at the images...
                   $handle=opendir("../wp-content/plugins/universal-star-rating/images/");
                   while ($file = readdir($handle)) {
-                    $aFileParts = pathinfo($file);
-                    $aAlowedExtensions = array('jpg','jpeg','gif','png');
+                    if(!is_dir($file)) $aFileArray[]=$file;
+                  }
+                  closedir($handle);
+                  //Sort the array
+                  sort($aFileArray);
+                  $aAlowedExtensions = array('jpg','jpeg','gif','png');
+                  //For each file inside the array...
+                  for($i=0;$i<count($aFileArray);$i++) 
+                  { 
+                    $aFileParts = pathinfo($aFileArray[$i]);
                     //If file has an allowed extension...
                     if(in_array($aFileParts['extension'],$aAlowedExtensions)){
                       
                       //User has the opportunity to choose this image file
-                      echo '<input type="radio" name="usrStarImage" value="'.$file.'"';
-                      if(get_option('usrStarImage') == $file){echo ' checked';}
+                      echo '<input type="radio" name="usrStarImage" value="'.$aFileArray[$i].'"';
+                      if(get_option('usrStarImage') == $aFileArray[$i]){echo ' checked';}
                       echo '> ';
-                      _e(insertUSR(array("=6.5", "img" => $file, "text" => "false" )), 'universal-star-rating');
-                      echo " <code>$file</code><br>";
+                      _e(insertUSR(array("=6.5", "img" => $aFileArray[$i], "text" => "false" )), 'universal-star-rating');
+                      echo " <code>$aFileArray[$i]</code><br>";
                     }
                   }
-                  closedir($handle);
-                  
                 ?>
                 
                 </td>

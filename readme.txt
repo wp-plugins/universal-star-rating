@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -35,6 +35,10 @@ Alternatively
 2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
 
 == Changelog ==
+
+= 1.4.2 =
+* Added a sort function to the usable images inside the admin panel
+* Edited the img-tag because of an reported error with safari browsers
 
 = 1.4.1 =
 * Fixed the German locale because of an reported error
@@ -86,6 +90,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.4.2 =
+I added a sort function to the admin panel so that the usable images are now sorted. The second thing I've changed is the img-tag because of an reported error with Safari browsers which should be fixed now.
 
 = 1.4.1 =
 I fixed the German locale because of an error which was reported by the member brit77. This issue caused some WordPress installations to throw errors so the plugin had to be removed via FTP.
