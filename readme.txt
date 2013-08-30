@@ -37,7 +37,7 @@ Alternatively
 == Changelog ==
 
 = 1.4.3 =
-* Changed the img-tag so that the height of the images are now sized via css
+* Changed the img-tag so that the height of the images are now sized via css 
 
 = 1.4.2 =
 * Added a sort function to the usable images inside the admin panel
