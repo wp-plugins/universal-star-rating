@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -16,7 +16,7 @@ This plugin gives you the opportunity to add star based ratings to your posts/si
 
 To insert a Universal Star Rating inside a post just type `[usr=5]` where 5 is the amount of stars.
 
-To insert a list of Universal Star Ratings inside a post just type `[usrlist "Pizza:7" "Ice Cream:8.5" (...)]` where the first value is what you want to rate and the second value is the rating. Your list can be as long as you want it to be but it must consist more than 1 key:value pairs.
+To insert a list of Universal Star Ratings inside a post just type `[usrlist "Pizza:7" "Ice Cream:8.5" (...)]` where the first value is what you want to rate and the second value is the rating. Your list can be as long as you want it to be but it must consist of more than 1 key:value pairs.
 
 == Installation ==
 
@@ -36,8 +36,11 @@ Alternatively
 
 == Changelog ==
 
+= 1.4.4 =
+* Added images in different sizes so that they look better (even with browser downsizing) and to improve the response time 
+
 = 1.4.3 =
-* Changed the img-tag so that the height of the images are now sized via css 
+* Changed the img-tag so that the height of the images are now sized via css
 
 = 1.4.2 =
 * Added a sort function to the usable images inside the admin panel
@@ -93,6 +96,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.4.4 =
+With this update I added images in different sizes so that they look better (even with browser downsizing) and to improve the response time.
 
 = 1.4.3 =
 This is a hotfix which solved an reported error with the sizing of the star images. The img-tag now works with css instead of the img attribute height.

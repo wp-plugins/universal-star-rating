@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.4.3
+Version: 1.4.4
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -97,7 +97,7 @@ function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText)
   //Just in case it is not done yet...
   $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
   $formattedRatingValue = getFormattedRating($ratingValue);
-  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" style="height:'.$usrStarSize.'px;" alt="'.$ratingValue.' Stars" />';
+  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&px='.$usrStarSize.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" style="height:'.$usrStarSize.'px;" alt="'.$ratingValue.' Stars" />';
   if ($usrStarText == "true"){
     $imageString .= ' ('.$formattedRatingValue.' / '.$usrMaxStars.')';
   }
@@ -371,8 +371,24 @@ function usrOptionsPage() {
                 <td colspan="2">
       
                 <?php
+
+                  $imgHeight=get_option('usrStarSize');
+                  if($imgHeight<=20){
+                    $imgFolder=20;
+                  } elseif($imgHeight<=40) {
+                    $imgFolder=40;
+                  } elseif($imgHeight<=60) {
+                    $imgFolder=60;
+                  } elseif($imgHeight<=80) {
+                    $imgFolder=80;
+                  } elseif($imgHeight<=100) {
+                    $imgFolder=100;
+                  } else {
+                    $imgFolder=189;
+                  }
+
                   //Let's have a look at the images...
-                  $handle=opendir("../wp-content/plugins/universal-star-rating/images/");
+                  $handle=opendir("../wp-content/plugins/universal-star-rating/images/".$imgFolder."/");
                   while ($file = readdir($handle)) {
                     if(!is_dir($file)) $aFileArray[]=$file;
                   }

@@ -41,9 +41,28 @@ if(isset($_GET['rat'])){
 } else {  
   $imgRating = 0;
 }
+if(isset($_GET['px'])){
+  $imgPX = $_GET['px'];
+} else {  
+  $imgPX = 12;
+}
+
+if($imgPX<=20){
+  $imgFolder=20;
+} elseif($imgPX<=40) {
+  $imgFolder=40;
+} elseif($imgPX<=60) {
+  $imgFolder=60;
+} elseif($imgPX<=80) {
+  $imgFolder=80;
+} elseif($imgPX<=100) {
+  $imgFolder=100;
+} else {
+  $imgFolder=189;
+}
 
 //load the source image
-$imgTemp = LoadPNG('../images/'.$imgName);
+$imgTemp = LoadPNG('../images/'.$imgFolder.'/'.$imgName);
 
 //set x and y for temp images
 $imgWidth = imagesx($imgTemp)/2;
