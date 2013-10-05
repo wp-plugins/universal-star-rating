@@ -10,6 +10,7 @@ $MESSAGES['INFO']['SettingsUpdated']['fr'] = "Paramètres modifiées";
 
 //Configuration
 $CONFIGURATION['DecimalMark']['fr'] = ",";
+$CONFIGURATION['AverageText']['fr'] = "Moyenne";
 
 //Settings Global
 $SETTINGS['GLOBAL']['Settings']['fr'] = "Paramètres";
@@ -20,7 +21,7 @@ $SETTINGS['NOU']['NotesOnUsage']['fr'] = "Notices d'utilisation";
 $SETTINGS['NOU']['ShortCodeDefinition']['fr'] = "Les <em>shortcodes</em> sont utilisés pour créer des <em>tags</em> avec des fonctionnalités spéciales. Le plugin USR met à votre disposition 2 codes à utiliser dans vos billets.";
 $SETTINGS['NOU']['HowToUSR']['fr'] = "Pour ajouter un Universal Star Rating dans un de vos billets, entrez simplement <code>[usr=5]</code> où 5 est le nombre d'étoiles.";
 $SETTINGS['NOU']['HowToUSRList']['fr'] = "Pour insérer une liste d'Universal Star Ratings dans un billet, entrez <code>[usrlist &quot;Pizza:7&quot; &quot;Milk Shake:8.5&quot; (...)]</code> où la première valeur représence ce qui est à noter et la seconde la note elle même. Cette liste peut-être aussi longue que vous le souhaitez mais elle doit contenir strictement plus d'un couple clé-valeur.";
-$SETTINGS['NOU']['HowToShortCodes']['fr'] = "Les deux <em>shortcodes</em> peuvent être utilisés avec des paramètres pour remplacer les paramètres par défaut:<li type=square><code>img=&quot;image.name&quot;</code> remplace l'image par défaut. Le nom doit être orthographié correctement!</li><li type=square><code>max=10</code> remplace l'option pour le nombre d'étoiles max.</li><li type=square><code>text=false</code> remplace l'option de sortie textuelle (peut être &quot;true&quot; ou &quot;false&quot;)</li>";
+$SETTINGS['NOU']['HowToShortCodes']['fr'] = "Les deux shortcodes peuvent être utilisés avec des paramètres pour remplacer les paramètres par défaut:<li type=square><code>img=&quot;image.name&quot;</code> remplace l'image par défaut. Le nom doit être orthographié correctement!</li><li type=square><code>max=10</code> remplace l'option pour le nombre d'étoiles max.</li><li type=square><code>text=false</code> remplace l'option de sortie textuelle (peut être &quot;true&quot; ou &quot;false&quot;)</li>Le shortcode pour la liste d'Universal Star Ratings peut être utilisé avec un autre paramètre:<li type=square><code>avg=true</code> remplace l'option pour le calcul de la valeur moyenne (peut être &quot;true&quot; ou &quot;false&quot;)</li>";
 
 //Settings "Options"
 $SETTINGS['OPT']['Options']['fr'] = "Options";
@@ -30,12 +31,16 @@ $SETTINGS['OPT']['ExplainStarSizeSetting']['fr'] = "Taille de l'étoile:";
 $SETTINGS['OPT']['ExplainStarCountSetting']['fr'] = "Nombre d'étoiles max.:";
 $SETTINGS['OPT']['ExplainStarText']['fr'] = "Texte:";
 $SETTINGS['OPT']['ExplainStarImage']['fr'] = "Image:";
+$SETTINGS['OPT']['ExplainAverageCalculation']['fr'] = "Calculer la moyenne:";
 $SETTINGS['OPT']['DefaultLanguage']['fr'] = "<em>Defaut: <code>English</code></em>";
 $SETTINGS['OPT']['DefaultStarSize']['fr'] = "<em>Defaut: <code>12</code> (in px)</em>";
 $SETTINGS['OPT']['DefaultStarCount']['fr'] = "<em>Defaut: <code>10</code>; Minimum: 1 (entier)</em>";
 $SETTINGS['OPT']['StarTextEnabled']['fr'] = "Activé";
 $SETTINGS['OPT']['StarTextDisabled']['fr'] = "Désactivé";
 $SETTINGS['OPT']['DefaultStarText']['fr'] = "<em>Defaut: <code>Activé</code></em>";
+$SETTINGS['OPT']['AverageCalculationEnabled']['fr'] = "Activé";
+$SETTINGS['OPT']['AverageCalculationDisabled']['fr'] = "Désactivé";
+$SETTINGS['OPT']['DefaultAverageCalculation']['fr'] = "<em>Defaut: <code>Désactivé</code></em>";
 
 //Settings "Preview"
 $SETTINGS['PREV']['Preview']['fr'] = "Aperçu";
@@ -51,5 +56,6 @@ $SETTINGS['PREV']['ExampleUsrOverriddenImage']['fr'] = "Chouette film: [usr=8.5 
 $SETTINGS['PREV']['ExampleUsrOverriddenText']['fr'] = "Chouette film: [usr=8.5 text=&quot;false&quot;]";
 $SETTINGS['PREV']['ExampleUsrOverriddenMax']['fr'] = "Chouette film: [usr=8.5 max=&quot;5&quot;]";
 $SETTINGS['PREV']['ExampleUsrOverriddenAll']['fr'] = "Chouette film: [usr=8.5 max=&quot;5&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['fr'] = "[usrlist Pizza:7 Glace:8.5 &quot;Milk Shake&quot; avg=&quot;true&quot;]";
 
 ?>

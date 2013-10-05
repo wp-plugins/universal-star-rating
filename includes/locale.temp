@@ -10,6 +10,7 @@ $MESSAGES['INFO']['SettingsUpdated']['temp'] = "";
 
 //Configuration
 $CONFIGURATION['DecimalMark']['temp'] = "";
+$CONFIGURATION['AverageText']['temp'] = "";
 
 //Settings Global
 $SETTINGS['GLOBAL']['Settings']['temp'] = "";
@@ -30,12 +31,16 @@ $SETTINGS['OPT']['ExplainStarSizeSetting']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarCountSetting']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarText']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarImage']['temp'] = "";
+$SETTINGS['OPT']['ExplainAverageCalculation']['temp'] = "";
 $SETTINGS['OPT']['DefaultLanguage']['temp'] = "";
 $SETTINGS['OPT']['DefaultStarSize']['temp'] = "";
 $SETTINGS['OPT']['DefaultStarCount']['temp'] = "";
 $SETTINGS['OPT']['StarTextEnabled']['temp'] = "";
 $SETTINGS['OPT']['StarTextDisabled']['temp'] = "";
 $SETTINGS['OPT']['DefaultStarText']['temp'] = "";
+$SETTINGS['OPT']['AverageCalculationEnabled']['temp'] = "";
+$SETTINGS['OPT']['AverageCalculationDisabled']['temp'] = "";
+$SETTINGS['OPT']['DefaultAverageCalculation']['temp'] = "";
 
 //Settings "Preview"
 $SETTINGS['PREV']['Preview']['temp'] = "";
@@ -51,5 +56,5 @@ $SETTINGS['PREV']['ExampleUsrOverriddenImage']['temp'] = "";
 $SETTINGS['PREV']['ExampleUsrOverriddenText']['temp'] = "";
 $SETTINGS['PREV']['ExampleUsrOverriddenMax']['temp'] = "";
 $SETTINGS['PREV']['ExampleUsrOverriddenAll']['temp'] = "";
-
+$SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['temp'] = "";
 ?>

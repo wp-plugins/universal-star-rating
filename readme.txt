@@ -3,8 +3,8 @@ Contributors: Chasil
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%40jroene%2ede&lc=DE&item_name=Universal%20Star%20Rating%20%2d%20Cizero%2ede&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
-Tested up to: 3.6
-Stable tag: 1.4.4
+Tested up to: 3.6.1
+Stable tag: 1.4.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -35,6 +35,11 @@ Alternatively
 2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
 
 == Changelog ==
+
+= 1.4.5 =
+* Added a new source image
+* Added a function to calculate the average rating inside a list of Universal Star Ratings
+* Some minor bug fixes
 
 = 1.4.4 =
 * Added images in different sizes so that they look better (even with browser downsizing) and to improve the response time 
@@ -96,6 +101,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.4.5 =
+With this update I added a new source image and the possibility to calculate the average rating inside a list of Universal Star Ratings. There are some minor bug fixes inside this update, too.
 
 = 1.4.4 =
 With this update I added images in different sizes so that they look better (even with browser downsizing) and to improve the response time.
