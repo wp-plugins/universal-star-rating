@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.6.1
-Stable tag: 1.4.5
+Stable tag: 1.5.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -36,7 +36,7 @@ Alternatively
 
 == Changelog ==
 
-= 1.4.5 =
+= 1.5.0 =
 * Added a new source image
 * Added a function to calculate the average rating inside a list of Universal Star Ratings
 * Some minor bug fixes
@@ -102,7 +102,7 @@ Alternatively
 
 == Upgrade Notice ==
 
-= 1.4.5 =
+= 1.5.0 =
 With this update I added a new source image and the possibility to calculate the average rating inside a list of Universal Star Ratings. There are some minor bug fixes inside this update, too.
 
 = 1.4.4 =
