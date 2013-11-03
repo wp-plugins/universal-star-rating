@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.5.0
+Version: 1.5.1
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -223,7 +223,7 @@ function insertUSRList($atts) {
     
     //If the average is needed...
     if ($usrCalcAverage == "true") {
-      $averageRating = getUsableRating(round($sumRatingValues/count($atts), 2), $usrMaxStars);
+      $averageRating = getUsableRating(round($sumRatingValues/count($atts), 1), $usrMaxStars);
       $usrlist .= '<tr><td style="border-top:1px solid;">'.$CONFIGURATION['AverageText'][$usrLang].':</td><td style="border-top:1px solid;">'.getImageString($averageRating, $usrStarImage, $usrMaxStars, $usrStarText).'</td></tr>';
     }
 
@@ -261,14 +261,12 @@ add_option('usrCalcAverage', 'false', '', 'yes');
 function usrAdminInit() {
   $usrLang = get_option('usrLang');
   global $MESSAGES;
-  //if not administrator, kill WordPress execution and provide a message
-	if (!current_user_can('manage_options')) {
-		wp_die( __($MESSAGES['ERROR']['NoAdminAccess'][$usrLang]) );
-	}
-  
-  //Register the option group usrSettings with the option name usrOption
-	if (function_exists('register_setting')) {
-		register_setting('usrSettings', 'usrOption', '');
+  //if user is administrator options will be displayed
+	if (current_user_can('manage_options')) {
+    //Register the option group usrSettings with the option name usrOption
+    if (function_exists('register_setting')) {
+      register_setting('usrSettings', 'usrOption', '');
+    }
 	}
 }
 add_action('admin_init', 'usrAdminInit');

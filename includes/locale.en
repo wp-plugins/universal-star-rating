@@ -2,7 +2,6 @@
 
 //Error Messages
 $MESSAGES['ERROR']['NotEnoughParameters']['en'] = "[ERROR] You have to use more than 1 name/rating. If there is just 1 name/rating use <code>[usr=8.2]</code> instead.";
-$MESSAGES['ERROR']['NoAdminAccess']['en'] = "[ERROR] You are not allowed to access this part of the site.";
 $MESSAGES['ERROR']['StarSizeNotNumeric']['en'] = "[ERROR] Entered Star Size is not a numeric value!";
 
 //Info Messages

@@ -2,7 +2,6 @@
 
 //Error Messages
 $MESSAGES['ERROR']['NotEnoughParameters']['fr'] = "[ERREUR] Vous devez utiliser strictement plus d'un nom/note. Si vous devez utiliser un nom/note, veuillez utilisez <code>[usr=8.2]</code> à la place.";
-$MESSAGES['ERROR']['NoAdminAccess']['fr'] = "[ERREUR] Vous n'êtes pas autorisés à accéder cette partie du site.";
 $MESSAGES['ERROR']['StarSizeNotNumeric']['fr'] = "[ERREUR] Le nombre d'étoiles entré doit être une valeur numérique!";
 
 //Info Messages

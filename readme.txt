@@ -3,16 +3,18 @@ Contributors: Chasil
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%40jroene%2ede&lc=DE&item_name=Universal%20Star%20Rating%20%2d%20Cizero%2ede&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
-Tested up to: 3.6.1
-Stable tag: 1.5.0
+Tested up to: 3.7.1
+Stable tag: 1.5.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
-You can easily add star based ratings to everything you want to rate inside your posts.
+With this plugin you can easily add ratings/reviews for desired data, products and services with the aid of a classic star rating system.
 
 == Description ==
 
-This plugin gives you the opportunity to add star based ratings to your posts/sites via two shortcodes.
+Universal Star Rating gives you the opportunity to add ratings/reviews for desired data, products and services with the aid of a classic star rating system. You can make use of two shortcodes to embed a single inline star rating or a tabularly list of star ratings.
+
+Supported Languages: English, German, French
 
 To insert a Universal Star Rating inside a post just type `[usr=5]` where 5 is the amount of stars.
 
@@ -35,6 +37,13 @@ Alternatively
 2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
 
 == Changelog ==
+
+= 1.5.2 =
+* Updated description text so that it is more clear to understand what this plugin is made for and how it works
+
+= 1.5.1 =
+* Changed the average rating inside lists so that there is just one digit left after the decimal point
+* Changed the admin check so that user can log in into WordPress backend without admin rights
 
 = 1.5.0 =
 * Added a new source image
@@ -101,6 +110,12 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.5.2 =
+This update contains a new description text.
+
+= 1.5.1 =
+This release contains an update to the function which calculates the average rating for lists so that there is just one digit left after the decimal point and there is a bugfix inside this release so that user whithout admin rights can log in into WordPress backend again.
 
 = 1.5.0 =
 With this update I added a new source image and the possibility to calculate the average rating inside a list of Universal Star Ratings. There are some minor bug fixes inside this update, too.

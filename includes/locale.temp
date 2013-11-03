@@ -2,7 +2,6 @@
 
 //Error Messages
 $MESSAGES['ERROR']['NotEnoughParameters']['temp'] = "";
-$MESSAGES['ERROR']['NoAdminAccess']['temp'] = "";
 $MESSAGES['ERROR']['StarSizeNotNumeric']['temp'] = "";
 
 //Info Messages
