@@ -1,0 +1,33 @@
+<?php
+
+$ERR_MSG['NotEnoughParameters']['de'] = '[ERROR] Du musst mehr als 1 Name/Rating Paar angeben. Nutze <code>[usr=8.2]</code> wenn du nur 1 Rating vornehmen möchtest.';
+$ERR_MSG['NoAdminAccess']['de'] = '[ERROR] Du darfst diesen Teil der Seite nicht betreten.';
+$ERR_MSG['StarSizeNotNumeric']['de'] = '[ERROR] Die eingegebene Gr&ouml;&szlig;e der Sterne ist keine g&uuml;ltige, numerische Eingabe!';
+$ERR_MSG['StarCountNotInt']['de'] = '[ERROR] Die eingegebene max. Anzahl an Sternen ist keine ganze Zahl!';
+
+
+$OUTPUT_MSG['DecimalMark']['de'] = ',';
+$OUTPUT_MSG['SubmitButton']['de'] = '&Auml;nderungen Speichern';
+$OUTPUT_MSG['Settings']['de'] = 'Einstellungen';
+$OUTPUT_MSG['OptionsUpdated']['de'] = 'Optionen aktualisiert';
+$OUTPUT_MSG['NotesOnUsage']['de'] = 'Hinweise zur Benutzung';
+$OUTPUT_MSG['ShortCodeDefinition']['de'] = 'Shortcodes werden genutzt, um Tags mit spezieller Funktionalit&auml;t zur Verf&uuml;gung zu stellen. Durch das Plugin <em>Universal Star Rating</em> werden 2 Shortcodes zur Verf&uuml;gung gestellt.';
+$OUTPUT_MSG['HowToUSR']['de'] = 'Um ein Universal Star Rating in einem Post einzubinden musst du nur <code>[usr=5]</code> eingeben, wobei 5 die Anzahl der Sterne ist.';
+$OUTPUT_MSG['HowToUSRList']['de'] = 'Um eine Liste von Universal Star Ratings in deinem Post einzubinden musst du nur <code>[usrlist "Pizza:7" "Eis:8.5" (...)]</code> eingeben, wobei der erste Wert das, was du bewerten m&ouml;chtest und der zweite Wert die Anzahl der Sterne ist. Deine Liste kann beliebig lang sein, muss aber mindestens 2 Werte-Paare enthalten (Key:Value).';
+$OUTPUT_MSG['Options']['de'] = 'Optionen';
+$OUTPUT_MSG['ExplainOptions']['de'] = 'Diese Optionen k&ouml;nnen das Verhalten und das Aussehen von <em>Universal Star Rating</em> innerhalb deiner Posts ver&auml;ndern.';
+$OUTPUT_MSG['ExplainLanguageSetting']['de'] = 'Sprache:';
+$OUTPUT_MSG['ExplainStarSizeSetting']['de'] = 'Sternengr&ouml;&szlig;e:';
+$OUTPUT_MSG['ExplainStarCountSetting']['de'] = 'Max. Anzahl Sterne:';
+$OUTPUT_MSG['DefaultLanguage']['de'] = '<em>Standard: <code>English</code></em>';
+$OUTPUT_MSG['DefaultStarSize']['de'] = '<em>Standard: <code>12</code> (in px)</em>';
+$OUTPUT_MSG['DefaultStarCount']['de'] = '<em>Standard: <code>10</code>; Minimum: 1 (als ganze Zahl)</em><br/>HAT MOMENTAN KEINE AUSWIRKUNG AUF DIE STERNE!';
+$OUTPUT_MSG['Preview']['de'] = 'Vorschau';
+$OUTPUT_MSG['Example']['de'] = '<strong>Beispiel</strong>';
+$OUTPUT_MSG['ExampleResult']['de'] = '<strong>Ergebnis</strong>';
+$OUTPUT_MSG['ExampleUsr']['de'] = 'Toller Film: [usr=8.5]';
+$OUTPUT_MSG['ExampleUsrResult']['de'] = 'Toller Film: ';
+$OUTPUT_MSG['ExampleUsrList']['de'] = '[usrlist Pizza:7 Eis:8.5 "Saure Milch"]';
+$OUTPUT_MSG['ExampleUsrListResult']['de'] = '';
+
+?>                                                            
