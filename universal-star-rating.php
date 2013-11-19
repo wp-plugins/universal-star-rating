@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.5.1
+Version: 1.6.0
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -43,9 +43,9 @@ License: GPL3
 
 
 //Including locale files
-include('includes/locale.en');
-include('includes/locale.de');
-include('includes/locale.fr');
+include('includes/locales/locale.en');
+include('includes/locales/locale.de');
+include('includes/locales/locale.fr');
 
 //Define used names
 $usrPluginName = __("Universal Star Rating", 'universal-star-rating');
@@ -57,53 +57,8 @@ $usrPluginFilename = "universal-star-rating.php";
 //                                                                            //
 //############################################################################//
 
-//Function to get the right rating to calculate with
-function getUsableRating($ratingValue, $usrMaxStars){
-
-  //just in case someone used a ',' for the rating
-  $ratingValue = str_replace(',', '.', $ratingValue);
-
-  if (!$ratingValue || !is_numeric($ratingValue)){
-    $ratingValue = 0;
-  }
-
-  //If rating value is higher than max it will be set to max
-  if ($ratingValue > $usrMaxStars){
-    $ratingValue = $usrMaxStars;
-  //...and if it's below 0 or not set it's set to 0
-  } elseif ($ratingValue < 0) {
-    $ratingValue = 0;
-  }
-  
-  return $ratingValue;
-}
-
-//Function to get the right formatted value
-function getFormattedRating($ratingValue){
-  $usrLang = get_option('usrLang');
-  global $CONFIGURATION;
-  
-  //Using the right decimal mark for our output
-  $ratingValue = str_replace('.', $CONFIGURATION['DecimalMark'][$usrLang], $ratingValue);
-  
-  return $ratingValue;
-}
-
-//Function to get the image string
-function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText){
-  $usrStarSize = get_option('usrStarSize');
-  
-  //Just in case it is not done yet...
-  $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
-  $formattedRatingValue = getFormattedRating($ratingValue);
-  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&px='.$usrStarSize.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" style="height:'.$usrStarSize.'px;" alt="'.$ratingValue.' Stars" />';
-  if ($usrStarText == "true"){
-    $imageString .= ' ('.$formattedRatingValue.' / '.$usrMaxStars.')';
-  }
-
-  return $imageString;
-}
-
+//Including helper functions
+include('includes/helper_functions.php');
 
 //############################################################################//
 //                                                                            //
@@ -111,142 +66,14 @@ function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText)
 //                                                                            //
 //############################################################################//
 
-
-//----------------------------------------------------------------------------//
-//                       Insert function for one rating                       //
-//----------------------------------------------------------------------------//
-
-function insertUSR($atts) {
-
-  //Read default settings
-  $usrMaxStars = get_option('usrMaxStars');
-  $usrStarImage = get_option('usrStarImage');
-  $usrStarText = get_option('usrStarText');
-
-  //If key 'img' is set the image type will be overridden
-  if ($atts['img']) {
-    $usrStarImage = $atts['img'];
-    unset($atts['img']);
-  }
-  //If key 'max' is set the max star count will be overridden
-  if ($atts['max'] && is_numeric($atts['max'])) {
-    $usrMaxStars = intval($atts['max']);
-    unset($atts['max']);
-  }
-  //if key 'text' is set to 'true' or 'false' it is possible to override default
-  if ($atts['text'] == "false" || $atts['text'] == "true") {
-    $usrStarText = $atts['text'];
-    unset($atts['text']);
-  }
-  //if key 'avg' is set to 'true' or 'false' it is possible to override default
-  if ($atts['avg'] == "false" || $atts['avg'] == "true") {
-    $usrCalcAverage = $atts['avg'];
-    unset($atts['avg']);
-  }
-
-  //If array is empty the rating is '0'
-	if (!$atts[0]) {
-		$ratingValue = 0;
-	} else {
-		$ratingValue = str_replace("=", "", $atts[0]);
-	}
-
-  //Get the right rating formats
-  $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
-  
-  //Setting up the string with the right picture
-  $usr = getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText); 
-
-  //Output
-  return $usr;
-}
-add_shortcode('usr', 'insertUSR');
-
-
-//----------------------------------------------------------------------------//
-//                      Insert function for more ratings                      //
-//----------------------------------------------------------------------------//
-
-// Insert Rating function for multi rating
-function insertUSRList($atts) {
-  $usrLang = get_option('usrLang');
-  global $MESSAGES, $CONFIGURATION;
-
-  //Read default settings
-  $usrMaxStars = get_option('usrMaxStars');
-  $usrStarImage = get_option('usrStarImage');
-  $usrStarText = get_option('usrStarText');
-  $usrCalcAverage = get_option('usrCalcAverage');
-    
-  //If key 'img' is set the image type will be overridden
-  if ($atts['img']) {
-    $usrStarImage = $atts['img'];
-    unset($atts['img']);
-  }
-  //If key 'max' is set the max star count will be overridden
-  if ($atts['max'] && is_numeric($atts['max'])) {
-    $usrMaxStars = intval($atts['max']);
-    unset($atts['max']);
-  }
-  //if key 'text' is set to 'true' or 'false' it is possible to override default
-  if ($atts['text'] == "false" || $atts['text'] == "true") {
-    $usrStarText = $atts['text'];
-    unset($atts['text']);
-  }
-  //if key 'avg' is set to 'true' or 'false' it is possible to override default
-  if ($atts['avg'] == "false" || $atts['avg'] == "true") {
-    $usrCalcAverage = $atts['avg'];
-    unset($atts['avg']);
-  }
-
-  //If there are more than 1 keys inside the array...
-  if(count($atts) > 1){
-  
-    //set a helper variable to calculate the average
-    $sumRatingValues = 0;
-    
-    //Using a table because it looks better
-    $usrlist = '<table style="border: 0px;">';
-
-    //For each key/value pair inside the array...
-    foreach ($atts as $value) {
-      //splitting Key:Value into two variables - User can't use a ':' inside Key
-      list($splittedKey, $splittedValue) = explode(":", $value, 2);
-      
-      //Get the right rating formats
-      $ratingValue = getUsableRating($splittedValue, $usrMaxStars);
-      $sumRatingValues = $sumRatingValues + $ratingValue;
-
-      //Setting up the string with the right picture
-      $usrlist .= '<tr><td>'.$splittedKey.':</td><td>'.getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText).'</td></tr>';
-    }
-    
-    //If the average is needed...
-    if ($usrCalcAverage == "true") {
-      $averageRating = getUsableRating(round($sumRatingValues/count($atts), 1), $usrMaxStars);
-      $usrlist .= '<tr><td style="border-top:1px solid;">'.$CONFIGURATION['AverageText'][$usrLang].':</td><td style="border-top:1px solid;">'.getImageString($averageRating, $usrStarImage, $usrMaxStars, $usrStarText).'</td></tr>';
-    }
-
-    //Finishing the table
-    $usrlist .= '</table>';
-
-    //Output
-    return $usrlist;
-
-  //There is just 1 key:value pair we return the error message
-  } else {
-    return $MESSAGES['ERROR']['NotEnoughParameters'][$usrLang];
-  }
-}
-add_shortcode('usrlist', 'insertUSRList');
-
+//Including shortcodes
+include('includes/shortcodes.php');
 
 //############################################################################//
 //                                                                            //
 //                                Options Page                                //
 //                                                                            //
 //############################################################################//
-
 
 //Register options
 add_option('usrLang', 'en', '', 'yes');
@@ -255,7 +82,14 @@ add_option('usrMaxStars', '10', '', 'yes');
 add_option('usrStarImage', '01.png', '', 'yes');
 add_option('usrStarText', 'true', '', 'yes');
 add_option('usrCalcAverage', 'false', '', 'yes');
+add_option('usrPermitShortcodedComments', 'false', '', 'yes');
 
+
+//Register Filter if admins allows shortcodes inside comments
+$usrPermitShortcodedComments = get_option('usrPermitShortcodedComments');
+if ($usrPermitShortcodedComments == "true"){
+  permitShortcodedComments();
+}
 
 //Initialize admin area
 function usrAdminInit() {
@@ -318,6 +152,13 @@ function usrOptionsPage() {
     $usrCalcAverage = $_POST["usrCalcAverage"];
     update_option("usrCalcAverage", $usrCalcAverage);
     
+    //Update permission to use shortcodes inside comments
+    $usrPermitShortcodedComments = $_POST["usrPermitShortcodedComments"];
+    update_option("usrPermitShortcodedComments", $usrPermitShortcodedComments);
+    if ($usrPermitShortcodedComments == "true"){
+      permitShortcodedComments();
+    }
+
 		//Tell user that options are updated
 		echo '<div class="updated fade"><p><strong>' . __($MESSAGES['INFO']['SettingsUpdated'][$usrLang], "universal-star-rating") . '</strong></p></div>';
 	}
@@ -385,9 +226,9 @@ function usrOptionsPage() {
                 
                 echo '<select name="usrStarText"><option value="true"';
                   if($usrStarText == "true"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']["StarTextEnabled"][$usrLang].'</option><option value="false"';
+                echo '>'.$SETTINGS['OPT']['StarTextEnabled'][$usrLang].'</option><option value="false"';
                   if($usrStarText == "false"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']["StarTextDisabled"][$usrLang].'</option></select>';
+                echo '>'.$SETTINGS['OPT']['StarTextDisabled'][$usrLang].'</option></select>';
                 
       					?>
                 </td>
@@ -401,13 +242,28 @@ function usrOptionsPage() {
                 
                 echo '<select name="usrCalcAverage"><option value="true"';
                   if($usrCalcAverage == "true"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']["AverageCalculationEnabled"][$usrLang].'</option><option value="false"';
+                echo '>'.$SETTINGS['OPT']['AverageCalculationEnabled'][$usrLang].'</option><option value="false"';
                   if($usrCalcAverage == "false"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']["AverageCalculationDisabled"][$usrLang].'</option></select>';
+                echo '>'.$SETTINGS['OPT']['AverageCalculationDisabled'][$usrLang].'</option></select>';
                 
       					?>
                 </td>
                 <td><?php _e($SETTINGS['OPT']['DefaultAverageCalculation'][$usrLang], 'universal-star-rating'); ?></td>
+              </tr>
+              <tr>
+                <td><?php _e($SETTINGS['OPT']['ExplainPermitShortcodedComment'][$usrLang], 'universal-star-rating'); ?></td>
+                <td><?php
+                $usrPermitShortcodedComments = get_option('usrPermitShortcodedComments');
+                
+                echo '<select name="usrPermitShortcodedComments"><option value="true"';
+                  if($usrPermitShortcodedComments == "true"){echo ' selected';}
+                echo '>'.$SETTINGS['OPT']['PermitShortcodedCommentsEnabled'][$usrLang].'</option><option value="false"';
+                  if($usrPermitShortcodedComments == "false"){echo ' selected';}
+                echo '>'.$SETTINGS['OPT']['PermitShortcodedCommentsDisabled'][$usrLang].'</option></select>';
+                
+      					?>
+                </td>
+                <td><?php _e($SETTINGS['OPT']['DefaultPermitShortcodedComment'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td valign="top"><?php _e($SETTINGS['OPT']['ExplainStarImage'][$usrLang], 'universal-star-rating'); ?></td>

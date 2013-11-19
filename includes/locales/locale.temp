@@ -31,6 +31,7 @@ $SETTINGS['OPT']['ExplainStarCountSetting']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarText']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarImage']['temp'] = "";
 $SETTINGS['OPT']['ExplainAverageCalculation']['temp'] = "";
+$SETTINGS['OPT']['ExplainPermitShortcodedComment']['temp'] = "";
 $SETTINGS['OPT']['DefaultLanguage']['temp'] = "";
 $SETTINGS['OPT']['DefaultStarSize']['temp'] = "";
 $SETTINGS['OPT']['DefaultStarCount']['temp'] = "";
@@ -40,6 +41,9 @@ $SETTINGS['OPT']['DefaultStarText']['temp'] = "";
 $SETTINGS['OPT']['AverageCalculationEnabled']['temp'] = "";
 $SETTINGS['OPT']['AverageCalculationDisabled']['temp'] = "";
 $SETTINGS['OPT']['DefaultAverageCalculation']['temp'] = "";
+$SETTINGS['OPT']['PermitShortcodedCommentsEnabled']['temp'] = "";
+$SETTINGS['OPT']['PermitShortcodedCommentsDisabled']['temp'] = "";
+$SETTINGS['OPT']['DefaultPermitShortcodedComment']['temp'] = "";
 
 //Settings "Preview"
 $SETTINGS['PREV']['Preview']['temp'] = "";

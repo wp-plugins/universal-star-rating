@@ -31,6 +31,7 @@ $SETTINGS['OPT']['ExplainStarCountSetting']['de'] = "Max. Anzahl Sterne:";
 $SETTINGS['OPT']['ExplainStarText']['de'] = "Text:";
 $SETTINGS['OPT']['ExplainStarImage']['de'] = "Grafik:";
 $SETTINGS['OPT']['ExplainAverageCalculation']['de'] = "Durchschnitt berechnen:";
+$SETTINGS['OPT']['ExplainPermitShortcodedComment']['de'] = "Erlaube Shortcodes in Kommentaren:";
 $SETTINGS['OPT']['DefaultLanguage']['de'] = "<em>Standard: <code>English</code></em>";
 $SETTINGS['OPT']['DefaultStarSize']['de'] = "<em>Standard: <code>12</code> (in px)</em>";
 $SETTINGS['OPT']['DefaultStarCount']['de'] = "<em>Standard: <code>10</code>; Minimum: 1 (als ganze Zahl)</em>";
@@ -40,6 +41,9 @@ $SETTINGS['OPT']['DefaultStarText']['de'] = "<em>Standard: <code>Aktiviert</code
 $SETTINGS['OPT']['AverageCalculationEnabled']['de'] = "Aktiviert";
 $SETTINGS['OPT']['AverageCalculationDisabled']['de'] = "Deaktiviert";
 $SETTINGS['OPT']['DefaultAverageCalculation']['de'] = "<em>Standard: <code>Deaktiviert</code></em>";
+$SETTINGS['OPT']['PermitShortcodedCommentsEnabled']['de'] = "Aktiviert";
+$SETTINGS['OPT']['PermitShortcodedCommentsDisabled']['de'] = "Deaktiviert";
+$SETTINGS['OPT']['DefaultPermitShortcodedComment']['de'] = "<em>Standard: <code>Deaktiviert</code></em>";
 
 //Settings "Preview"
 $SETTINGS['PREV']['Preview']['de'] = "Vorschau";

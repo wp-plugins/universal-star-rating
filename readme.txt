@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.7.1
-Stable tag: 1.5.1
+Stable tag: 1.6.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -38,8 +38,9 @@ Alternatively
 
 == Changelog ==
 
-= 1.5.2 =
-* Updated description text so that it is more clear to understand what this plugin is made for and how it works
+= 1.6.0 =
+* Added an option to enable shortcodes inside comments
+* Excluded some functions so that the code is more readable
 
 = 1.5.1 =
 * Changed the average rating inside lists so that there is just one digit left after the decimal point
@@ -111,8 +112,8 @@ Alternatively
 
 == Upgrade Notice ==
 
-= 1.5.2 =
-This update contains a new description text.
+= 1.6.0 =
+This release contains the functionality which is needed to use shortcodes inside comments. This is disabled by default but can be changed inside the Universal Star Rating options page. Now you can give your visitors the oportunity to rate your posts and pages.
 
 = 1.5.1 =
 This release contains an update to the function which calculates the average rating for lists so that there is just one digit left after the decimal point and there is a bugfix inside this release so that user whithout admin rights can log in into WordPress backend again.
