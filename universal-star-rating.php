@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.6.0
+Version: 1.6.1
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -83,7 +83,6 @@ add_option('usrStarImage', '01.png', '', 'yes');
 add_option('usrStarText', 'true', '', 'yes');
 add_option('usrCalcAverage', 'false', '', 'yes');
 add_option('usrPermitShortcodedComments', 'false', '', 'yes');
-
 
 //Register Filter if admins allows shortcodes inside comments
 $usrPermitShortcodedComments = get_option('usrPermitShortcodedComments');
@@ -306,7 +305,7 @@ function usrOptionsPage() {
                       echo '<input type="radio" name="usrStarImage" value="'.$aFileArray[$i].'"';
                       if(get_option('usrStarImage') == $aFileArray[$i]){echo ' checked';}
                       echo '> ';
-                      _e(insertUSR(array("=6.5", "img" => $aFileArray[$i], "text" => "false" )), 'universal-star-rating');
+                      _e(insertUSR(array("=6.5", "img" => $aFileArray[$i], "text" => "false", "usrPreviewImg" => "true" )), 'universal-star-rating');
                       echo " <code>$aFileArray[$i]</code><br>";
                     }
                   }
@@ -326,31 +325,31 @@ function usrOptionsPage() {
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsr'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrList'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e(insertUSRList(array($SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][1], $SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][2], $SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][3])), 'universal-star-rating'); ?></td>
+                <td><?php _e(insertUSRList(array($SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][1], $SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][2], $SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][3], "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenImage'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","img" => "03.png")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","img" => "03.png", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenText'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","text" => "false")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","text" => "false", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenMax'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","max" => "5")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","max" => "5", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenAll'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","max" => "5", "text" => "false", "img" => "03.png")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","max" => "5", "text" => "false", "img" => "03.png", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrListOverriddenAverage'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e(insertUSRList(array($SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][1], $SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][2], $SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][3], "avg" => "true")), 'universal-star-rating'); ?></td>
+                <td><?php _e(insertUSRList(array($SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][1], $SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][2], $SETTINGS['PREV']['ExampleUsrListResult'][$usrLang][3], "avg" => "true", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
             </table>
           </p>
@@ -364,5 +363,7 @@ function usrOptionsPage() {
 
 <?php
 }
+
+safelyAddStylesheet();
 
 ?>

@@ -39,13 +39,17 @@ function getFormattedRating($ratingValue){
 }
 
 //Function to get the image string
-function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText){
+function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText, $usrPreviewImg){
   $usrStarSize = get_option('usrStarSize');
   
   //Just in case it is not done yet...
   $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
   $formattedRatingValue = getFormattedRating($ratingValue);
-  $imageString = '<img src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&px='.$usrStarSize.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" style="height:'.$usrStarSize.'px;" alt="'.$ratingValue.' Stars" />';
+  if ($usrPreviewImg == "true"){
+    $imageString = '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/images/stars.php?img='.$usrStarImage.'&px='.$usrStarSize.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" style="height: '.$usrStarSize.'px;" alt="'.$ratingValue.' Stars" />';
+  }else{
+    $imageString = '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/images/stars.php?img='.$usrStarImage.'&px='.$usrStarSize.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" alt="'.$ratingValue.' Stars" />';
+  }
   if ($usrStarText == "true"){
     $imageString .= ' ('.$formattedRatingValue.' / '.$usrMaxStars.')';
   }
@@ -57,6 +61,12 @@ function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText)
 function permitShortcodedComments(){
   add_filter( 'comment_text', 'shortcode_unautop');
   add_filter( 'comment_text', 'do_shortcode' );
+}
+
+//Add stylesheet to the page
+function safelyAddStylesheet() {
+  $usrStarSize = get_option('usrStarSize');
+  wp_enqueue_style( 'usr-style', plugins_url('usr_style.php?px='.$usrStarSize, __FILE__) );
 }
 
 ?>

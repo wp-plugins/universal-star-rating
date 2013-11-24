@@ -37,6 +37,12 @@ function insertUSR($atts) {
     $usrCalcAverage = $atts['avg'];
     unset($atts['avg']);
   }
+  
+  //if key 'usrPreviewImg' is set to 'true' or 'false' it is possible to override default
+  if ($atts['usrPreviewImg'] == "false" || $atts['usrPreviewImg'] == "true") {
+    $usrPreviewImg = $atts['usrPreviewImg'];
+    unset($atts['usrPreviewImg']);
+  }
 
   //If array is empty the rating is '0'
 	if (!$atts[0]) {
@@ -49,7 +55,7 @@ function insertUSR($atts) {
   $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
   
   //Setting up the string with the right picture
-  $usr = getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText); 
+  $usr = getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText, $usrPreviewImg); 
 
   //Output
   return $usr;
@@ -93,6 +99,12 @@ function insertUSRList($atts) {
     unset($atts['avg']);
   }
 
+  //if key 'usrPreviewImg' is set to 'true' or 'false' it is possible to override default
+  if ($atts['usrPreviewImg'] == "false" || $atts['usrPreviewImg'] == "true") {
+    $usrPreviewImg = $atts['usrPreviewImg'];
+    unset($atts['usrPreviewImg']);
+  }
+
   //If there are more than 1 keys inside the array...
   if(count($atts) > 1){
   
@@ -100,7 +112,7 @@ function insertUSRList($atts) {
     $sumRatingValues = 0;
     
     //Using a table because it looks better
-    $usrlist = '<table style="border: 0px;">';
+    $usrlist = '<table class="usr">';
 
     //For each key/value pair inside the array...
     foreach ($atts as $value) {
@@ -112,13 +124,13 @@ function insertUSRList($atts) {
       $sumRatingValues = $sumRatingValues + $ratingValue;
 
       //Setting up the string with the right picture
-      $usrlist .= '<tr><td>'.$splittedKey.':</td><td>'.getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText).'</td></tr>';
+      $usrlist .= '<tr><td>'.$splittedKey.':</td><td>'.getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText, $usrPreviewImg).'</td></tr>';
     }
     
     //If the average is needed...
     if ($usrCalcAverage == "true") {
       $averageRating = getUsableRating(round($sumRatingValues/count($atts), 1), $usrMaxStars);
-      $usrlist .= '<tr><td style="border-top:1px solid;">'.$CONFIGURATION['AverageText'][$usrLang].':</td><td style="border-top:1px solid;">'.getImageString($averageRating, $usrStarImage, $usrMaxStars, $usrStarText).'</td></tr>';
+      $usrlist .= '<tr><td style="border-top:1px solid;">'.$CONFIGURATION['AverageText'][$usrLang].':</td><td style="border-top:1px solid;">'.getImageString($averageRating, $usrStarImage, $usrMaxStars, $usrStarText, $usrPreviewImg).'</td></tr>';
     }
 
     //Finishing the table
