@@ -12,13 +12,13 @@ if(isset($_GET['px'])){
 ?>
 
 img.usr {
-  padding:  0;
-  margin:   0;
-  border:   none;
-  display:  inline;
-  height:   <?php echo $usrStarSize; ?>px;
+  padding:  0 !important;
+  margin:   0 !important;
+  border:   none !important;
+  display:  inline !important;
+  height:   <?php echo $usrStarSize; ?>px !important;
 }
 
 table.usr {
-  border: 0px;
+  border: none;
 }

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.7.1
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -37,6 +37,9 @@ Alternatively
 2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
 
 == Changelog ==
+
+= 1.6.2 =
+* Some changes to the stylesheet because other ones were higher priorized
 
 = 1.6.1 =
 * Added an external stylesheet for the images so that other stylesheets can not cause any side effects
@@ -114,6 +117,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.6.2 =
+Another bugfix release because other stylesheets were higher priorized so that unwanted side effects still occured. Finally this release should do the magic.
 
 = 1.6.1 =
 This is a bugfix release for those who use stylesheets which causes any unwanted side effects. Now USR comes with its own stylesheet to make sure it works like it is expected to.
