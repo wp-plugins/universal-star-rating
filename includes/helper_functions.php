@@ -46,9 +46,9 @@ function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText,
   $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
   $formattedRatingValue = getFormattedRating($ratingValue);
   if ($usrPreviewImg == "true"){
-    $imageString = '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/images/stars.php?img='.$usrStarImage.'&px='.$usrStarSize.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" style="height: '.$usrStarSize.'px;" alt="'.$ratingValue.' Stars" />';
+    $imageString = '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/images/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue.'" style="height: '.$usrStarSize.'px !important;" alt="'.$ratingValue.' Stars" />';
   }else{
-    $imageString = '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/images/stars.php?img='.$usrStarImage.'&px='.$usrStarSize.'&max='.$usrMaxStars.'&rat='.$ratingValue.'" alt="'.$ratingValue.' Stars" />';
+    $imageString = '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/images/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue.'" alt="'.$ratingValue.' Stars" />';
   }
   if ($usrStarText == "true"){
     $imageString .= ' ('.$formattedRatingValue.' / '.$usrMaxStars.')';
