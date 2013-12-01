@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.6.3
+Version: 1.6.4
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -46,6 +46,8 @@ License: GPL3
 include('includes/locales/locale.en');
 include('includes/locales/locale.de');
 include('includes/locales/locale.fr');
+include('includes/locales/locale.it');
+include('includes/locales/locale.es');
 
 //Define used names
 $usrPluginName = __("Universal Star Rating", 'universal-star-rating');
@@ -78,7 +80,7 @@ include('includes/shortcodes.php');
 //Register options
 add_option('usrLang', 'en', '', 'yes');
 add_option('usrStarSize', '12', '', 'yes');
-add_option('usrMaxStars', '10', '', 'yes');
+add_option('usrMaxStars', '5', '', 'yes');
 add_option('usrStarImage', '01.png', '', 'yes');
 add_option('usrStarText', 'true', '', 'yes');
 add_option('usrCalcAverage', 'false', '', 'yes');
@@ -182,7 +184,7 @@ function usrOptionsPage() {
 					<p>
             <table border="0">
               <tr>
-                <td><?php _e($SETTINGS['OPT']['ExplainLanguageSetting'][$usrLang], 'universal-star-rating'); ?></td><td>
+                <td><?php _e($SETTINGS['OPT']['ExplainLanguageSetting'][$usrLang].":", 'universal-star-rating'); ?></td><td>
       					<?php
       					$usrLang = get_option('usrLang');
                 
@@ -190,15 +192,19 @@ function usrOptionsPage() {
                   if($usrLang == "en"){echo ' selected';}
                 echo '>English</option><option value="de"';
                   if($usrLang == "de"){echo ' selected';}
-                echo '>Deutsch</option><option value="fr"';
+                echo '>Deutsch</option><option value="es"';
+                  if($usrLang == "es"){echo ' selected';}
+                echo '>Espa&ntilde;ol</option><option value="fr"';
                   if($usrLang == "fr"){echo ' selected';}
-                echo '>Francais</option></select>';
+                echo '>Francais</option><option value="it"';
+                  if($usrLang == "it"){echo ' selected';}
+                echo '>Italiano</option></select>';
                 
       					?>
                 </td><td><?php _e($SETTINGS['OPT']['DefaultLanguage'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
-                <td><?php _e($SETTINGS['OPT']['ExplainStarSizeSetting'][$usrLang], 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['OPT']['ExplainStarSizeSetting'][$usrLang].":", 'universal-star-rating'); ?></td>
                 <td><?php
       					echo "<input type='text' size='10' ";
       					echo "name='usrStarSize' ";
@@ -208,7 +214,7 @@ function usrOptionsPage() {
                 <td><?php _e($SETTINGS['OPT']['DefaultStarSize'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
-                <td><?php _e($SETTINGS['OPT']['ExplainStarCountSetting'][$usrLang], 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['OPT']['ExplainStarCountSetting'][$usrLang].":", 'universal-star-rating'); ?></td>
                 <td><?php
       					echo "<input type='text' size='10' ";
       					echo "name='usrMaxStars' ";
@@ -218,54 +224,54 @@ function usrOptionsPage() {
                 <td><?php _e($SETTINGS['OPT']['DefaultStarCount'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
-                <td><?php _e($SETTINGS['OPT']['ExplainStarText'][$usrLang], 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['OPT']['ExplainStarText'][$usrLang].":", 'universal-star-rating'); ?></td>
                 <td>
                 <?php
       					$usrStarText = get_option('usrStarText');
                 
                 echo '<select name="usrStarText"><option value="true"';
                   if($usrStarText == "true"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']['StarTextEnabled'][$usrLang].'</option><option value="false"';
+                echo '>'.$SETTINGS['OPT']['DefaultEnabled'][$usrLang].'</option><option value="false"';
                   if($usrStarText == "false"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']['StarTextDisabled'][$usrLang].'</option></select>';
+                echo '>'.$SETTINGS['OPT']['DefaultDisabled'][$usrLang].'</option></select>';
                 
       					?>
                 </td>
                 <td><?php _e($SETTINGS['OPT']['DefaultStarText'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
-                <td><?php _e($SETTINGS['OPT']['ExplainAverageCalculation'][$usrLang], 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['OPT']['ExplainAverageCalculation'][$usrLang].":", 'universal-star-rating'); ?></td>
                 <td>
                 <?php
       					$usrCalcAverage = get_option('usrCalcAverage');
                 
                 echo '<select name="usrCalcAverage"><option value="true"';
                   if($usrCalcAverage == "true"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']['AverageCalculationEnabled'][$usrLang].'</option><option value="false"';
+                echo '>'.$SETTINGS['OPT']['DefaultEnabled'][$usrLang].'</option><option value="false"';
                   if($usrCalcAverage == "false"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']['AverageCalculationDisabled'][$usrLang].'</option></select>';
+                echo '>'.$SETTINGS['OPT']['DefaultDisabled'][$usrLang].'</option></select>';
                 
       					?>
                 </td>
                 <td><?php _e($SETTINGS['OPT']['DefaultAverageCalculation'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
-                <td><?php _e($SETTINGS['OPT']['ExplainPermitShortcodedComment'][$usrLang], 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['OPT']['ExplainPermitShortcodedComment'][$usrLang].":", 'universal-star-rating'); ?></td>
                 <td><?php
                 $usrPermitShortcodedComments = get_option('usrPermitShortcodedComments');
                 
                 echo '<select name="usrPermitShortcodedComments"><option value="true"';
                   if($usrPermitShortcodedComments == "true"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']['PermitShortcodedCommentsEnabled'][$usrLang].'</option><option value="false"';
+                echo '>'.$SETTINGS['OPT']['DefaultEnabled'][$usrLang].'</option><option value="false"';
                   if($usrPermitShortcodedComments == "false"){echo ' selected';}
-                echo '>'.$SETTINGS['OPT']['PermitShortcodedCommentsDisabled'][$usrLang].'</option></select>';
+                echo '>'.$SETTINGS['OPT']['DefaultDisabled'][$usrLang].'</option></select>';
                 
       					?>
                 </td>
                 <td><?php _e($SETTINGS['OPT']['DefaultPermitShortcodedComment'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
-                <td valign="top"><?php _e($SETTINGS['OPT']['ExplainStarImage'][$usrLang], 'universal-star-rating'); ?></td>
+                <td valign="top"><?php _e($SETTINGS['OPT']['ExplainStarImage'][$usrLang].":", 'universal-star-rating'); ?></td>
                 <td colspan="2">
       
                 <?php
@@ -305,7 +311,7 @@ function usrOptionsPage() {
                       echo '<input type="radio" name="usrStarImage" value="'.$aFileArray[$i].'"';
                       if(get_option('usrStarImage') == $aFileArray[$i]){echo ' checked';}
                       echo '> ';
-                      _e(insertUSR(array("=6.5", "img" => $aFileArray[$i], "text" => "false", "usrPreviewImg" => "true" )), 'universal-star-rating');
+                      _e(insertUSR(array("=3.5", "img" => $aFileArray[$i], "text" => "false", "usrPreviewImg" => "true", "max" => "5" )), 'universal-star-rating');
                       echo " <code>$aFileArray[$i]</code><br>";
                     }
                   }
@@ -325,7 +331,7 @@ function usrOptionsPage() {
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsr'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=3.5", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrList'][$usrLang], 'universal-star-rating'); ?></td>
@@ -333,19 +339,19 @@ function usrOptionsPage() {
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenImage'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","img" => "03.png", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=3.5","img" => "03.png", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenText'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","text" => "false", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=3.5","text" => "false", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenMax'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","max" => "5", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=3.5","max" => "3", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenAll'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=8.5","max" => "5", "text" => "false", "img" => "03.png", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=3.5","max" => "3", "text" => "false", "img" => "03.png", "usrPreviewImg" => "true")), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrListOverriddenAverage'][$usrLang], 'universal-star-rating'); ?></td>

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.7.1
-Stable tag: 1.6.3
+Stable tag: 1.6.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -37,6 +37,10 @@ Alternatively
 2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
 
 == Changelog ==
+
+= 1.6.4 =
+* Added a Italian and a Spanish language package (Thanks to anddab!)
+* Updated the options page
 
 = 1.6.3 =
 * A minor bugfix release which provides a change to the generated image url so that it becomes w3c conform
@@ -120,6 +124,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.6.4 =
+This package includes a Italian and a Spanish language package (Thanks to anddab!). I also updated the options page.
 
 = 1.6.3 =
 This is a minor bugfix release which provides a change to the generated image url so that it becomes w3c conform.
