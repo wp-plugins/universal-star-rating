@@ -18,7 +18,7 @@ Supported Languages: English, French, German, Italian, Spanish
 
 To insert a Universal Star Rating inside a post just type `[usr=5]` where 5 is the amount of stars.
 
-To insert a list of Universal Star Ratings inside a post just type `[usrlist "Pizza:7" "Ice Cream:8.5" (...)]` where the first value is what you want to rate and the second value is the rating. Your list can be as long as you want it to be but it must consist of more than 1 key:value pairs.
+To insert a list of Universal Star Ratings inside a post just type `[usrlist "Pizza:3" "Ice Cream:3.5" (...)]` where the first value is what you want to rate and the second value is the rating. Your list can be as long as you want it to be but it must consist of more than 1 key:value pairs.
 
 == Installation ==
 
