@@ -30,6 +30,8 @@ function getUsableRating($ratingValue, $usrMaxStars){
 //Function to get the right formatted value
 function getFormattedRating($ratingValue){
   $usrLang = get_option('usrLang');
+  if($usrLang == ''){$usrLang='en';}
+
   global $CONFIGURATION;
   
   //Using the right decimal mark for our output
@@ -68,5 +70,6 @@ function safelyAddStylesheet() {
   $usrStarSize = get_option('usrStarSize');
   wp_enqueue_style( 'usr-style', plugins_url('usr_style.php?px='.$usrStarSize, __FILE__) );
 }
+add_action('init', safelyAddStylesheet);
 
 ?>

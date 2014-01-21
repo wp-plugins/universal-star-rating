@@ -45,16 +45,16 @@ $SETTINGS['OPT']['DefaultDisabled']['fr'] = "Désactivé";
 $SETTINGS['PREV']['Preview']['fr'] = "Aperçu";
 $SETTINGS['PREV']['Example']['fr'] = "<strong>Exemple</strong>";
 $SETTINGS['PREV']['ExampleResult']['fr'] = "<strong>Résultat</strong>";
-$SETTINGS['PREV']['ExampleUsr']['fr'] = "Chouette film: [usr=3.5]";
-$SETTINGS['PREV']['ExampleUsrResult']['fr'] = "Chouette film: ";
+$SETTINGS['PREV']['ExampleUsr']['fr'] = "Film: [usr=3.5]";
+$SETTINGS['PREV']['ExampleUsrResult']['fr'] = "Film: ";
 $SETTINGS['PREV']['ExampleUsrList']['fr'] = "[usrlist Pizza:3 Glace:3.5 &quot;Milk Shake&quot;]";
 $SETTINGS['PREV']['ExampleUsrListResult']['fr'][1] = "Pizza:3";
 $SETTINGS['PREV']['ExampleUsrListResult']['fr'][2] = "Glace:3.5";
 $SETTINGS['PREV']['ExampleUsrListResult']['fr'][3] = "Milk Shake";
-$SETTINGS['PREV']['ExampleUsrOverriddenImage']['fr'] = "Chouette film: [usr=3.5 img=&quot;03.png&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenText']['fr'] = "Chouette film: [usr=3.5 text=&quot;false&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenMax']['fr'] = "Chouette film: [usr=3.5 max=&quot;3&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenAll']['fr'] = "Chouette film: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenImage']['fr'] = "Film: [usr=3.5 img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenText']['fr'] = "Film: [usr=3.5 text=&quot;false&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenMax']['fr'] = "Film: [usr=3.5 max=&quot;3&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['fr'] = "Film: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
 $SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['fr'] = "[usrlist Pizza:3 Glace:3.5 &quot;Milk Shake&quot; avg=&quot;true&quot;]";
 
 ?>

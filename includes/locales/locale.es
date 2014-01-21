@@ -45,16 +45,16 @@ $SETTINGS['OPT']['DefaultDisabled']['es'] = "Deshabilitado";
 $SETTINGS['PREV']['Preview']['es'] = "Anticipo";
 $SETTINGS['PREV']['Example']['es'] = "<strong>Ejemplo</strong>";
 $SETTINGS['PREV']['ExampleResult']['es'] = "<strong>Resultado</strong>";
-$SETTINGS['PREV']['ExampleUsr']['es'] = "Buena Pel&iacute;cula: [usr=3.5]";
-$SETTINGS['PREV']['ExampleUsrResult']['es'] = "Buena Pel&iacute;cula: ";
+$SETTINGS['PREV']['ExampleUsr']['es'] = "Pel&iacute;cula: [usr=3.5]";
+$SETTINGS['PREV']['ExampleUsrResult']['es'] = "Pel&iacute;cula: ";
 $SETTINGS['PREV']['ExampleUsrList']['es'] = "[usrlist Pizza:3 Helado:3.5 &quot;Leche Agria&quot;]";
 $SETTINGS['PREV']['ExampleUsrListResult']['es'][1] = "Pizza:3";
 $SETTINGS['PREV']['ExampleUsrListResult']['es'][2] = "Helado:3.5";
 $SETTINGS['PREV']['ExampleUsrListResult']['es'][3] = "Leche Agria";
-$SETTINGS['PREV']['ExampleUsrOverriddenImage']['es'] = "Buena Pel&iacute;cula: [usr=3.5 img=&quot;03.png&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenText']['es'] = "Buena Pel&iacute;cula: [usr=3.5 text=&quot;false&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenMax']['es'] = "Buena Pel&iacute;cula: [usr=3.5 max=&quot;3&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenAll']['es'] = "Buena Pel&iacute;cula: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenImage']['es'] = "Pel&iacute;cula: [usr=3.5 img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenText']['es'] = "Pel&iacute;cula: [usr=3.5 text=&quot;false&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenMax']['es'] = "Pel&iacute;cula: [usr=3.5 max=&quot;3&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['es'] = "Pel&iacute;cula: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
 $SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['es'] = "[usrlist Pizza:3 Helado:3.5 &quot;Leche Agria&quot; avg=&quot;true&quot;]";
 
 ?>

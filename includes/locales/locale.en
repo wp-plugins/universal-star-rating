@@ -45,16 +45,16 @@ $SETTINGS['OPT']['DefaultDisabled']['en'] = "Disabled";
 $SETTINGS['PREV']['Preview']['en'] = "Preview";
 $SETTINGS['PREV']['Example']['en'] = "<strong>Example</strong>";
 $SETTINGS['PREV']['ExampleResult']['en'] = "<strong>Result</strong>";
-$SETTINGS['PREV']['ExampleUsr']['en'] = "Nice Movie: [usr=3.5]";
-$SETTINGS['PREV']['ExampleUsrResult']['en'] = "Nice Movie: ";
+$SETTINGS['PREV']['ExampleUsr']['en'] = "Movie: [usr=3.5]";
+$SETTINGS['PREV']['ExampleUsrResult']['en'] = "Movie: ";
 $SETTINGS['PREV']['ExampleUsrList']['en'] = "[usrlist Pizza:3 &quot;Ice Cream:3.5&quot; Dirt]";
 $SETTINGS['PREV']['ExampleUsrListResult']['en'][1] = "Pizza:3";
 $SETTINGS['PREV']['ExampleUsrListResult']['en'][2] = "Ice Cream:3.5";
 $SETTINGS['PREV']['ExampleUsrListResult']['en'][3] = "Dirt";
-$SETTINGS['PREV']['ExampleUsrOverriddenImage']['en'] = "Nice Movie: [usr=3.5 img=&quot;03.png&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenText']['en'] = "Nice Movie: [usr=3.5 text=&quot;false&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenMax']['en'] = "Nice Movie: [usr=3.5 max=&quot;3&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenAll']['en'] = "Nice Movie: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenImage']['en'] = "Movie: [usr=3.5 img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenText']['en'] = "Movie: [usr=3.5 text=&quot;false&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenMax']['en'] = "Movie: [usr=3.5 max=&quot;3&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['en'] = "Movie: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
 $SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['en'] = "[usrlist Pizza:3 &quot;Ice Cream:3.5&quot; Dirt avg=&quot;true&quot;]";
 
 ?>

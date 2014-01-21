@@ -3,8 +3,8 @@ Contributors: Chasil
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%40jroene%2ede&lc=DE&item_name=Universal%20Star%20Rating%20%2d%20Cizero%2ede&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
-Tested up to: 3.7.1
-Stable tag: 1.6.4
+Tested up to: 3.8
+Stable tag: 1.6.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -37,6 +37,10 @@ Alternatively
 2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
 
 == Changelog ==
+
+= 1.6.5 =
+* Added rtl support for the admin panel 
+* Some minor bug fixes
 
 = 1.6.4 =
 * Added a Italian and a Spanish language package (Thanks to anddab!)
@@ -124,6 +128,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.6.5 =
+This release includes support for admin panels based on rtl language packages.
 
 = 1.6.4 =
 This package includes a Italian and a Spanish language package (Thanks to anddab!). I also updated the options page.

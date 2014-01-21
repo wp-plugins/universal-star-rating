@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.6.4
+Version: 1.6.5
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -95,6 +95,8 @@ if ($usrPermitShortcodedComments == "true"){
 //Initialize admin area
 function usrAdminInit() {
   $usrLang = get_option('usrLang');
+  if($usrLang == ''){$usrLang='en';}
+  
   global $MESSAGES;
   //if user is administrator options will be displayed
 	if (current_user_can('manage_options')) {
@@ -167,11 +169,11 @@ function usrOptionsPage() {
 	// Show options page
 	?>
 
-		<div class="wrap" style="width: 600px;">		
+		<div class="wrap" style="width: 800px;">		
 			<div class="options">		
 				<form method="post" action="options-general.php?page=<?php global $usrPluginFilename; echo $usrPluginFilename; ?>">
         
-				<h2><?php global $usrPluginName, $SETTINGS; $usrLang = get_option('usrLang'); printf(__('%s - '.$SETTINGS['GLOBAL']['Settings'][$usrLang], 'universal_star_rating'), $usrPluginName); ?></h2>
+				<h2><?php global $usrPluginName, $SETTINGS; $usrLang = get_option('usrLang'); if($usrLang == ''){$usrLang='en';} printf(__('%s - '.$SETTINGS['GLOBAL']['Settings'][$usrLang], 'universal_star_rating'), $usrPluginName); ?></h2>
 				
 					<h3><?php _e($SETTINGS['NOU']['NotesOnUsage'][$usrLang], 'universal-star-rating'); ?></h3>					
 					<p><?php _e($SETTINGS['NOU']['ShortCodeDefinition'][$usrLang], 'universal-star-rating'); ?></p>					
@@ -187,6 +189,7 @@ function usrOptionsPage() {
                 <td><?php _e($SETTINGS['OPT']['ExplainLanguageSetting'][$usrLang].":", 'universal-star-rating'); ?></td><td>
       					<?php
       					$usrLang = get_option('usrLang');
+                if($usrLang == ''){$usrLang='en';}
                 
                 echo '<select name="usrLang"><option value="en"';
                   if($usrLang == "en"){echo ' selected';}
@@ -369,7 +372,5 @@ function usrOptionsPage() {
 
 <?php
 }
-
-safelyAddStylesheet();
 
 ?>

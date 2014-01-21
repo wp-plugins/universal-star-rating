@@ -45,16 +45,16 @@ $SETTINGS['OPT']['DefaultDisabled']['de'] = "Deaktiviert";
 $SETTINGS['PREV']['Preview']['de'] = "Vorschau";
 $SETTINGS['PREV']['Example']['de'] = "<strong>Beispiel</strong>";
 $SETTINGS['PREV']['ExampleResult']['de'] = "<strong>Ergebnis</strong>";
-$SETTINGS['PREV']['ExampleUsr']['de'] = "Toller Film: [usr=3.5]";
-$SETTINGS['PREV']['ExampleUsrResult']['de'] = "Toller Film: ";
+$SETTINGS['PREV']['ExampleUsr']['de'] = "Film: [usr=3.5]";
+$SETTINGS['PREV']['ExampleUsrResult']['de'] = "Film: ";
 $SETTINGS['PREV']['ExampleUsrList']['de'] = "[usrlist Pizza:3 Eis:3.5 &quot;Saure Milch&quot;]";
 $SETTINGS['PREV']['ExampleUsrListResult']['de'][1] = "Pizza:3";
 $SETTINGS['PREV']['ExampleUsrListResult']['de'][2] = "Eis:3.5";
 $SETTINGS['PREV']['ExampleUsrListResult']['de'][3] = "Saure Milch";
-$SETTINGS['PREV']['ExampleUsrOverriddenImage']['de'] = "Toller Film: [usr=3.5 img=&quot;03.png&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenText']['de'] = "Toller Film: [usr=3.5 text=&quot;false&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenMax']['de'] = "Toller Film: [usr=3.5 max=&quot;3&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenAll']['de'] = "Toller Film: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenImage']['de'] = "Film: [usr=3.5 img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenText']['de'] = "Film: [usr=3.5 text=&quot;false&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenMax']['de'] = "Film: [usr=3.5 max=&quot;3&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['de'] = "Film: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
 $SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['de'] = "[usrlist Pizza:3 Eis:3.5 &quot;Saure Milch&quot; avg=&quot;true&quot;]";
 
 ?>
