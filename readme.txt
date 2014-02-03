@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.6.5
+Stable tag: 1.6.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -37,6 +37,10 @@ Alternatively
 2. This screen shot shows the english version of the options page inside the admin panel of WordPress.
 
 == Changelog ==
+
+= 1.6.6 =
+* Modified the settings page
+* Added 3 new source images
 
 = 1.6.5 =
 * Added rtl support for the admin panel 
@@ -128,6 +132,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.6.6 =
+This release comes with a slight modification for the settings page and includes 3 new source images.
 
 = 1.6.5 =
 This release includes support for admin panels based on rtl language packages.

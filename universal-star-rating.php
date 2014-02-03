@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.6.5
+Version: 1.6.6
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -30,6 +30,7 @@ License: GPL3
 
 	Todos:
   - Add some more GFXs
+  - Sort GFXs by type
   - Add a Button to the WYSIWYG editor to add a rating to the post
 	
 */
@@ -174,7 +175,7 @@ function usrOptionsPage() {
 				<form method="post" action="options-general.php?page=<?php global $usrPluginFilename; echo $usrPluginFilename; ?>">
         
 				<h2><?php global $usrPluginName, $SETTINGS; $usrLang = get_option('usrLang'); if($usrLang == ''){$usrLang='en';} printf(__('%s - '.$SETTINGS['GLOBAL']['Settings'][$usrLang], 'universal_star_rating'), $usrPluginName); ?></h2>
-				
+
 					<h3><?php _e($SETTINGS['NOU']['NotesOnUsage'][$usrLang], 'universal-star-rating'); ?></h3>					
 					<p><?php _e($SETTINGS['NOU']['ShortCodeDefinition'][$usrLang], 'universal-star-rating'); ?></p>					
 					<p><?php _e($SETTINGS['NOU']['HowToUSR'][$usrLang], 'universal-star-rating'); ?></p>					
@@ -303,6 +304,9 @@ function usrOptionsPage() {
                   //Sort the array
                   sort($aFileArray);
                   $aAlowedExtensions = array('jpg','jpeg','gif','png');
+                  
+                  echo '<table border="0" cellpadding="5" cellspacing="0">';
+                  
                   //For each file inside the array...
                   for($i=0;$i<count($aFileArray);$i++) 
                   { 
@@ -310,14 +314,25 @@ function usrOptionsPage() {
                     //If file has an allowed extension...
                     if(in_array($aFileParts['extension'],$aAlowedExtensions)){
                       
+                      if(!isset($aRadioPosition) || $aRadioPosition == 2){
+                        $aRadioPosition=1;
+                        echo '<tr><td>';
+                      } else {
+                        $aRadioPosition=2;
+                        echo '<td>';
+                      }
                       //User has the opportunity to choose this image file
                       echo '<input type="radio" name="usrStarImage" value="'.$aFileArray[$i].'"';
                       if(get_option('usrStarImage') == $aFileArray[$i]){echo ' checked';}
                       echo '> ';
                       _e(insertUSR(array("=3.5", "img" => $aFileArray[$i], "text" => "false", "usrPreviewImg" => "true", "max" => "5" )), 'universal-star-rating');
-                      echo " <code>$aFileArray[$i]</code><br>";
+                      echo " <code>$aFileArray[$i]</code></td>";
+                      
+                      if($i+1 == count($aFileArray) || $aRadioPosition == 2){echo'</tr>';}
                     }
                   }
+                  
+                  echo '</table>';
                 ?>
                 
                 </td>
