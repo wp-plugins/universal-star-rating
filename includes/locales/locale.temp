@@ -46,6 +46,7 @@ $SETTINGS['PREV']['Preview']['temp'] = "";
 $SETTINGS['PREV']['Example']['temp'] = "";
 $SETTINGS['PREV']['ExampleResult']['temp'] = "";
 $SETTINGS['PREV']['ExampleUsr']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrSize']['temp'] = "";
 $SETTINGS['PREV']['ExampleUsrResult']['temp'] = "";
 $SETTINGS['PREV']['ExampleUsrList']['temp'] = "";
 $SETTINGS['PREV']['ExampleUsrListResult']['temp'][1] = "";

@@ -20,7 +20,7 @@ $SETTINGS['NOU']['NotesOnUsage']['it'] = "Note sull'utilizzo";
 $SETTINGS['NOU']['ShortCodeDefinition']['it'] = "I Shortcodes sono utilizzati per inserire dei Tag con i quali aggiungere funzionalit&agrave; speciali. In questo caso, il plugin USR &egrave; provvisto di due shortcode da utilizzare negli articoli.";
 $SETTINGS['NOU']['HowToUSR']['it'] = "Per introdurre l'Universal Star Rating dentro un articolo scriva semplicemente <code>[usr=5]</code> dove 5 &egrave; il numero di stelle.";
 $SETTINGS['NOU']['HowToUSRList']['it'] = "Per inserire una lista di Universal Star Ratings dentro un articolo scriva semplicemente <code>[usrlist &quot;Pizza:3&quot; &quot;Ice Cream:3.5&quot; (...)]</code> dove il primo valore &egrave; l'oggetto che si vuole valutare. La vostra lista pu&ograve; essere lunga quanto lei voglia per&ograve; dovr&agrave; contenere pi&ugrave; di 1 combinazione key:value.";
-$SETTINGS['NOU']['HowToShortCodes']['it'] = "Entrambi i shortcode possono essere utilizzati con parametri per sovrascrivere quelli di default:<li type=square><code>img=&quot;image.name&quot;</code> sovrascrive l'immagine di default. Stia attento al nome dell'immagine, che sia quello corretto!</li><li type=square><code>max=10</code> sovrascrive il numero massimo di stelle.</li><li type=square><code>text=false</code> sovrascrive il testo base di output (il suo valore pu&ograve; essere solo &quot;true&quot; o &quot;false&quot;)</li>Il shortcode per inserire una lista di Universal Star Ratings pu&ograve; essere utilizzato con altri parametri:<li type=square><code>avg=true</code> sovrascrive l'opzione per il calcolo della media nella valutazione (il suo valore pu&ograve; essere solo &quot;true&quot; o &quot;false&quot;)";
+$SETTINGS['NOU']['HowToShortCodes']['it'] = "Entrambi i shortcode possono essere utilizzati con parametri per sovrascrivere quelli di default:<li type=square><code>img=&quot;image.name&quot;</code> sovrascrive l'immagine di default. Stia attento al nome dell'immagine, che sia quello corretto!</li><li type=square><code>max=10</code> sovrascrive il numero massimo di stelle.</li><li type=square><code>size=20</code> sovrascrive il dimensione stella</li><li type=square><code>text=false</code> sovrascrive il testo base di output (il suo valore pu&ograve; essere solo &quot;true&quot; o &quot;false&quot;)</li>Il shortcode per inserire una lista di Universal Star Ratings pu&ograve; essere utilizzato con altri parametri:<li type=square><code>avg=true</code> sovrascrive l'opzione per il calcolo della media nella valutazione (il suo valore pu&ograve; essere solo &quot;true&quot; o &quot;false&quot;)";
 
 //Settings "Options"
 $SETTINGS['OPT']['Options']['it'] = "Impostazioni";
@@ -46,6 +46,7 @@ $SETTINGS['PREV']['Preview']['it'] = "Anteprima";
 $SETTINGS['PREV']['Example']['it'] = "<strong>Esempio</strong>";
 $SETTINGS['PREV']['ExampleResult']['it'] = "<strong>Risultato</strong>";
 $SETTINGS['PREV']['ExampleUsr']['it'] = "Film: [usr=3.5]";
+$SETTINGS['PREV']['ExampleUsrSize']['it'] = "Film: [usr=3.5 size=20]";
 $SETTINGS['PREV']['ExampleUsrResult']['it'] = "Film: ";
 $SETTINGS['PREV']['ExampleUsrList']['it'] = "[usrlist Pizza:3 Gelato:3.5 &quot;Latte Acido&quot;]";
 $SETTINGS['PREV']['ExampleUsrListResult']['it'][1] = "Pizza:3";
@@ -54,6 +55,6 @@ $SETTINGS['PREV']['ExampleUsrListResult']['it'][3] = "Latte Acido";
 $SETTINGS['PREV']['ExampleUsrOverriddenImage']['it'] = "Film: [usr=3.5 img=&quot;03.png&quot;]";
 $SETTINGS['PREV']['ExampleUsrOverriddenText']['it'] = "Film: [usr=3.5 text=&quot;false&quot;]";
 $SETTINGS['PREV']['ExampleUsrOverriddenMax']['it'] = "Film: [usr=3.5 max=&quot;3&quot;]";
-$SETTINGS['PREV']['ExampleUsrOverriddenAll']['it'] = "Film: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['it'] = "Film: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot; size=20]";
 $SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['it'] = "[usrlist Pizza:3 Gelato:3.5 &quot;Latte Acido&quot; avg=&quot;true&quot;]";
 ?>
