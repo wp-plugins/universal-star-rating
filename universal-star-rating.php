@@ -10,7 +10,7 @@ Author URI: http://cizero.de
 License: GPL3
 */
 
-/*  Copyright 2013  Mike Wigge  (email : me@cizero.de)
+/*  Copyright 2013 - 2014  Mike Wigge  (email : me@cizero.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 3, as 
