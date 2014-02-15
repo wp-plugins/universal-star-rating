@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -39,6 +39,9 @@ Alternatively
 3. This screen shot shows the preview inside the options page
 
 == Changelog ==
+
+= 1.7.1 =
+* Removed some unclean Code to avoid notice messages in WP debug mode
 
 = 1.7.0 =
 * Added an option to override the star size inside both shortcodes
@@ -138,6 +141,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.7.1 =
+Removed some unclean Code to avoid notice messages in WP debug mode.
 
 = 1.7.0 =
 This release includes the function to override the star size inside both shortcodes. Some code optimization is also included.

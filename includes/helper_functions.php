@@ -48,34 +48,35 @@ function getReadyToUseAttributes($atts){
   $usrStarText = get_option('usrStarText');
   $usrCalcAverage = get_option('usrCalcAverage');
   $usrStarSize = get_option('usrStarSize');
+  $usrPreviewImg = get_option('usrStarImage');
     
   //If key 'img' is set the image type will be overridden
-  if ($atts['img']) {
+  if (isset($atts['img'])) {
     $usrStarImage = $atts['img'];
     unset($atts['img']);
   }
   //If key 'max' is set the max star count will be overridden
-  if ($atts['max'] && is_numeric($atts['max'])) {
+  if (isset($atts['max']) && is_numeric($atts['max'])) {
     $usrMaxStars = intval($atts['max']);
     unset($atts['max']);
   }
   //if key 'text' is set to 'true' or 'false' it is possible to override default
-  if ($atts['text'] == "false" || $atts['text'] == "true") {
+  if (isset($atts['text']) && ($atts['text'] == "false" || $atts['text'] == "true")) {
     $usrStarText = $atts['text'];
     unset($atts['text']);
   }
   //if key 'avg' is set to 'true' or 'false' it is possible to override default
-  if ($atts['avg'] == "false" || $atts['avg'] == "true") {
+  if (isset($atts['avg']) && ($atts['avg'] == "false" || $atts['avg'] == "true")) {
     $usrCalcAverage = $atts['avg'];
     unset($atts['avg']);
   }
   //if key 'size' is set the star size will be overridden
-  if ($atts['size'] && is_numeric($atts['size'])) {
+  if (isset($atts['size']) && is_numeric($atts['size'])) {
     $usrStarSize = intval($atts['size']);
     unset($atts['size']);
   }
   //if key 'usrPreviewImg' is set to 'true' or 'false' it is possible to override default
-  if ($atts['usrPreviewImg'] == "false" || $atts['usrPreviewImg'] == "true") {
+  if (isset($atts['usrPreviewImg']) && ($atts['usrPreviewImg'] == "false" || $atts['usrPreviewImg'] == "true")) {
     $usrPreviewImg = $atts['usrPreviewImg'];
     unset($atts['usrPreviewImg']);
   }
@@ -118,6 +119,6 @@ function safelyAddStylesheet() {
   $usrStarSize = get_option('usrStarSize');
   wp_enqueue_style( 'usr-style', plugins_url('usr_style.php?px='.$usrStarSize, __FILE__) );
 }
-add_action('init', safelyAddStylesheet);
+add_action('init', 'safelyAddStylesheet');
 
 ?>
