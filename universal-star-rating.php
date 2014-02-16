@@ -115,7 +115,7 @@ function addUsrOptionPage() {
   //globals
 	global $usrPluginName, $usrPluginFilename;
 	
-	add_options_page($usrPluginName, $usrPluginName, 8, basename(__FILE__), 'usrOptionsPage');
+	add_options_page($usrPluginName, $usrPluginName, 'manage_options', basename(__FILE__), 'usrOptionsPage');
 }
 add_action('admin_menu', 'addUsrOptionPage');
 
