@@ -32,12 +32,14 @@ $SETTINGS['OPT']['ExplainStarText']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarImage']['temp'] = "";
 $SETTINGS['OPT']['ExplainAverageCalculation']['temp'] = "";
 $SETTINGS['OPT']['ExplainPermitShortcodedComment']['temp'] = "";
+$SETTINGS['OPT']['ExplainSchemaOrg']['temp'] = "";
 $SETTINGS['OPT']['DefaultLanguage']['temp'] = "";
 $SETTINGS['OPT']['DefaultStarSize']['temp'] = "";
 $SETTINGS['OPT']['DefaultStarCount']['temp'] = "";
 $SETTINGS['OPT']['DefaultStarText']['temp'] = "";
 $SETTINGS['OPT']['DefaultAverageCalculation']['temp'] = "";
 $SETTINGS['OPT']['DefaultPermitShortcodedComment']['temp'] = "";
+$SETTINGS['OPT']['DefaultSchemaOrg']['temp'] = "";
 $SETTINGS['OPT']['DefaultEnabled']['temp'] = "";
 $SETTINGS['OPT']['DefaultDisabled']['temp'] = "";
 

@@ -86,6 +86,7 @@ add_option('usrStarImage', '01.png', '', 'yes');
 add_option('usrStarText', 'true', '', 'yes');
 add_option('usrCalcAverage', 'false', '', 'yes');
 add_option('usrPermitShortcodedComments', 'false', '', 'yes');
+add_option('usrSchemaOrg', 'false', '', 'yes');
 
 //Register Filter if admins allows shortcodes inside comments
 $usrPermitShortcodedComments = get_option('usrPermitShortcodedComments');
@@ -162,6 +163,10 @@ function usrOptionsPage() {
     if ($usrPermitShortcodedComments == "true"){
       permitShortcodedComments();
     }
+    
+    //Update permission to use Schema.org SEO
+    $usrSchemaOrg = $_POST["usrSchemaOrg"];
+    update_option("usrSchemaOrg", $usrSchemaOrg);
 
 		//Tell user that options are updated
 		echo '<div class="updated fade"><p><strong>' . __($MESSAGES['INFO']['SettingsUpdated'][$usrLang], "universal-star-rating") . '</strong></p></div>';
@@ -273,6 +278,21 @@ function usrOptionsPage() {
       					?>
                 </td>
                 <td><?php _e($SETTINGS['OPT']['DefaultPermitShortcodedComment'][$usrLang], 'universal-star-rating'); ?></td>
+              </tr>
+              <tr>
+                <td><?php _e($SETTINGS['OPT']['ExplainSchemaOrg'][$usrLang].":", 'universal-star-rating'); ?></td>
+                <td><?php
+                $usrSchemaOrg = get_option('usrSchemaOrg');
+                
+                echo '<select name="usrSchemaOrg"><option value="true"';
+                  if($usrSchemaOrg == "true"){echo ' selected';}
+                echo '>'.$SETTINGS['OPT']['DefaultEnabled'][$usrLang].'</option><option value="false"';
+                  if($usrSchemaOrg == "false"){echo ' selected';}
+                echo '>'.$SETTINGS['OPT']['DefaultDisabled'][$usrLang].'</option></select>';
+                
+      					?>
+                </td>
+                <td><?php _e($SETTINGS['OPT']['DefaultSchemaOrg'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td valign="top"><?php _e($SETTINGS['OPT']['ExplainStarImage'][$usrLang].":", 'universal-star-rating'); ?></td>

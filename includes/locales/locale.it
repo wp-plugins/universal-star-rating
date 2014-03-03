@@ -32,12 +32,14 @@ $SETTINGS['OPT']['ExplainStarText']['it'] = "Testo";
 $SETTINGS['OPT']['ExplainStarImage']['it'] = "Immagine";
 $SETTINGS['OPT']['ExplainAverageCalculation']['it'] = "Calcolare media";
 $SETTINGS['OPT']['ExplainPermitShortcodedComment']['it'] = "Ammettere shortcode dentro i commenti";
+$SETTINGS['OPT']['ExplainSchemaOrg']['it'] = "Permettere Schema.org <abbr title=\"Search Engine Optimization\">SEO</abbr>";
 $SETTINGS['OPT']['DefaultLanguage']['it'] = "<em>Default: <code>English</code></em>";
 $SETTINGS['OPT']['DefaultStarSize']['it'] = "<em>Default: <code>12</code> (in px)</em>";
 $SETTINGS['OPT']['DefaultStarCount']['it'] = "<em>Default: <code>5</code>; Minimo: 1 (come intero)</em>";
 $SETTINGS['OPT']['DefaultStarText']['it'] = "<em>Default: <code>Abilitato</code></em>";
 $SETTINGS['OPT']['DefaultAverageCalculation']['it'] = "<em>Default: <code>Disabilitato</code></em>";
 $SETTINGS['OPT']['DefaultPermitShortcodedComment']['it'] = "<em>Default: <code>Disabilitato</code></em>";
+$SETTINGS['OPT']['DefaultSchemaOrg']['it'] = "<em>Default: <code>Disabilitato</code></em>";
 $SETTINGS['OPT']['DefaultEnabled']['it'] = "Abilitato";
 $SETTINGS['OPT']['DefaultDisabled']['it'] = "Disabilitato";
 
