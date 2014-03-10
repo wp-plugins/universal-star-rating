@@ -87,22 +87,70 @@ function getReadyToUseAttributes($atts){
 }
 
 //Function to get the image string
-function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText, $usrPreviewImg, $usrStarSize){
+function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText, $usrPreviewImg, $usrStarSize, $usrAggregatedOutput, $usrAggregationCount){
+  
+  if(!isset($usrAggregatedOutput) || $usrAggregatedOutput != true)
+    $usrAggregatedOutput = false;
   
   //Just in case it is not done yet...
   $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
   $formattedRatingValue = getFormattedRating($ratingValue);
-  if ($usrPreviewImg == "true"){
-    $imageString = '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/images/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue.'" style="height: '.$usrStarSize.'px !important;" alt="'.$ratingValue.' Stars" />';
-  }else{
-    $imageString = '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/images/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue.'"';
-    if($usrStarSize != get_option('usrStarSize')){
-      $imageString = $imageString.' style="height: '.$usrStarSize.'px !important;"';
+  
+  //Set the string
+  $imageString = '';
+  
+  //Schema.org SEO
+  if(get_option('usrSchemaOrg') == "true"){
+    //If this is aggregated output from usrlist...
+    if($usrAggregatedOutput == false){
+      $imageString .= '<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="usr">';
+      $imageString .= '<meta itemprop="worstRating" content="0" />';
+      //If text will not be displayed...
+      if ($usrStarText != "true"){
+        $imageString .= '<meta itemprop="ratingValue" content="'.$ratingValue.'" />';
+        $imageString .= '<meta itemprop="bestRating" content="'.$usrMaxStars.'" />';
+      }
+    //If it is not an aggregated output...
+    }elseif($usrAggregatedOutput == true){
+      $imageString .= '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="usr">';
+      if ($usrStarText != "true"){
+        $imageString .= '<meta itemprop="ratingValue" content="'.$ratingValue.'" />';
+        $imageString .= '<meta itemprop="reviewCount" content="'.$usrAggregationCount.'" />';
+      }
     }
-    $imageString = $imageString.' alt="'.$ratingValue.' Stars" />';
   }
+  
+  //If it is a preview image
+  if ($usrPreviewImg == "true"){
+    //Set image
+    $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue.'" style="height: '.$usrStarSize.'px !important;" alt="'.$ratingValue.' Stars" />';
+  //If it is not a preview
+  }else{
+    //Set image string
+    $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue.'"';
+    //If star size is not the default there has to be a style attribute...
+    if($usrStarSize != get_option('usrStarSize')){
+      $imageString .= ' style="height: '.$usrStarSize.'px !important;"';
+    }
+    $imageString .= ' alt="'.$ratingValue.' Stars" />';
+  }
+  //If text will be displayed...
   if ($usrStarText == "true"){
-    $imageString .= ' ('.$formattedRatingValue.' / '.$usrMaxStars.')';
+    //With schema.org SEO
+    if(get_option('usrSchemaOrg') == "true"){
+      if($usrAggregatedOutput == false)
+        $imageString .= ' (<span itemprop="ratingValue">'.$formattedRatingValue.'</span> / <span itemprop="bestRating">'.$usrMaxStars.'</span>)';
+      if($usrAggregatedOutput == true)
+        $imageString .= ' (<span itemprop="ratingValue">'.$formattedRatingValue.'</span> / '.$usrMaxStars.')<meta itemprop="reviewCount" content="'.$usrAggregationCount.'" />';
+    //Without schema.org SEO
+    }else{
+      $imageString .= ' ('.$formattedRatingValue.' / '.$usrMaxStars.')';
+    }
+  }
+
+  //Close schema.org SEO tag
+  if(get_option('usrSchemaOrg') == "true"){
+    $imageString .= '</div>';
   }
 
   return $imageString;
@@ -117,7 +165,7 @@ function permitShortcodedComments(){
 //Add stylesheet to the page
 function safelyAddStylesheet() {
   $usrStarSize = get_option('usrStarSize');
-  wp_enqueue_style( 'usr-style', plugins_url('usr_style.php?px='.$usrStarSize, __FILE__) );
+  wp_enqueue_style( 'usr-style', plugins_url('usr_style.php?px='.$usrStarSize.'&amp;usrver='.get_option('usrVersion'), __FILE__) );
 }
 add_action('init', 'safelyAddStylesheet');
 

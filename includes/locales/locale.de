@@ -39,7 +39,7 @@ $SETTINGS['OPT']['DefaultStarCount']['de'] = "<em>Standard: <code>5</code>; Mini
 $SETTINGS['OPT']['DefaultStarText']['de'] = "<em>Standard: <code>Aktiviert</code></em>";
 $SETTINGS['OPT']['DefaultAverageCalculation']['de'] = "<em>Standard: <code>Deaktiviert</code></em>";
 $SETTINGS['OPT']['DefaultPermitShortcodedComment']['de'] = "<em>Standard: <code>Deaktiviert</code></em>";
-$SETTINGS['OPT']['DefaultSchemaOrg']['de'] = "<em>Standard: <code>Deaktiviert</code></em>";
+$SETTINGS['OPT']['DefaultSchemaOrg']['de'] = "<em>Standard: <code>Deaktiviert</code>; Verursacht <a href=\"http://www.w3.org/\" target=\"_blank\">W3</a> Fehler!</em>";
 $SETTINGS['OPT']['DefaultEnabled']['de'] = "Aktiviert";
 $SETTINGS['OPT']['DefaultDisabled']['de'] = "Deaktiviert";
 

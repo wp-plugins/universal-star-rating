@@ -39,7 +39,7 @@ $SETTINGS['OPT']['DefaultStarCount']['es'] = "<em>Est&aacute;ndar: <code>5</code
 $SETTINGS['OPT']['DefaultStarText']['es'] = "<em>Est&aacute;ndar: <code>Habilitado</code></em>";
 $SETTINGS['OPT']['DefaultAverageCalculation']['es'] = "<em>Est&aacute;ndar: <code>Deshabilitado</code></em>";
 $SETTINGS['OPT']['DefaultPermitShortcodedComment']['es'] = "<em>Est&aacute;ndar: <code>Deshabilitado</code></em>";
-$SETTINGS['OPT']['DefaultSchemaOrg']['es'] = "<em>Est&aacute;ndar: <code>Deshabilitado</code></em>";
+$SETTINGS['OPT']['DefaultSchemaOrg']['es'] = "<em>Est&aacute;ndar: <code>Deshabilitado</code>; Causas de error <a href=\"http://www.w3.org/\" target=\"_blank\">W3</a>!</em>";
 $SETTINGS['OPT']['DefaultEnabled']['es'] = "Habilitado";
 $SETTINGS['OPT']['DefaultDisabled']['es'] = "Deshabilitado";
 

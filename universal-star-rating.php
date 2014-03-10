@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.7.1
+Version: 1.8.0
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -79,6 +79,7 @@ include('includes/shortcodes.php');
 //############################################################################//
 
 //Register options
+add_option('usrVersion', '1.8.0', '', 'yes');
 add_option('usrLang', 'en', '', 'yes');
 add_option('usrStarSize', '12', '', 'yes');
 add_option('usrMaxStars', '5', '', 'yes');
@@ -393,7 +394,7 @@ function usrOptionsPage() {
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrOverriddenAll'][$usrLang], 'universal-star-rating'); ?></td>
-                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=3.5","max" => "3", "text" => "false", "img" => "03.png", "usrPreviewImg" => "true", size => 20)), 'universal-star-rating'); ?></td>
+                <td><?php _e($SETTINGS['PREV']['ExampleUsrResult'][$usrLang].insertUSR(array("=3.5","max" => "3", "text" => "false", "img" => "03.png", "usrPreviewImg" => "true", "size" => 20)), 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['PREV']['ExampleUsrListOverriddenAverage'][$usrLang], 'universal-star-rating'); ?></td>

@@ -39,7 +39,7 @@ $SETTINGS['OPT']['DefaultStarCount']['en'] = "<em>Default: <code>5</code>; Minim
 $SETTINGS['OPT']['DefaultStarText']['en'] = "<em>Default: <code>Enabled</code></em>";
 $SETTINGS['OPT']['DefaultAverageCalculation']['en'] = "<em>Default: <code>Disabled</code></em>";
 $SETTINGS['OPT']['DefaultPermitShortcodedComment']['en'] = "<em>Default: <code>Disabled</code></em>";
-$SETTINGS['OPT']['DefaultSchemaOrg']['en'] = "<em>Default: <code>Disabled</code></em>";
+$SETTINGS['OPT']['DefaultSchemaOrg']['en'] = "<em>Default: <code>Disabled</code>; Causes <a href=\"http://www.w3.org/\" target=\"_blank\">W3</a> Errors!</em>";
 $SETTINGS['OPT']['DefaultEnabled']['en'] = "Enabled";
 $SETTINGS['OPT']['DefaultDisabled']['en'] = "Disabled";
 

@@ -28,8 +28,8 @@ function insertUSR($atts) {
   $ratingValue = getUsableRating($ratingValue, $usrAttributes["usrMaxStars"]);
   
   //Setting up the string with the right picture
-  $usr = getImageString($ratingValue, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"]); 
-
+  $usr = getImageString($ratingValue, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], false, 1); 
+  
   //Output
   return $usr;
 }
@@ -61,21 +61,29 @@ function insertUSRList($atts) {
 
     //For each key/value pair inside the array...
     foreach ($atts as $value) {
-      //splitting Key:Value into two variables - User can't use a ':' inside Key
-      list($splittedKey, $splittedValue) = explode(":", $value, 2);
+    
+      //If there is a pair...
+      if(strpos($value,':')){
+        //splitting Key:Value into two variables - User can't use a ':' inside Key
+        list($splittedKey, $splittedValue) = explode(":", $value, 2);
+      //If there is just a key...
+      }else{
+        $splittedKey = $value;
+        $splittedValue = 0;
+      }
       
       //Get the right rating formats
       $ratingValue = getUsableRating($splittedValue, $usrAttributes["usrMaxStars"]);
       $sumRatingValues = $sumRatingValues + $ratingValue;
 
       //Setting up the string with the right picture
-      $usrlist .= '<tr><td>'.$splittedKey.':</td><td>'.getImageString($ratingValue, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"]).'</td></tr>';
+      $usrlist .= '<tr><td>'.$splittedKey.':</td><td>'.getImageString($ratingValue, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], false, 1).'</td></tr>';
     }
     
     //If the average is needed...
     if ($usrAttributes["usrCalcAverage"] == "true") {
       $averageRating = getUsableRating(round($sumRatingValues/count($atts), 1), $usrAttributes["usrMaxStars"]);
-      $usrlist .= '<tr><td style="border-top:1px solid;">'.$CONFIGURATION['AverageText'][$usrLang].':</td><td style="border-top:1px solid;">'.getImageString($averageRating, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"]).'</td></tr>';
+      $usrlist .= '<tr><td style="border-top:1px solid;">'.$CONFIGURATION['AverageText'][$usrLang].':</td><td style="border-top:1px solid;">'.getImageString($averageRating, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], true, count($atts)).'</td></tr>';
     }
 
     //Finishing the table

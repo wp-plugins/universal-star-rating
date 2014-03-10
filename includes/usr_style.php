@@ -22,3 +22,7 @@ img.usr {
 table.usr {
   border: none;
 }
+
+span.usr, div.usr {
+  display: inline !important;
+}

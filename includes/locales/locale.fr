@@ -39,7 +39,7 @@ $SETTINGS['OPT']['DefaultStarCount']['fr'] = "<em>Defaut: <code>5</code>; Minimu
 $SETTINGS['OPT']['DefaultStarText']['fr'] = "<em>Defaut: <code>Activé</code></em>";
 $SETTINGS['OPT']['DefaultAverageCalculation']['fr'] = "<em>Defaut: <code>Désactivé</code></em>";
 $SETTINGS['OPT']['DefaultPermitShortcodedComment']['fr'] = "<em>Defaut: <code>Désactivé</code></em>";
-$SETTINGS['OPT']['DefaultSchemaOrg']['fr'] = "<em>Defaut: <code>Désactivé</code></em>";
+$SETTINGS['OPT']['DefaultSchemaOrg']['fr'] = "<em>Defaut: <code>Désactivé</code>; Provoque des erreurs de <a href=\"http://www.w3.org/\" target=\"_blank\">W3</a>!</em>";
 $SETTINGS['OPT']['DefaultEnabled']['fr'] = "Activé";
 $SETTINGS['OPT']['DefaultDisabled']['fr'] = "Désactivé";
 
