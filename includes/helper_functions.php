@@ -127,14 +127,14 @@ function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText,
     //Set image
     $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue;
     if($usrCustomImagesFolder != "")
-      $imageString .= '&folder='.$usrCustomImagesFolder;
+      $imageString .= '&amp;folder='.$usrCustomImagesFolder;
     $imageString .= '" style="height: '.$usrStarSize.'px !important;" alt="'.$ratingValue.' Stars" />';
   //If it is not a preview
   }else{
     //Set image string
     $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue;
     if($usrCustomImagesFolder != "")
-      $imageString .= '&folder='.$usrCustomImagesFolder;
+      $imageString .= '&amp;folder='.$usrCustomImagesFolder;
     $imageString .= '"';
     //If star size is not the default there has to be a style attribute...
     if($usrStarSize != get_option('usrStarSize')){
