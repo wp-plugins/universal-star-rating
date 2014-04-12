@@ -79,7 +79,7 @@ include('includes/shortcodes.php');
 //############################################################################//
 
 //Register options
-add_option('usrVersion', '1.8.0', '', 'yes');
+add_option('usrVersion', '1.9.0', '', 'yes');
 add_option('usrLang', 'en', '', 'yes');
 add_option('usrStarSize', '12', '', 'yes');
 add_option('usrMaxStars', '5', '', 'yes');
