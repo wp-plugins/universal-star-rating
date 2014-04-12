@@ -87,10 +87,12 @@ function getReadyToUseAttributes($atts){
 }
 
 //Function to get the image string
-function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText, $usrPreviewImg, $usrStarSize, $usrAggregatedOutput, $usrAggregationCount){
+function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText, $usrPreviewImg, $usrStarSize, $usrAggregatedOutput, $usrAggregationCount, $usrCustomImagesFolder){
   
   if(!isset($usrAggregatedOutput) || $usrAggregatedOutput != true)
     $usrAggregatedOutput = false;
+  if(!isset($usrCustomImagesFolder))
+    $usrCustomImagesFolder = "";
   
   //Just in case it is not done yet...
   $ratingValue = getUsableRating($ratingValue, $usrMaxStars);
@@ -123,11 +125,17 @@ function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText,
   //If it is a preview image
   if ($usrPreviewImg == "true"){
     //Set image
-    $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue.'" style="height: '.$usrStarSize.'px !important;" alt="'.$ratingValue.' Stars" />';
+    $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue;
+    if($usrCustomImagesFolder != "")
+      $imageString .= '&folder='.$usrCustomImagesFolder;
+    $imageString .= '" style="height: '.$usrStarSize.'px !important;" alt="'.$ratingValue.' Stars" />';
   //If it is not a preview
   }else{
     //Set image string
-    $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue.'"';
+    $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue;
+    if($usrCustomImagesFolder != "")
+      $imageString .= '&folder='.$usrCustomImagesFolder;
+    $imageString .= '"';
     //If star size is not the default there has to be a style attribute...
     if($usrStarSize != get_option('usrStarSize')){
       $imageString .= ' style="height: '.$usrStarSize.'px !important;"';
@@ -168,5 +176,69 @@ function safelyAddStylesheet() {
   wp_enqueue_style( 'usr-style', plugins_url('usr_style.php?px='.$usrStarSize.'&amp;usrver='.get_option('usrVersion'), __FILE__) );
 }
 add_action('init', 'safelyAddStylesheet');
+
+//Print available images
+function printAvailableImages($imgFolder, $standardFolder){
+  if(!isset($standardFolder)){
+    $standardFolder = 1;
+  }
+
+  $aFileArray = array();
+  //Let's have a look at the images...
+  $handle=opendir($imgFolder);
+  while ($file = readdir($handle)) {
+    if(!is_dir($file)) $aFileArray[]=$file;
+  }
+  closedir($handle);
+  //Sort the array
+  sort($aFileArray);
+  $aAlowedExtensions = array('jpg','jpeg','gif','png');
+  
+  echo '<table border="0" cellpadding="5" cellspacing="0">';
+  
+  //For each file inside the array...
+  for($i=0;$i<count($aFileArray);$i++) 
+  { 
+    $aFileParts = pathinfo($aFileArray[$i]);
+    //If file has an allowed extension...
+    if(in_array($aFileParts['extension'],$aAlowedExtensions)){
+      
+      if(!isset($aRadioPosition) || $aRadioPosition == 2){
+        $aRadioPosition=1;
+        echo '<tr><td>';
+      } else {
+        $aRadioPosition=2;
+        echo '<td>';
+      }
+      //User has the opportunity to choose this image file
+      if($standardFolder == 1){
+        echo '<input type="radio" name="usrStarImage" value="'.$aFileArray[$i].'"';
+        if(get_option('usrStarImage') == $aFileArray[$i]){echo ' checked';}
+        echo '> ';
+        _e(insertUSR(array("=3.5", "img" => $aFileArray[$i], "text" => "false", "usrPreviewImg" => "true", "max" => "5" )), 'universal-star-rating');
+        echo ' <code>'.$aFileArray[$i].'</code></td>';
+      }else{
+        echo '<input type="radio" name="usrStarImage" value="c'.$aFileArray[$i].'"';
+        if(get_option('usrStarImage') == 'c'.$aFileArray[$i]){echo ' checked';}
+        echo '> ';
+        _e(insertUSR(array("=3.5", "img" => 'c'.$aFileArray[$i], "text" => "false", "usrPreviewImg" => "true", "max" => "5" )), 'universal-star-rating');
+        echo ' <code>c'.$aFileArray[$i].'</code></td>';
+      }
+      if($i+1 == count($aFileArray) || $aRadioPosition == 2){echo'</tr>';}
+    }
+  }
+}
+
+//Function to check if the image folder structure is right
+function proofCUSRIStructure($imgFolder){
+  $imgFolder = rtrim($imgFolder,"/");
+  $numbers = array (20, 40, 60, 80, 100, 189);
+  foreach ($numbers as $value) {
+    if (!file_exists($imgFolder."/".$value)) {
+      mkdir($imgFolder."/".$value);
+    }
+  }
+
+}
 
 ?>

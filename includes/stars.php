@@ -46,6 +46,9 @@ if(isset($_GET['px'])){
 } else {  
   $imgPX = 12;
 }
+if(isset($_GET['folder'])){
+  $usrCustomImagesFolder = $_GET['folder'];
+}
 
 if($imgPX<=20){
   $imgFolder=20;
@@ -62,7 +65,14 @@ if($imgPX<=20){
 }
 
 //load the source image
-$imgTemp = LoadPNG('../images/'.$imgFolder.'/'.$imgName);
+//if (substr($imgName, 0, 1) === "c"){
+if(isset($usrCustomImagesFolder)){
+  $imgName = substr($imgName, 1);
+  //$usrCustomImagesFolder = rtrim(get_option("usrCustomImagesFolder"),"/");
+  $imgTemp = LoadPNG('../../../'.$usrCustomImagesFolder.'/'.$imgFolder.'/'.$imgName);
+}else{
+  $imgTemp = LoadPNG('../images/'.$imgFolder.'/'.$imgName);
+}
 
 //set x and y for temp images
 $imgWidth = imagesx($imgTemp)/2;

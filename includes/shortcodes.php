@@ -27,9 +27,16 @@ function insertUSR($atts) {
   //Get the right rating formats
   $ratingValue = getUsableRating($ratingValue, $usrAttributes["usrMaxStars"]);
   
-  //Setting up the string with the right picture
-  $usr = getImageString($ratingValue, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], false, 1); 
+  //Check if this is a custom image
+  if (substr($usrAttributes["usrStarImage"], 0, 1) === "c"){
+    $usrCustomImagesFolder = get_option('usrCustomImagesFolder');
+  }else{
+    $usrCustomImagesFolder = FALSE;
+  }
   
+  //Setting up the string with the right picture
+  $usr = getImageString($ratingValue, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], false, 1, $usrCustomImagesFolder);
+
   //Output
   return $usr;
 }
@@ -59,6 +66,13 @@ function insertUSRList($atts) {
     //Using a table because it looks better
     $usrlist = '<table class="usr">';
 
+    //Check if this is a custom image
+    if (substr($usrAttributes["usrStarImage"], 0, 1) === "c"){
+      $usrCustomImagesFolder = get_option('usrCustomImagesFolder');
+    }else{
+      $usrCustomImagesFolder = FALSE;
+    }
+
     //For each key/value pair inside the array...
     foreach ($atts as $value) {
     
@@ -77,13 +91,13 @@ function insertUSRList($atts) {
       $sumRatingValues = $sumRatingValues + $ratingValue;
 
       //Setting up the string with the right picture
-      $usrlist .= '<tr><td>'.$splittedKey.':</td><td>'.getImageString($ratingValue, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], false, 1).'</td></tr>';
+      $usrlist .= '<tr><td>'.$splittedKey.':</td><td>'.getImageString($ratingValue, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], false, 1, $usrCustomImagesFolder).'</td></tr>';
     }
     
     //If the average is needed...
     if ($usrAttributes["usrCalcAverage"] == "true") {
       $averageRating = getUsableRating(round($sumRatingValues/count($atts), 1), $usrAttributes["usrMaxStars"]);
-      $usrlist .= '<tr><td style="border-top:1px solid;">'.$CONFIGURATION['AverageText'][$usrLang].':</td><td style="border-top:1px solid;">'.getImageString($averageRating, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], true, count($atts)).'</td></tr>';
+      $usrlist .= '<tr><td style="border-top:1px solid;">'.$CONFIGURATION['AverageText'][$usrLang].':</td><td style="border-top:1px solid;">'.getImageString($averageRating, $usrAttributes["usrStarImage"], $usrAttributes["usrMaxStars"], $usrAttributes["usrStarText"], $usrAttributes["usrPreviewImg"], $usrAttributes["usrStarSize"], true, count($atts), $usrCustomImagesFolder).'</td></tr>';
     }
 
     //Finishing the table

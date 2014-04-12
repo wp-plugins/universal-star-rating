@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.8.0
+Version: 1.9.0
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -88,6 +88,7 @@ add_option('usrStarText', 'true', '', 'yes');
 add_option('usrCalcAverage', 'false', '', 'yes');
 add_option('usrPermitShortcodedComments', 'false', '', 'yes');
 add_option('usrSchemaOrg', 'false', '', 'yes');
+add_option('usrCustomImagesFolder', 'cusri', '', 'yes');
 
 //Register Filter if admins allows shortcodes inside comments
 $usrPermitShortcodedComments = get_option('usrPermitShortcodedComments');
@@ -168,7 +169,11 @@ function usrOptionsPage() {
     //Update permission to use Schema.org SEO
     $usrSchemaOrg = $_POST["usrSchemaOrg"];
     update_option("usrSchemaOrg", $usrSchemaOrg);
-
+    
+    //Update CUSRI folder
+    $usrCustomImagesFolder = $_POST["usrCustomImagesFolder"];
+    update_option("usrCustomImagesFolder", $usrCustomImagesFolder);
+    
 		//Tell user that options are updated
 		echo '<div class="updated fade"><p><strong>' . __($MESSAGES['INFO']['SettingsUpdated'][$usrLang], "universal-star-rating") . '</strong></p></div>';
 	}
@@ -215,22 +220,16 @@ function usrOptionsPage() {
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['OPT']['ExplainStarSizeSetting'][$usrLang].":", 'universal-star-rating'); ?></td>
-                <td><?php
-      					echo "<input type='text' size='10' ";
-      					echo "name='usrStarSize' ";
-      					echo "id='usrStarSize' ";
-      					echo "value='".get_option('usrStarSize')."' />\n";
-      					?></td>
+                <td>
+                  <input type="text" size="10" name="usrStarSize" id="usrStarSize" value="<?php echo get_option('usrStarSize');?>" />
+      					</td>
                 <td><?php _e($SETTINGS['OPT']['DefaultStarSize'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
                 <td><?php _e($SETTINGS['OPT']['ExplainStarCountSetting'][$usrLang].":", 'universal-star-rating'); ?></td>
-                <td><?php
-      					echo "<input type='text' size='10' ";
-      					echo "name='usrMaxStars' ";
-      					echo "id='usrMaxStars' ";
-      					echo "value='".get_option('usrMaxStars')."' />\n";
-      					?></td>
+                <td>
+      					  <input type="text" size="10" name="usrMaxStars" id="usrMaxStars" value="<?php echo get_option('usrMaxStars');?>" />
+      					</td>
                 <td><?php _e($SETTINGS['OPT']['DefaultStarCount'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
@@ -296,6 +295,17 @@ function usrOptionsPage() {
                 <td><?php _e($SETTINGS['OPT']['DefaultSchemaOrg'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
               <tr>
+                <td><?php _e($SETTINGS['OPT']['ExplainCUSRI'][$usrLang].":", 'universal-star-rating'); ?></td>
+                <td><?php
+                $usrCustomImagesFolder = get_option('usrCustomImagesFolder');
+                
+                echo '/wp-content/<input type="text" size="5" name="usrCustomImagesFolder" id="usrCustomImagesFolder" value="'.$usrCustomImagesFolder.'" />';
+                
+      					?>
+                </td>
+                <td><?php _e($SETTINGS['OPT']['DefaultCUSRI'][$usrLang], 'universal-star-rating'); ?></td>
+              </tr>
+              <tr>
                 <td valign="top"><?php _e($SETTINGS['OPT']['ExplainStarImage'][$usrLang].":", 'universal-star-rating'); ?></td>
                 <td colspan="2">
       
@@ -316,41 +326,14 @@ function usrOptionsPage() {
                     $imgFolder=189;
                   }
 
-                  //Let's have a look at the images...
-                  $handle=opendir("../wp-content/plugins/universal-star-rating/images/".$imgFolder."/");
-                  while ($file = readdir($handle)) {
-                    if(!is_dir($file)) $aFileArray[]=$file;
-                  }
-                  closedir($handle);
-                  //Sort the array
-                  sort($aFileArray);
-                  $aAlowedExtensions = array('jpg','jpeg','gif','png');
-                  
-                  echo '<table border="0" cellpadding="5" cellspacing="0">';
-                  
-                  //For each file inside the array...
-                  for($i=0;$i<count($aFileArray);$i++) 
-                  { 
-                    $aFileParts = pathinfo($aFileArray[$i]);
-                    //If file has an allowed extension...
-                    if(in_array($aFileParts['extension'],$aAlowedExtensions)){
-                      
-                      if(!isset($aRadioPosition) || $aRadioPosition == 2){
-                        $aRadioPosition=1;
-                        echo '<tr><td>';
-                      } else {
-                        $aRadioPosition=2;
-                        echo '<td>';
-                      }
-                      //User has the opportunity to choose this image file
-                      echo '<input type="radio" name="usrStarImage" value="'.$aFileArray[$i].'"';
-                      if(get_option('usrStarImage') == $aFileArray[$i]){echo ' checked';}
-                      echo '> ';
-                      _e(insertUSR(array("=3.5", "img" => $aFileArray[$i], "text" => "false", "usrPreviewImg" => "true", "max" => "5" )), 'universal-star-rating');
-                      echo " <code>$aFileArray[$i]</code></td>";
-                      
-                      if($i+1 == count($aFileArray) || $aRadioPosition == 2){echo'</tr>';}
-                    }
+                  //Print images which come within this plugin
+                  printAvailableImages("../wp-content/plugins/universal-star-rating/images/".$imgFolder."/", 1);
+                  //Is there a custom images folder?
+                  $customImagesFolder = '../wp-content/'.get_option("usrCustomImagesFolder").'/';
+                  if(file_exists($customImagesFolder)){
+                    //Print custom images
+                    proofCUSRIStructure($customImagesFolder);
+                    printAvailableImages($customImagesFolder.$imgFolder, 0);
                   }
                   
                   echo '</table>';

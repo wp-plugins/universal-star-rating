@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.8.0
+Stable tag: 1.9.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -39,6 +39,10 @@ Alternatively
 3. This screen shot shows the preview inside the options page
 
 == Changelog ==
+
+= 1.9.0 =
+* Added custom images support
+* Updated admin panel
 
 = 1.8.0 =
 * Added Schema.org support
@@ -147,6 +151,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.9.0 =
+Now USR is able to support custom images. In the past customized images were deleted by updating the plugin but now you can use a seperated directory for your own images. Be aware that this seperated directory may not be inside the plugins directory or it will be deleted again!
 
 = 1.8.0 =
 Added Schema.org support which can be activated inside the admin panel. Please be aware that this causes W3 errors if activated! There are some minor bugfixes inside this release, too.

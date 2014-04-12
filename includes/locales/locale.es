@@ -33,6 +33,7 @@ $SETTINGS['OPT']['ExplainStarImage']['es'] = "Imagen";
 $SETTINGS['OPT']['ExplainAverageCalculation']['es'] = "Calcular promedio";
 $SETTINGS['OPT']['ExplainPermitShortcodedComment']['es'] = "Habilitar shortcodes en los comentarios";
 $SETTINGS['OPT']['ExplainSchemaOrg']['es'] = "Permitir Schema.org <abbr title=\"Search Engine Optimization\">SEO</abbr>";
+$SETTINGS['OPT']['ExplainCUSRI']['es'] = "Custom Folder Im&aacute;genes";
 $SETTINGS['OPT']['DefaultLanguage']['es'] = "<em>Est&aacute;ndar: <code>English</code></em>";
 $SETTINGS['OPT']['DefaultStarSize']['es'] = "<em>Est&aacute;ndar: <code>12</code> (en px)</em>";
 $SETTINGS['OPT']['DefaultStarCount']['es'] = "<em>Est&aacute;ndar: <code>5</code>; M&iacute;nimo: 1 (como entero)</em>";
@@ -40,6 +41,7 @@ $SETTINGS['OPT']['DefaultStarText']['es'] = "<em>Est&aacute;ndar: <code>Habilita
 $SETTINGS['OPT']['DefaultAverageCalculation']['es'] = "<em>Est&aacute;ndar: <code>Deshabilitado</code></em>";
 $SETTINGS['OPT']['DefaultPermitShortcodedComment']['es'] = "<em>Est&aacute;ndar: <code>Deshabilitado</code></em>";
 $SETTINGS['OPT']['DefaultSchemaOrg']['es'] = "<em>Est&aacute;ndar: <code>Deshabilitado</code>; Causas de error <a href=\"http://www.w3.org/\" target=\"_blank\">W3</a>!</em>";
+$SETTINGS['OPT']['DefaultCUSRI']['es'] = "<em>Est&aacute;ndar: /wp-content/<code>cusri</code></em>";
 $SETTINGS['OPT']['DefaultEnabled']['es'] = "Habilitado";
 $SETTINGS['OPT']['DefaultDisabled']['es'] = "Deshabilitado";
 
