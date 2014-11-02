@@ -27,6 +27,7 @@ $SETTINGS['NOU']['HowToShortCodes']['es'] = "Ambos shortcodes puede ser utilizad
 $SETTINGS['OPT']['Options']['es'] = "Opciones";
 $SETTINGS['OPT']['ExplainOptions']['es'] = "Estas opciones pueden cambiar el comportamiento y el estilo del plugin <em>Universal Star Rating</em> en su art&iacute;culo.";
 $SETTINGS['OPT']['ExplainLanguageSetting']['es'] = "Lenguaje";
+$SETTINGS['OPT']['OriginLanguage']['es'] = "Espa&ntilde;ol";
 $SETTINGS['OPT']['ExplainStarSizeSetting']['es'] = "Tama&ntilde;o de la estrella";
 $SETTINGS['OPT']['ExplainStarCountSetting']['es'] = "N&uacute;mero m&aacute;ximo de estrellas por evaluaci&oacute;n";
 $SETTINGS['OPT']['ExplainStarText']['es'] = "Texto";

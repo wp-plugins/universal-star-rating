@@ -27,6 +27,7 @@ $SETTINGS['NOU']['HowToShortCodes']['temp'] = "";
 $SETTINGS['OPT']['Options']['temp'] = "";
 $SETTINGS['OPT']['ExplainOptions']['temp'] = "";
 $SETTINGS['OPT']['ExplainLanguageSetting']['temp'] = "";
+$SETTINGS['OPT']['OriginLanguage']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarSizeSetting']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarCountSetting']['temp'] = "";
 $SETTINGS['OPT']['ExplainStarText']['temp'] = "";

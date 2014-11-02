@@ -27,6 +27,7 @@ $SETTINGS['NOU']['HowToShortCodes']['de'] = "Beide Shortcodes k&ouml;nnen mit Pa
 $SETTINGS['OPT']['Options']['de'] = "Optionen";
 $SETTINGS['OPT']['ExplainOptions']['de'] = "Diese Optionen k&ouml;nnen das Verhalten und das Aussehen von <em>Universal Star Rating</em> innerhalb deiner Posts ver&auml;ndern.";
 $SETTINGS['OPT']['ExplainLanguageSetting']['de'] = "Sprache";
+$SETTINGS['OPT']['OriginLanguage']['de'] = "Deutsch";
 $SETTINGS['OPT']['ExplainStarSizeSetting']['de'] = "Sternengr&ouml;&szlig;e";
 $SETTINGS['OPT']['ExplainStarCountSetting']['de'] = "Max. Anzahl Sterne";
 $SETTINGS['OPT']['ExplainStarText']['de'] = "Text";

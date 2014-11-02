@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.9.1
+Version: 1.9.2
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -26,14 +26,10 @@ License: GPL3
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-/*
-
-	Todos:
+/*  Todos:
   - Add some more GFXs
   - Sort GFXs by type
   - Add a Button to the WYSIWYG editor to add a rating to the post
-  - Make language selector dynamic -> cut $usrLocale from $usrLocales to do so
-	
 */
 
 
@@ -43,11 +39,23 @@ License: GPL3
 //                                                                            //
 //############################################################################//
 
+define('USR_VERSION','1.9.2');
+define('USR_DEFAULT_LANG','en');
+define('USR_DEFAULT_STAR_SIZE','12');
+define('USR_DEFAULT_MAX_STARS','5');
+define('USR_DEFAULT_STAR_TEXT','true');
+define('USR_DEFAULT_CALC_AVERAGE','false');
+define('USR_DEFAULT_PERMIT_SHORTCODE_COMMENTS','false');
+define('USR_DEFAULT_SCHEMA_ORG','false');
+define('USR_DEFAULT_CUSTOM_IMAGE_FOLDER','cusri');
+define('USR_DEFAULT_STAR_IMAGE','01.png');
+
 //Including locale files
-$usrLocales = scandir('../wp-content/plugins/universal-star-rating/includes/locales/');
+$usrLocales = scandir( WP_PLUGIN_DIR . '/universal-star-rating/includes/locales/');
+sort($usrLocales);
 foreach($usrLocales as $usrLocale) {
 	if($usrLocale != "." && $usrLocale != ".." && $usrLocale != "locale.temp"){
-		include('includes/locales/'.$usrLocale);
+		require_once('includes/locales/'.$usrLocale);
 	}
 }
 
@@ -62,7 +70,7 @@ $usrPluginFilename = "universal-star-rating.php";
 //############################################################################//
 
 //Including helper functions
-include('includes/helper_functions.php');
+require 'includes/helper_functions.php';
 
 //############################################################################//
 //                                                                            //
@@ -71,7 +79,7 @@ include('includes/helper_functions.php');
 //############################################################################//
 
 //Including shortcodes
-include('includes/shortcodes.php');
+require 'includes/shortcodes.php';
 
 //############################################################################//
 //                                                                            //
@@ -80,35 +88,26 @@ include('includes/shortcodes.php');
 //############################################################################//
 
 //Register options
-add_option('usrVersion', '1.9.0', '', 'yes');
-add_option('usrLang', 'en', '', 'yes');
-add_option('usrStarSize', '12', '', 'yes');
-add_option('usrMaxStars', '5', '', 'yes');
-add_option('usrStarImage', '01.png', '', 'yes');
-add_option('usrStarText', 'true', '', 'yes');
-add_option('usrCalcAverage', 'false', '', 'yes');
-add_option('usrPermitShortcodedComments', 'false', '', 'yes');
-add_option('usrSchemaOrg', 'false', '', 'yes');
-add_option('usrCustomImagesFolder', 'cusri', '', 'yes');
+initUSR();
 
 //Register Filter if admins allows shortcodes inside comments
 $usrPermitShortcodedComments = get_option('usrPermitShortcodedComments');
 if ($usrPermitShortcodedComments == "true"){
-  permitShortcodedComments();
+	permitShortcodedComments();
 }
 
 //Initialize admin area
 function usrAdminInit() {
-  $usrLang = get_option('usrLang');
-  if($usrLang == ''){$usrLang='en';}
+	$usrLang = get_option('usrLang');
+	if($usrLang == ''){$usrLang='en';}
   
-  global $MESSAGES;
-  //if user is administrator options will be displayed
+	global $MESSAGES;
+	//if user is administrator options will be displayed
 	if (current_user_can('manage_options')) {
-    //Register the option group usrSettings with the option name usrOption
-    if (function_exists('register_setting')) {
-      register_setting('usrSettings', 'usrOption', '');
-    }
+		//Register the option group usrSettings with the option name usrOption
+		if (function_exists('register_setting')) {
+		  register_setting('usrSettings', 'usrOption', '');
+		}
 	}
 }
 add_action('admin_init', 'usrAdminInit');
@@ -128,23 +127,17 @@ add_action('admin_menu', 'addUsrOptionPage');
 function usrOptionsPage() {
   //globals
   global $MESSAGES;
+	//If options shall be resetted
 	if (isset($_POST['usrOptionsReset'])) {
-		$usrLang = 'en';
-		$usrStarSize = 12;
-		$usrMaxStars = 5;
-		$usrStarText = 'true';
-		$usrCalcAverage = 'false';
-		$usrPermitShortcodedComments = 'false';
-		$usrSchemaOrg = 'false';
-		$usrCustomImagesFolder = 'cusri';
-		$usrStarImage = '01.png';
-		updateUSRSettings($usrLang, $usrStarSize, $usrMaxStars, $usrStarText, $usrCalcAverage, $usrPermitShortcodedComments, $usrSchemaOrg, $usrCustomImagesFolder, $usrStarImage);
+		updateUSRSettings(USR_DEFAULT_LANG, USR_DEFAULT_STAR_SIZE, USR_DEFAULT_MAX_STARS,
+			USR_DEFAULT_STAR_TEXT, USR_DEFAULT_CALC_AVERAGE, USR_DEFAULT_PERMIT_SHORTCODE_COMMENTS,
+			USR_DEFAULT_SCHEMA_ORG, USR_DEFAULT_CUSTOM_IMAGE_FOLDER, USR_DEFAULT_STAR_IMAGE);
 	
 		//Tell user that options are updated
-		echo '<div class="updated fade"><p><strong>' . __($MESSAGES['INFO']['SettingsUpdated']['en'], "universal-star-rating") . '</strong></p></div>';
+		echo '<div class="updated fade"><p><strong>' . __($MESSAGES['INFO']['SettingsUpdated'][USR_DEFAULT_LANG], "universal-star-rating") . '</strong></p></div>';
 	}
+	//If options shall be updated
 	if (isset($_POST['usrOptionsUpdate'])) {
-		
 		$usrLang = $_POST["usrLang"];
 		$usrStarSize = $_POST["usrStarSize"];
 		$usrMaxStars = $_POST["usrMaxStars"];
@@ -184,20 +177,25 @@ function usrOptionsPage() {
                 <td><?php _e($SETTINGS['OPT']['ExplainLanguageSetting'][$usrLang].":", 'universal-star-rating'); ?></td><td>
       					<?php
       					$usrLang = get_option('usrLang');
-                if($usrLang == ''){$usrLang='en';}
-                
-                echo '<select name="usrLang"><option value="en"';
-                  if($usrLang == "en"){echo ' selected';}
-                echo '>English</option><option value="de"';
-                  if($usrLang == "de"){echo ' selected';}
-                echo '>Deutsch</option><option value="es"';
-                  if($usrLang == "es"){echo ' selected';}
-                echo '>Espa&ntilde;ol</option><option value="fr"';
-                  if($usrLang == "fr"){echo ' selected';}
-                echo '>Francais</option><option value="it"';
-                  if($usrLang == "it"){echo ' selected';}
-                echo '>Italiano</option></select>';
-                
+                if($usrLang == '')
+					$usrLang = USR_DEFAULT_LANG;
+				
+				echo '<select name="usrLang">';
+				
+				//dynamically show all available languages
+				$usrLocales = scandir( WP_PLUGIN_DIR . '/universal-star-rating/includes/locales/');
+				foreach($usrLocales as $usrLocale) {
+					if($usrLocale != "." && $usrLocale != ".." && $usrLocale != "locale.temp"){
+						$localeParts = explode('.', $usrLocale);
+						echo '<option value="' . $localeParts[1] . '"';
+						if($usrLang == $localeParts[1])
+							echo ' selected';
+						echo '>' . $SETTINGS['OPT']['OriginLanguage'][$localeParts[1]] . '</option>';
+					}
+				}
+				
+				echo '</select>';
+
       					?>
                 </td><td><?php _e($SETTINGS['OPT']['DefaultLanguage'][$usrLang], 'universal-star-rating'); ?></td>
               </tr>
@@ -310,9 +308,9 @@ function usrOptionsPage() {
                   }
 
                   //Print images which come within this plugin
-                  printAvailableImages("../wp-content/plugins/universal-star-rating/images/".$imgFolder."/", 1);
+                  printAvailableImages( WP_PLUGIN_DIR . "/universal-star-rating/images/" . $imgFolder . "/", 1);
                   //Is there a custom images folder?
-                  $customImagesFolder = '../wp-content/'.get_option("usrCustomImagesFolder").'/';
+                  $customImagesFolder = WP_CONTENT_DIR . get_option("usrCustomImagesFolder") . '/';
                   if(file_exists($customImagesFolder)){
                     //Print custom images
                     proofCUSRIStructure($customImagesFolder);
@@ -374,11 +372,9 @@ function usrOptionsPage() {
 					<input type='submit' name='usrOptionsReset' class="button" value='<?php _e($SETTINGS['GLOBAL']['ResetButton'][$usrLang], 'universal_star_rating'); ?>' />
 				</form>				
 			</div>
-			<?php
-			#<div id="usrFooter" class="wrap">
-			#Commercial Footer
-			#</div>
-			?>
+			<div id="usrFooter" class="wrap">
+				<?php echo 'Plugin Version: <strong>' . get_option('usrVersion') . '</strong>'; ?>
+			</div>
 		</div>
 
 <?php

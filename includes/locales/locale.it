@@ -27,6 +27,7 @@ $SETTINGS['NOU']['HowToShortCodes']['it'] = "Entrambi i shortcode possono essere
 $SETTINGS['OPT']['Options']['it'] = "Impostazioni";
 $SETTINGS['OPT']['ExplainOptions']['it'] = "Queste opzioni possono cambiare il comportamento e lo stile dell'<em>Universal Star Rating</em> dentro i vostri articoli.";
 $SETTINGS['OPT']['ExplainLanguageSetting']['it'] = "Lingua";
+$SETTINGS['OPT']['OriginLanguage']['it'] = "Italiano";
 $SETTINGS['OPT']['ExplainStarSizeSetting']['it'] = "Dimensione stella";
 $SETTINGS['OPT']['ExplainStarCountSetting']['it'] = "Massimo valore di valutazione";
 $SETTINGS['OPT']['ExplainStarText']['it'] = "Testo";

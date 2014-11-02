@@ -1,11 +1,12 @@
 <?php
 
-//############################################################################//
-//                                                                            //
-//                              Helper Functions                              //
-//                                                                            //
-//############################################################################//
+/**
+ * Helper Functions
+ *
+ * @package UniversalStarRating
+ */
 
+ 
 //Function to get the right rating to calculate with
 function getUsableRating($ratingValue, $usrMaxStars){
 
@@ -231,54 +232,91 @@ function printAvailableImages($imgFolder, $standardFolder){
 
 //Function to check if the image folder structure is right
 function proofCUSRIStructure($imgFolder){
-  $imgFolder = rtrim($imgFolder,"/");
-  $numbers = array (20, 40, 60, 80, 100, 189);
-  foreach ($numbers as $value) {
-    if (!file_exists($imgFolder."/".$value)) {
-      mkdir($imgFolder."/".$value);
-    }
-  }
+	$imgFolder = rtrim($imgFolder,"/");
+	$numbers = array (20, 40, 60, 80, 100, 189);
+	foreach ($numbers as $value) {
+		if (!file_exists($imgFolder."/".$value)) {
+			mkdir($imgFolder."/".$value);
+		}
+	}
 }
 
+/*
+ * @since 1.9.1
+ */
 //Function to update the plugins settings
 function updateUSRSettings($usrLang, $usrStarSize, $usrMaxStars, $usrStarText, $usrCalcAverage, $usrPermitShortcodedComments, $usrSchemaOrg, $usrCustomImagesFolder, $usrStarImage){
+	//Update user language
+	update_option("usrLang", $usrLang);
 		
-		//Update user language
-		update_option("usrLang", $usrLang);
-		
-		//Update star size		
-		$usrStarSize = str_replace( ',', '.', $usrStarSize);
-		if(is_numeric($usrStarSize)){
-			update_option("usrStarSize", $usrStarSize);
-		} else {
-			echo $MESSAGES['ERROR']['StarSizeNotNumeric'][$usrLang];
-		}
-		
-		//Update max stars
-		$usrMaxStars = intval($usrMaxStars);
-		if($usrMaxStars < 1){$usrMaxStars=1;} 
-		update_option("usrMaxStars", $usrMaxStars);
+	//Update star size		
+	$usrStarSize = str_replace( ',', '.', $usrStarSize);
+	if(is_numeric($usrStarSize)){
+		update_option("usrStarSize", $usrStarSize);
+	} else {
+		echo $MESSAGES['ERROR']['StarSizeNotNumeric'][$usrLang];
+	}
+	
+	//Update max stars
+	$usrMaxStars = intval($usrMaxStars);
+	if($usrMaxStars < 1){$usrMaxStars=1;} 
+	update_option("usrMaxStars", $usrMaxStars);
 
-		//Update text output
-		update_option("usrStarText", $usrStarText);
+	//Update text output
+	update_option("usrStarText", $usrStarText);
+	
+	//Update average rating calculation
+	update_option("usrCalcAverage", $usrCalcAverage);
+	
+	//Update permission to use shortcodes inside comments
+	update_option("usrPermitShortcodedComments", $usrPermitShortcodedComments);
+	if ($usrPermitShortcodedComments == "true"){
+		permitShortcodedComments();
+	}
+	
+	//Update permission to use Schema.org SEO
+	update_option("usrSchemaOrg", $usrSchemaOrg);
+	
+	//Update CUSRI folder
+	update_option("usrCustomImagesFolder", $usrCustomImagesFolder);
+
+	//Update star image
+	update_option("usrStarImage", $usrStarImage);
+}
+
+/*
+ * @since 1.9.2
+ */
+//Function to update the plugins version
+function updateUSR(){
+	if(get_option("usrVersion") != USR_VERSION)
+		update_option("usrVersion", USR_VERSION);
+}
+
+//Function to initial set up the plugins variables
+function initUSR(){
+	if( !get_option( "usrVersion" ) )
+		add_option('usrVersion', USR_VERSION, '', 'yes');
+	if( !get_option( "usrLang" ) )
+		add_option('usrLang', USR_DEFAULT_LANG, '', 'yes');
+	if( !get_option( "usrStarSize" ) )
+		add_option('usrStarSize', USR_DEFAULT_STAR_SIZE, '', 'yes');
+	if( !get_option( "usrMaxStars" ) )
+		add_option('usrMaxStars', USR_DEFAULT_MAX_STARS, '', 'yes');
+	if( !get_option( "usrStarText" ) )
+		add_option('usrStarText', USR_DEFAULT_STAR_TEXT, '', 'yes');
+	if( !get_option( "usrCalcAverage" ) )
+		add_option('usrCalcAverage', USR_DEFAULT_CALC_AVERAGE, '', 'yes');
+	if( !get_option( "usrPermitShortcodedComments" ) )
+		add_option('usrPermitShortcodedComments', USR_DEFAULT_PERMIT_SHORTCODE_COMMENTS, '', 'yes');
+	if( !get_option( "usrSchemaOrg" ) )
+		add_option('usrSchemaOrg', USR_DEFAULT_SCHEMA_ORG, '', 'yes');
+	if( !get_option( "usrCustomImagesFolder" ) )
+		add_option('usrCustomImagesFolder', USR_DEFAULT_CUSTOM_IMAGE_FOLDER, '', 'yes');
+	if( !get_option( "usrStarImage" ) )
+		add_option('usrStarImage', USR_DEFAULT_STAR_IMAGE, '', 'yes');
 		
-		//Update average rating calculation
-		update_option("usrCalcAverage", $usrCalcAverage);
-		
-		//Update permission to use shortcodes inside comments
-		update_option("usrPermitShortcodedComments", $usrPermitShortcodedComments);
-		if ($usrPermitShortcodedComments == "true"){
-			permitShortcodedComments();
-		}
-		
-		//Update permission to use Schema.org SEO
-		update_option("usrSchemaOrg", $usrSchemaOrg);
-		
-		//Update CUSRI folder
-		update_option("usrCustomImagesFolder", $usrCustomImagesFolder);
-    
-		//Update star image
-		update_option("usrStarImage", $usrStarImage);
+	updateUSR();
 }
 
 ?>

@@ -31,8 +31,8 @@ span.usr, div.usr {
 	text-align: center;
 	color: #888888;
 	background-color: #FFFFFC;
-	padding: 5px 0 0;
-	margin-top: 12px;
+	padding: 5px 0;
+	margin: 20px 2px 0px;
 	border-style: solid;
 	border-color: #dadada;
 	border-width: 1px 0;

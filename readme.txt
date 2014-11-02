@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -39,6 +39,12 @@ Alternatively
 3. This screen shot shows the preview inside the options page
 
 == Changelog ==
+
+= 1.9.2 =
+* Changed paths inside USR so that it now uses WP constants
+* USR now loads all language files dynamically
+* Added some new internal functions
+* Code optimization
 
 = 1.9.1 =
 * Proofed that the plugin works with WP 4.0
@@ -156,6 +162,9 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.9.2 =
+This is a bugfix release which addresses a problem with incorrect paths which causes the plugin to not work correct (ver 1.9.1). While I was debugging the code I did some code optimization and added some new functions which should make the plugin a little faster.
 
 = 1.9.1 =
 This version of USR comes with a small UI improvement for the admin panel and a little code optimization. I tested it with WP version 4.0.

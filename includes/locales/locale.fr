@@ -27,6 +27,7 @@ $SETTINGS['NOU']['HowToShortCodes']['fr'] = "Les deux shortcodes peuvent être u
 $SETTINGS['OPT']['Options']['fr'] = "Options";
 $SETTINGS['OPT']['ExplainOptions']['fr'] = "Ces options sont susceptibles de changer le comportement et le style de <em>Universal Star Rating</em> au sein de vos billets.";
 $SETTINGS['OPT']['ExplainLanguageSetting']['fr'] = "Langage";
+$SETTINGS['OPT']['OriginLanguage']['fr'] = "Francais";
 $SETTINGS['OPT']['ExplainStarSizeSetting']['fr'] = "Taille de l'&eacute;toile";
 $SETTINGS['OPT']['ExplainStarCountSetting']['fr'] = "Nombre d'&eacute;toiles max.";
 $SETTINGS['OPT']['ExplainStarText']['fr'] = "Texte";
