@@ -14,6 +14,7 @@ $CONFIGURATION['AverageText']['es'] = "Promedio";
 //Settings Global
 $SETTINGS['GLOBAL']['Settings']['es'] = "Opciones";
 $SETTINGS['GLOBAL']['SubmitButton']['es'] = "Aplicar las nuevas configuraciones";
+$SETTINGS['GLOBAL']['ResetButton']['es'] = "Restablecer configuraci&oacute;n";
 
 //Settings "Notes on usage"
 $SETTINGS['NOU']['NotesOnUsage']['es'] = "Notas sobre el uso";

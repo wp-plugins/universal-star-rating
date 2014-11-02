@@ -5,22 +5,23 @@ $MESSAGES['ERROR']['NotEnoughParameters']['fr'] = "[ERREUR] Vous devez utiliser 
 $MESSAGES['ERROR']['StarSizeNotNumeric']['fr'] = "[ERREUR] Le nombre d'&eacute;toiles entr&eacute; doit être une valeur num&eacute;rique!";
 
 //Info Messages
-$MESSAGES['INFO']['SettingsUpdated']['fr'] = "Paramètres modifi&eacute;es";
+$MESSAGES['INFO']['SettingsUpdated']['fr'] = "Param&egrave;tres modifi&eacute;es";
 
 //Configuration
 $CONFIGURATION['DecimalMark']['fr'] = ",";
 $CONFIGURATION['AverageText']['fr'] = "Moyenne";
 
 //Settings Global
-$SETTINGS['GLOBAL']['Settings']['fr'] = "Paramètres";
+$SETTINGS['GLOBAL']['Settings']['fr'] = "Param&egrave;tres";
 $SETTINGS['GLOBAL']['SubmitButton']['fr'] = "Enregistrer les modifications";
+$SETTINGS['GLOBAL']['ResetButton']['fr'] = "R&eacute;initialiser les param&egrave;tres";
 
 //Settings "Notes on usage"
 $SETTINGS['NOU']['NotesOnUsage']['fr'] = "Notices d'utilisation";
 $SETTINGS['NOU']['ShortCodeDefinition']['fr'] = "Les <em>shortcodes</em> sont utilis&eacute;s pour cr&eacute;er des <em>tags</em> avec des fonctionnalit&eacute;s sp&eacute;ciales. Le plugin USR met &agrave; votre disposition 2 codes &agrave; utiliser dans vos billets.";
 $SETTINGS['NOU']['HowToUSR']['fr'] = "Pour ajouter un Universal Star Rating dans un de vos billets, entrez simplement <code>[usr=5]</code> o&ugrave; 5 est le nombre d'&eacute;toiles.";
-$SETTINGS['NOU']['HowToUSRList']['fr'] = "Pour ins&eacute;rer une liste d'Universal Star Ratings dans un billet, entrez <code>[usrlist &quot;Pizza:3&quot; &quot;Milk Shake:3.5&quot; (...)]</code> o&ugrave; la première valeur repr&eacute;sence ce qui est &agrave; noter et la seconde la note elle même. Cette liste peut-être aussi longue que vous le souhaitez mais elle doit contenir strictement plus d'un couple cl&eacute;-valeur.";
-$SETTINGS['NOU']['HowToShortCodes']['fr'] = "Les deux shortcodes peuvent être utilis&eacute;s avec des paramètres pour remplacer les paramètres par d&eacute;faut:<li type=square><code>img=&quot;image.name&quot;</code> remplace l'image par d&eacute;faut. Le nom doit être orthographi&eacute; correctement!</li><li type=square><code>max=10</code> remplace l'option pour le nombre d'&eacute;toiles max.</li><li type=square><code>size=20</code> remplace l'option pour la taille de l'&eacute;toile</li><li type=square><code>text=false</code> remplace l'option de sortie textuelle (peut être &quot;true&quot; ou &quot;false&quot;)</li>Le shortcode pour la liste d'Universal Star Ratings peut être utilis&eacute; avec un autre paramètre:<li type=square><code>avg=true</code> remplace l'option pour le calcul de la valeur moyenne (peut être &quot;true&quot; ou &quot;false&quot;)</li>";
+$SETTINGS['NOU']['HowToUSRList']['fr'] = "Pour ins&eacute;rer une liste d'Universal Star Ratings dans un billet, entrez <code>[usrlist &quot;Pizza:3&quot; &quot;Milk Shake:3.5&quot; (...)]</code> o&ugrave; la premi&egrave;re valeur repr&eacute;sence ce qui est &agrave; noter et la seconde la note elle même. Cette liste peut-être aussi longue que vous le souhaitez mais elle doit contenir strictement plus d'un couple cl&eacute;-valeur.";
+$SETTINGS['NOU']['HowToShortCodes']['fr'] = "Les deux shortcodes peuvent être utilis&eacute;s avec des param&agrave;tres pour remplacer les param&agrave;tres par d&eacute;faut:<li type=square><code>img=&quot;image.name&quot;</code> remplace l'image par d&eacute;faut. Le nom doit être orthographi&eacute; correctement!</li><li type=square><code>max=10</code> remplace l'option pour le nombre d'&eacute;toiles max.</li><li type=square><code>size=20</code> remplace l'option pour la taille de l'&eacute;toile</li><li type=square><code>text=false</code> remplace l'option de sortie textuelle (peut être &quot;true&quot; ou &quot;false&quot;)</li>Le shortcode pour la liste d'Universal Star Ratings peut être utilis&eacute; avec un autre param&agrave;tre:<li type=square><code>avg=true</code> remplace l'option pour le calcul de la valeur moyenne (peut être &quot;true&quot; ou &quot;false&quot;)</li>";
 
 //Settings "Options"
 $SETTINGS['OPT']['Options']['fr'] = "Options";

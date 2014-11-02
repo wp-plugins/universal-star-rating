@@ -14,6 +14,7 @@ $CONFIGURATION['AverageText']['en'] = "Average";
 //Settings Global
 $SETTINGS['GLOBAL']['Settings']['en'] = "Settings";
 $SETTINGS['GLOBAL']['SubmitButton']['en'] = "Save Changes";
+$SETTINGS['GLOBAL']['ResetButton']['en'] = "Reset Settings";
 
 //Settings "Notes on usage"
 $SETTINGS['NOU']['NotesOnUsage']['en'] = "Notes on usage";

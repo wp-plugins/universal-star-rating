@@ -3,8 +3,8 @@ Contributors: Chasil
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%40jroene%2ede&lc=DE&item_name=Universal%20Star%20Rating%20%2d%20Cizero%2ede&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
-Tested up to: 3.8
-Stable tag: 1.9.0
+Tested up to: 4.0
+Stable tag: 1.9.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -39,6 +39,11 @@ Alternatively
 3. This screen shot shows the preview inside the options page
 
 == Changelog ==
+
+= 1.9.1 =
+* Proofed that the plugin works with WP 4.0
+* Updated locale files and translation document
+* Updated admin panel
 
 = 1.9.0 =
 * Added custom images support
@@ -152,8 +157,11 @@ Alternatively
 
 == Upgrade Notice ==
 
+= 1.9.1 =
+This version of USR comes with a small UI improvement for the admin panel and a little code optimization. I tested it with WP version 4.0.
+
 = 1.9.0 =
-Now USR is able to support custom images. In the past customized images were deleted by updating the plugin but now you can use a seperated directory for your own images. Be aware that this seperated directory may not be inside the plugins directory or it will be deleted again!
+Now USR is able to support custom images. In the past customized images were deleted by updating the plugin but now you can use a seperated directory for your own images. Be aware that this seperated directory may not be inside the plugins directory or it still will be deleted when updateing the plugin!
 
 = 1.8.0 =
 Added Schema.org support which can be activated inside the admin panel. Please be aware that this causes W3 errors if activated! There are some minor bugfixes inside this release, too.

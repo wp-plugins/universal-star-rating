@@ -14,6 +14,7 @@ $CONFIGURATION['AverageText']['it'] = "Media";
 //Settings Global
 $SETTINGS['GLOBAL']['Settings']['it'] = "Impostazioni";
 $SETTINGS['GLOBAL']['SubmitButton']['it'] = "Salva nuove impostazioni";
+$SETTINGS['GLOBAL']['ResetButton']['it'] = "Ripristina Impostazioni";
 
 //Settings "Notes on usage"
 $SETTINGS['NOU']['NotesOnUsage']['it'] = "Note sull'utilizzo";

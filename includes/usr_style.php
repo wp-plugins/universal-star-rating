@@ -12,17 +12,28 @@ if(isset($_GET['px'])){
 ?>
 
 img.usr {
-  padding:  0 !important;
-  margin:   0 !important;
-  border:   none !important;
-  display:  inline !important;
-  height:   <?php echo $usrStarSize; ?>px !important;
+	padding:  0 !important;
+	margin:   0 !important;
+	border:   none !important;
+	display:  inline !important;
+	height:   <?php echo $usrStarSize; ?>px !important;
 }
 
 table.usr {
-  border: none;
+	border: none;
 }
 
 span.usr, div.usr {
-  display: inline !important;
+	display: inline !important;
+}
+
+#usrFooter {
+	text-align: center;
+	color: #888888;
+	background-color: #FFFFFC;
+	padding: 5px 0 0;
+	margin-top: 12px;
+	border-style: solid;
+	border-color: #dadada;
+	border-width: 1px 0;
 }

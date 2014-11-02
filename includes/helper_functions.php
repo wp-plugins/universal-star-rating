@@ -127,14 +127,14 @@ function getImageString($ratingValue, $usrStarImage, $usrMaxStars, $usrStarText,
     //Set image
     $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue;
     if($usrCustomImagesFolder != "")
-      $imageString .= '&folder='.$usrCustomImagesFolder;
+      $imageString .= '&amp;folder='.$usrCustomImagesFolder;
     $imageString .= '" style="height: '.$usrStarSize.'px !important;" alt="'.$ratingValue.' Stars" />';
   //If it is not a preview
   }else{
     //Set image string
     $imageString .= '<img class="usr" src="'.content_url().'/plugins/universal-star-rating/includes/stars.php?img='.$usrStarImage.'&amp;px='.$usrStarSize.'&amp;max='.$usrMaxStars.'&amp;rat='.$ratingValue;
     if($usrCustomImagesFolder != "")
-      $imageString .= '&folder='.$usrCustomImagesFolder;
+      $imageString .= '&amp;folder='.$usrCustomImagesFolder;
     $imageString .= '"';
     //If star size is not the default there has to be a style attribute...
     if($usrStarSize != get_option('usrStarSize')){
@@ -238,7 +238,47 @@ function proofCUSRIStructure($imgFolder){
       mkdir($imgFolder."/".$value);
     }
   }
+}
 
+//Function to update the plugins settings
+function updateUSRSettings($usrLang, $usrStarSize, $usrMaxStars, $usrStarText, $usrCalcAverage, $usrPermitShortcodedComments, $usrSchemaOrg, $usrCustomImagesFolder, $usrStarImage){
+		
+		//Update user language
+		update_option("usrLang", $usrLang);
+		
+		//Update star size		
+		$usrStarSize = str_replace( ',', '.', $usrStarSize);
+		if(is_numeric($usrStarSize)){
+			update_option("usrStarSize", $usrStarSize);
+		} else {
+			echo $MESSAGES['ERROR']['StarSizeNotNumeric'][$usrLang];
+		}
+		
+		//Update max stars
+		$usrMaxStars = intval($usrMaxStars);
+		if($usrMaxStars < 1){$usrMaxStars=1;} 
+		update_option("usrMaxStars", $usrMaxStars);
+
+		//Update text output
+		update_option("usrStarText", $usrStarText);
+		
+		//Update average rating calculation
+		update_option("usrCalcAverage", $usrCalcAverage);
+		
+		//Update permission to use shortcodes inside comments
+		update_option("usrPermitShortcodedComments", $usrPermitShortcodedComments);
+		if ($usrPermitShortcodedComments == "true"){
+			permitShortcodedComments();
+		}
+		
+		//Update permission to use Schema.org SEO
+		update_option("usrSchemaOrg", $usrSchemaOrg);
+		
+		//Update CUSRI folder
+		update_option("usrCustomImagesFolder", $usrCustomImagesFolder);
+    
+		//Update star image
+		update_option("usrStarImage", $usrStarImage);
 }
 
 ?>

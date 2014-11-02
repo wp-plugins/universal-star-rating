@@ -4,7 +4,7 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.9.0
+Version: 1.9.1
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
@@ -32,6 +32,7 @@ License: GPL3
   - Add some more GFXs
   - Sort GFXs by type
   - Add a Button to the WYSIWYG editor to add a rating to the post
+  - Make language selector dynamic -> cut $usrLocale from $usrLocales to do so
 	
 */
 
@@ -42,13 +43,13 @@ License: GPL3
 //                                                                            //
 //############################################################################//
 
-
 //Including locale files
-include('includes/locales/locale.en');
-include('includes/locales/locale.de');
-include('includes/locales/locale.fr');
-include('includes/locales/locale.it');
-include('includes/locales/locale.es');
+$usrLocales = scandir('../wp-content/plugins/universal-star-rating/includes/locales/');
+foreach($usrLocales as $usrLocale) {
+	if($usrLocale != "." && $usrLocale != ".." && $usrLocale != "locale.temp"){
+		include('includes/locales/'.$usrLocale);
+	}
+}
 
 //Define used names
 $usrPluginName = __("Universal Star Rating", 'universal-star-rating');
@@ -79,7 +80,7 @@ include('includes/shortcodes.php');
 //############################################################################//
 
 //Register options
-add_option('usrVersion', '1.8.0', '', 'yes');
+add_option('usrVersion', '1.9.0', '', 'yes');
 add_option('usrLang', 'en', '', 'yes');
 add_option('usrStarSize', '12', '', 'yes');
 add_option('usrMaxStars', '5', '', 'yes');
@@ -127,53 +128,35 @@ add_action('admin_menu', 'addUsrOptionPage');
 function usrOptionsPage() {
   //globals
   global $MESSAGES;
-  
+	if (isset($_POST['usrOptionsReset'])) {
+		$usrLang = 'en';
+		$usrStarSize = 12;
+		$usrMaxStars = 5;
+		$usrStarText = 'true';
+		$usrCalcAverage = 'false';
+		$usrPermitShortcodedComments = 'false';
+		$usrSchemaOrg = 'false';
+		$usrCustomImagesFolder = 'cusri';
+		$usrStarImage = '01.png';
+		updateUSRSettings($usrLang, $usrStarSize, $usrMaxStars, $usrStarText, $usrCalcAverage, $usrPermitShortcodedComments, $usrSchemaOrg, $usrCustomImagesFolder, $usrStarImage);
+	
+		//Tell user that options are updated
+		echo '<div class="updated fade"><p><strong>' . __($MESSAGES['INFO']['SettingsUpdated']['en'], "universal-star-rating") . '</strong></p></div>';
+	}
 	if (isset($_POST['usrOptionsUpdate'])) {
 		
-		//Update user language
 		$usrLang = $_POST["usrLang"];
-		update_option("usrLang", $usrLang);
+		$usrStarSize = $_POST["usrStarSize"];
+		$usrMaxStars = $_POST["usrMaxStars"];
+		$usrStarText = $_POST["usrStarText"];
+		$usrCalcAverage = $_POST["usrCalcAverage"];
+		$usrPermitShortcodedComments = $_POST["usrPermitShortcodedComments"];
+		$usrSchemaOrg = $_POST["usrSchemaOrg"];
+		$usrCustomImagesFolder = $_POST["usrCustomImagesFolder"];
+		$usrStarImage = $_POST["usrStarImage"];
 		
-		//Update star size
-    $usrStarSize = str_replace( ',', '.', $_POST["usrStarSize"]);
-    if(is_numeric($usrStarSize)){
-		  update_option("usrStarSize", $usrStarSize);
-    } else {
-      echo $MESSAGES['ERROR']['StarSizeNotNumeric'][$usrLang];
-    }
-    
-    //Update max stars
-		$usrMaxStars = intval($_POST["usrMaxStars"]);
-    if($usrMaxStars < 1){$usrMaxStars=1;} 
-    update_option("usrMaxStars", $usrMaxStars);
-
-    //Update text output
-    $usrStarText = $_POST["usrStarText"];
-    update_option("usrStarText", $usrStarText);
-    
-    //Update star image
-    $usrStarImage = $_POST["usrStarImage"];
-    update_option("usrStarImage", $usrStarImage);
-    
-    //Update average rating calculation
-    $usrCalcAverage = $_POST["usrCalcAverage"];
-    update_option("usrCalcAverage", $usrCalcAverage);
-    
-    //Update permission to use shortcodes inside comments
-    $usrPermitShortcodedComments = $_POST["usrPermitShortcodedComments"];
-    update_option("usrPermitShortcodedComments", $usrPermitShortcodedComments);
-    if ($usrPermitShortcodedComments == "true"){
-      permitShortcodedComments();
-    }
-    
-    //Update permission to use Schema.org SEO
-    $usrSchemaOrg = $_POST["usrSchemaOrg"];
-    update_option("usrSchemaOrg", $usrSchemaOrg);
-    
-    //Update CUSRI folder
-    $usrCustomImagesFolder = $_POST["usrCustomImagesFolder"];
-    update_option("usrCustomImagesFolder", $usrCustomImagesFolder);
-    
+		updateUSRSettings($usrLang, $usrStarSize, $usrMaxStars, $usrStarText, $usrCalcAverage, $usrPermitShortcodedComments, $usrSchemaOrg, $usrCustomImagesFolder, $usrStarImage);
+		
 		//Tell user that options are updated
 		echo '<div class="updated fade"><p><strong>' . __($MESSAGES['INFO']['SettingsUpdated'][$usrLang], "universal-star-rating") . '</strong></p></div>';
 	}
@@ -387,10 +370,15 @@ function usrOptionsPage() {
           </p>
           
           <?php if ( function_exists('settings_fields') ) settings_fields('rating_settings'); ?>
-					<input type='submit' name='usrOptionsUpdate' value='<?php _e($SETTINGS['GLOBAL']['SubmitButton'][$usrLang], 'universal_star_rating'); ?>' />
-
+					<input type='submit' name='usrOptionsUpdate' class="button-primary" value='<?php _e($SETTINGS['GLOBAL']['SubmitButton'][$usrLang], 'universal_star_rating'); ?>' />
+					<input type='submit' name='usrOptionsReset' class="button" value='<?php _e($SETTINGS['GLOBAL']['ResetButton'][$usrLang], 'universal_star_rating'); ?>' />
 				</form>				
 			</div>
+			<?php
+			#<div id="usrFooter" class="wrap">
+			#Commercial Footer
+			#</div>
+			?>
 		</div>
 
 <?php
