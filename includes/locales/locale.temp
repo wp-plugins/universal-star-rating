@@ -1,0 +1,66 @@
+<?php
+
+//Error Messages
+$MESSAGES['ERROR']['NotEnoughParameters']['temp'] = "";
+$MESSAGES['ERROR']['StarSizeNotNumeric']['temp'] = "";
+
+//Info Messages
+$MESSAGES['INFO']['SettingsUpdated']['temp'] = "";
+
+//Configuration
+$CONFIGURATION['DecimalMark']['temp'] = "";
+$CONFIGURATION['AverageText']['temp'] = "";
+
+//Settings Global
+$SETTINGS['GLOBAL']['Settings']['temp'] = "";
+$SETTINGS['GLOBAL']['SubmitButton']['temp'] = "";
+$SETTINGS['GLOBAL']['ResetButton']['temp'] = "";
+
+//Settings "Notes on usage"
+$SETTINGS['NOU']['NotesOnUsage']['temp'] = "";
+$SETTINGS['NOU']['ShortCodeDefinition']['temp'] = "";
+$SETTINGS['NOU']['HowToUSR']['temp'] = "";
+$SETTINGS['NOU']['HowToUSRList']['temp'] = "";
+$SETTINGS['NOU']['HowToShortCodes']['temp'] = "";
+
+//Settings "Options"
+$SETTINGS['OPT']['Options']['temp'] = "";
+$SETTINGS['OPT']['ExplainOptions']['temp'] = "";
+$SETTINGS['OPT']['ExplainLanguageSetting']['temp'] = "";
+$SETTINGS['OPT']['OriginLanguage']['temp'] = "";
+$SETTINGS['OPT']['ExplainStarSizeSetting']['temp'] = "";
+$SETTINGS['OPT']['ExplainStarCountSetting']['temp'] = "";
+$SETTINGS['OPT']['ExplainStarText']['temp'] = "";
+$SETTINGS['OPT']['ExplainStarImage']['temp'] = "";
+$SETTINGS['OPT']['ExplainAverageCalculation']['temp'] = "";
+$SETTINGS['OPT']['ExplainPermitShortcodedComment']['temp'] = "";
+$SETTINGS['OPT']['ExplainSchemaOrg']['temp'] = "";
+$SETTINGS['OPT']['ExplainCUSRI']['temp'] = "";
+$SETTINGS['OPT']['DefaultLanguage']['temp'] = "";
+$SETTINGS['OPT']['DefaultStarSize']['temp'] = "";
+$SETTINGS['OPT']['DefaultStarCount']['temp'] = "";
+$SETTINGS['OPT']['DefaultStarText']['temp'] = "";
+$SETTINGS['OPT']['DefaultAverageCalculation']['temp'] = "";
+$SETTINGS['OPT']['DefaultPermitShortcodedComment']['temp'] = "";
+$SETTINGS['OPT']['DefaultSchemaOrg']['temp'] = "";
+$SETTINGS['OPT']['DefaultCUSRI']['temp'] = "";
+$SETTINGS['OPT']['DefaultEnabled']['temp'] = "";
+$SETTINGS['OPT']['DefaultDisabled']['temp'] = "";
+
+//Settings "Preview"
+$SETTINGS['PREV']['Preview']['temp'] = "";
+$SETTINGS['PREV']['Example']['temp'] = "";
+$SETTINGS['PREV']['ExampleResult']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsr']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrSize']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrResult']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrList']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrListResult']['temp'][1] = "";
+$SETTINGS['PREV']['ExampleUsrListResult']['temp'][2] = "";
+$SETTINGS['PREV']['ExampleUsrListResult']['temp'][3] = "";
+$SETTINGS['PREV']['ExampleUsrOverriddenImage']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrOverriddenText']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrOverriddenMax']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['temp'] = "";
+$SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['temp'] = "";
+?>
