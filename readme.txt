@@ -14,7 +14,7 @@ With this plugin you can easily add ratings/reviews for desired data, products a
 
 Universal Star Rating gives you the opportunity to add ratings/reviews for desired data, products and services with the aid of a classic star rating system. You can make use of two shortcodes to embed a single inline star rating or a tabularly list of star ratings.
 
-Supported Languages: English, French, German, Italian, Portuguese (Brazilian), Spanish
+Supported Languages: English, French, German, Italian, Portuguese (Brazil), Spanish
 
 To insert a Universal Star Rating inside a post just type `[usr=5]` where 5 is the amount of stars.
 
