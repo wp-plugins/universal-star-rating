@@ -1,0 +1,66 @@
+<?php
+
+//Error Messages
+$MESSAGES['ERROR']['NotEnoughParameters']['it'] = "[ERRORE] Devi inserire pi&ugrave; di 1 nome/rating. Utilizzare  <code>[usr=3.5]</code> se si vuole usare  1 solo nome/Rating.";
+$MESSAGES['ERROR']['StarSizeNotNumeric']['it'] = "[ERRORE] La dimensione inserita per la stella non &egrave; un valore numerico!";
+
+//Info Messages
+$MESSAGES['INFO']['SettingsUpdated']['it'] = "Impostazioni aggiornate";
+
+//Configuration
+$CONFIGURATION['DecimalMark']['it'] = ",";
+$CONFIGURATION['AverageText']['it'] = "Media";
+
+//Settings Global
+$SETTINGS['GLOBAL']['Settings']['it'] = "Impostazioni";
+$SETTINGS['GLOBAL']['SubmitButton']['it'] = "Salva nuove impostazioni";
+$SETTINGS['GLOBAL']['ResetButton']['it'] = "Ripristina Impostazioni";
+
+//Settings "Notes on usage"
+$SETTINGS['NOU']['NotesOnUsage']['it'] = "Note sull'utilizzo";
+$SETTINGS['NOU']['ShortCodeDefinition']['it'] = "I Shortcodes sono utilizzati per inserire dei Tag con i quali aggiungere funzionalit&agrave; speciali. In questo caso, il plugin USR &egrave; provvisto di due shortcode da utilizzare negli articoli.";
+$SETTINGS['NOU']['HowToUSR']['it'] = "Per introdurre l'Universal Star Rating dentro un articolo scriva semplicemente <code>[usr=5]</code> dove 5 &egrave; il numero di stelle.";
+$SETTINGS['NOU']['HowToUSRList']['it'] = "Per inserire una lista di Universal Star Ratings dentro un articolo scriva semplicemente <code>[usrlist &quot;Pizza:3&quot; &quot;Ice Cream:3.5&quot; (...)]</code> dove il primo valore &egrave; l'oggetto che si vuole valutare. La vostra lista pu&ograve; essere lunga quanto lei voglia per&ograve; dovr&agrave; contenere pi&ugrave; di 1 combinazione key:value.";
+$SETTINGS['NOU']['HowToShortCodes']['it'] = "Entrambi i shortcode possono essere utilizzati con parametri per sovrascrivere quelli di default:<li type=square><code>img=&quot;image.name&quot;</code> sovrascrive l'immagine di default. Stia attento al nome dell'immagine, che sia quello corretto!</li><li type=square><code>max=10</code> sovrascrive il numero massimo di stelle.</li><li type=square><code>size=20</code> sovrascrive il dimensione stella</li><li type=square><code>text=false</code> sovrascrive il testo base di output (il suo valore pu&ograve; essere solo &quot;true&quot; o &quot;false&quot;)</li>Il shortcode per inserire una lista di Universal Star Ratings pu&ograve; essere utilizzato con altri parametri:<li type=square><code>avg=true</code> sovrascrive l'opzione per il calcolo della media nella valutazione (il suo valore pu&ograve; essere solo &quot;true&quot; o &quot;false&quot;)";
+
+//Settings "Options"
+$SETTINGS['OPT']['Options']['it'] = "Impostazioni";
+$SETTINGS['OPT']['ExplainOptions']['it'] = "Queste opzioni possono cambiare il comportamento e lo stile dell'<em>Universal Star Rating</em> dentro i vostri articoli.";
+$SETTINGS['OPT']['ExplainLanguageSetting']['it'] = "Lingua";
+$SETTINGS['OPT']['OriginLanguage']['it'] = "Italiano";
+$SETTINGS['OPT']['ExplainStarSizeSetting']['it'] = "Dimensione stella";
+$SETTINGS['OPT']['ExplainStarCountSetting']['it'] = "Massimo valore di valutazione";
+$SETTINGS['OPT']['ExplainStarText']['it'] = "Testo";
+$SETTINGS['OPT']['ExplainStarImage']['it'] = "Immagine";
+$SETTINGS['OPT']['ExplainAverageCalculation']['it'] = "Calcolare media";
+$SETTINGS['OPT']['ExplainPermitShortcodedComment']['it'] = "Ammettere shortcode dentro i commenti";
+$SETTINGS['OPT']['ExplainSchemaOrg']['it'] = "Permettere Schema.org <abbr title=\"Search Engine Optimization\">SEO</abbr>";
+$SETTINGS['OPT']['ExplainCUSRI']['it'] = "Immagini personalizzate Cartella";
+$SETTINGS['OPT']['DefaultLanguage']['it'] = "<em>Default: <code>English</code></em>";
+$SETTINGS['OPT']['DefaultStarSize']['it'] = "<em>Default: <code>12</code> (in px)</em>";
+$SETTINGS['OPT']['DefaultStarCount']['it'] = "<em>Default: <code>5</code>; Minimo: 1 (come intero)</em>";
+$SETTINGS['OPT']['DefaultStarText']['it'] = "<em>Default: <code>Abilitato</code></em>";
+$SETTINGS['OPT']['DefaultAverageCalculation']['it'] = "<em>Default: <code>Disabilitato</code></em>";
+$SETTINGS['OPT']['DefaultPermitShortcodedComment']['it'] = "<em>Default: <code>Disabilitato</code></em>";
+$SETTINGS['OPT']['DefaultSchemaOrg']['it'] = "<em>Default: <code>Disabilitato</code>; Provoca errori <a href=\"http://www.w3.org/\" target=\"_blank\">W3</a>!</em>";
+$SETTINGS['OPT']['DefaultCUSRI']['it'] = "<em>Default: /wp-content/<code>cusri</code></em>";
+$SETTINGS['OPT']['DefaultEnabled']['it'] = "Abilitato";
+$SETTINGS['OPT']['DefaultDisabled']['it'] = "Disabilitato";
+
+//Settings "Preview"
+$SETTINGS['PREV']['Preview']['it'] = "Anteprima";
+$SETTINGS['PREV']['Example']['it'] = "<strong>Esempio</strong>";
+$SETTINGS['PREV']['ExampleResult']['it'] = "<strong>Risultato</strong>";
+$SETTINGS['PREV']['ExampleUsr']['it'] = "Film: [usr=3.5]";
+$SETTINGS['PREV']['ExampleUsrSize']['it'] = "Film: [usr=3.5 size=20]";
+$SETTINGS['PREV']['ExampleUsrResult']['it'] = "Film: ";
+$SETTINGS['PREV']['ExampleUsrList']['it'] = "[usrlist Pizza:3 Gelato:3.5 &quot;Latte Acido&quot;]";
+$SETTINGS['PREV']['ExampleUsrListResult']['it'][1] = "Pizza:3";
+$SETTINGS['PREV']['ExampleUsrListResult']['it'][2] = "Gelato:3.5";
+$SETTINGS['PREV']['ExampleUsrListResult']['it'][3] = "Latte Acido";
+$SETTINGS['PREV']['ExampleUsrOverriddenImage']['it'] = "Film: [usr=3.5 img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenText']['it'] = "Film: [usr=3.5 text=&quot;false&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenMax']['it'] = "Film: [usr=3.5 max=&quot;3&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['it'] = "Film: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot; size=20]";
+$SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['it'] = "[usrlist Pizza:3 Gelato:3.5 &quot;Latte Acido&quot; avg=&quot;true&quot;]";
+?>
