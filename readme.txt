@@ -3,8 +3,8 @@ Contributors: Chasil
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mike%40jroene%2ede&lc=DE&item_name=Universal%20Star%20Rating%20%2d%20Cizero%2ede&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest
 Tags: stars, rating, movies, books, reviews, shortcodes
 Requires at least: 3.0.1
-Tested up to: 4.0
-Stable tag: 1.9.2
+Tested up to: 4.2.4
+Stable tag: 1.9.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -14,7 +14,7 @@ With this plugin you can easily add ratings/reviews for desired data, products a
 
 Universal Star Rating gives you the opportunity to add ratings/reviews for desired data, products and services with the aid of a classic star rating system. You can make use of two shortcodes to embed a single inline star rating or a tabularly list of star ratings.
 
-Supported Languages: English, French, German, Italian, Spanish
+Supported Languages: English, French, German, Italian, Portuguese (Brazilian), Spanish
 
 To insert a Universal Star Rating inside a post just type `[usr=5]` where 5 is the amount of stars.
 
@@ -39,6 +39,9 @@ Alternatively
 3. This screen shot shows the preview inside the options page
 
 == Changelog ==
+
+= 1.9.3 =
+* Added Brazilian Portuguese locale (Thanks to danielpassos!)
 
 = 1.9.2 =
 * Changed paths inside USR so that it now uses WP constants
@@ -162,6 +165,10 @@ Alternatively
 * Initial release with basic functionality to add star ratings inside posts
 
 == Upgrade Notice ==
+
+= 1.9.3 =
+Tested the plugin with WordPress version 4.2.4 and added the Brazilian Portuguese locale which was made by danielpassos.
+Sorry that I have been so inactive...
 
 = 1.9.2 =
 This is a bugfix release which addresses a problem with incorrect paths which causes the plugin to not work correct (ver 1.9.1). While I was debugging the code I did some code optimization and added some new functions which should make the plugin a little faster.

@@ -1,0 +1,67 @@
+<?php
+
+//Error Messages
+$MESSAGES['ERROR']['NotEnoughParameters']['pt'] = "[ERRO] Voc&ecirc; tem que usar mais de 1 nome/classifica&ccedil;&atilde;o. Se houver apenas um nome/classifica&ccedil;&atilde;o use <code> [usr = 3,5] </code>.";
+$MESSAGES['ERROR']['StarSizeNotNumeric']['pt'] = "[ERRO] O tamanho utilizado um numero valido!";
+
+//Info Messages
+$MESSAGES['INFO']['SettingsUpdated']['pt'] = "Configura&ccedil;&otilde;es atualizadas";
+
+//Configuration
+$CONFIGURATION['DecimalMark']['pt'] = ",";
+$CONFIGURATION['AverageText']['pt'] = "M&eacute;dia";
+
+//Settings Global
+$SETTINGS['GLOBAL']['Settings']['pt'] = "Configura&ccedil;&otilde;es";
+$SETTINGS['GLOBAL']['SubmitButton']['pt'] = "Salvar altera&ccedil;&otilde;es";
+$SETTINGS['GLOBAL']['ResetButton']['pt'] = "Restaurar configura&ccedil;&otilde;es";
+
+//Settings "Notes on usage"
+$SETTINGS['NOU']['NotesOnUsage']['pt'] = "Notas sobre o uso";
+$SETTINGS['NOU']['ShortCodeDefinition']['pt'] = "Shortcodes s&atilde;o usados para inserir tags que fornecem funcionalidade especial. Neste caso, o plug-in fornece 2 c&oacute;digos para usarmos nos posts.";
+$SETTINGS['NOU']['HowToUSR']['pt'] = "Para inserir uma avalia&ccedil;&atilde;o dentro de um post basta usar <code>[usr=5]</code>, onde 5 &eacute; a nota.";
+$SETTINGS['NOU']['HowToUSRList']['pt'] = "Para inserir uma lista de avalia&ccedil;&otilde;es dentro de um post basta digitar <code>[usrlist &quot;Pizza:3&quot; &quot;Sorvete:3.5&quot; (...)]</code>, onde o primeiro valor &eacute; o que voc&ecirc; quer avaliar e o segundo valor &eacute; a nota. Sua lista pode ser t&atilde;o longa como voc&ecirc; quiser que seja, mas deve ter mais de um valor a ser avaliado.";
+$SETTINGS['NOU']['HowToShortCodes']['pt'] = "Ambos os c&oacute;digos pode ser usado com par&acirc;metros para substituir as configura&ccedil;&otilde;es padr&atilde;o:<li type=square><code>img=&quot;image.name&quot;</code> substitui a imagem padr&atilde;o. Certifique-se de que o nome da imagem esteja correta!</li><li type=square><code>max=10</code> substitui a op&ccedil;&atilde;o para a nota m&aacute;xima.</li><li type=square><code>size=20</code> substitui a op&ccedil;&atilde;o para o tamanho da nota</li><li type=square><code>text=false</code> substitui a op&ccedil;&atilde;o baseada em texto (pode ser &quot;true&quot; ou &quot;false&quot;)</li>O c&oacute;digo para inserir uma lista de notas, pode ser usado com um outro par&acirc;metro:<li type=square><code>avg=true</code> substitui a op&ccedil;&atilde;o para o c&aacute;lculo da m&eacute;dia (pode ser &quot;true&quot; ou &quot;false&quot;)</li>";
+
+//Settings "Options"
+$SETTINGS['OPT']['Options']['pt'] = "Op&ccedil;&otilde;es";
+$SETTINGS['OPT']['ExplainOptions']['pt'] = "Essas op&ccedil;&otilde;es podem alterar o comportamento e o estilo do <em>Universal Star Rating</em> em seus posts.";
+$SETTINGS['OPT']['ExplainLanguageSetting']['pt'] = "Idioma";
+$SETTINGS['OPT']['OriginLanguage']['pt'] = "Portugu&ecirc;s (Brasil)";
+$SETTINGS['OPT']['ExplainStarSizeSetting']['pt'] = "Tamanho da nota";
+$SETTINGS['OPT']['ExplainStarCountSetting']['pt'] = "Nota m&aacute;xima";
+$SETTINGS['OPT']['ExplainStarText']['pt'] = "Texto";
+$SETTINGS['OPT']['ExplainStarImage']['pt'] = "Imagem";
+$SETTINGS['OPT']['ExplainAverageCalculation']['pt'] = "Calcular m&eacute;dia";
+$SETTINGS['OPT']['ExplainPermitShortcodedComment']['pt'] = "Permitir c&oacute;digos nos coment&aacute;rios";
+$SETTINGS['OPT']['ExplainSchemaOrg']['pt'] = "Permitir Schema.org <abbr title=\"Search Engine Optimization\">SEO</abbr>";
+$SETTINGS['OPT']['ExplainCUSRI']['pt'] = "Pasta de imagens personalizadas";
+$SETTINGS['OPT']['DefaultLanguage']['pt'] = "<em>Padr&atilde;o: <code>Ingl&ecirc;s</code></em>";
+$SETTINGS['OPT']['DefaultStarSize']['pt'] = "<em>Padr&atilde;o: <code>12</code> (em px)</em>";
+$SETTINGS['OPT']['DefaultStarCount']['pt'] = "<em>Padr&atilde;o: <code>5</code>; Minimo: 1</em>";
+$SETTINGS['OPT']['DefaultStarText']['pt'] = "<em>Padr&atilde;o: <code>Ligado</code></em>";
+$SETTINGS['OPT']['DefaultAverageCalculation']['pt'] = "<em>Padr&atilde;o: <code>Desligado</code></em>";
+$SETTINGS['OPT']['DefaultPermitShortcodedComment']['pt'] = "<em>Padr&atilde;o: <code>Desligado</code></em>";
+$SETTINGS['OPT']['DefaultSchemaOrg']['pt'] = "<em>Padr&atilde;o: <code>Desligado</code>; Causa <a href=\"http://www.w3.org/\" target=\"_blank\">W3</a> erros!</em>";
+$SETTINGS['OPT']['DefaultCUSRI']['pt'] = "<em>Padr&atilde;o: /wp-content/<code>cusri</code></em>";
+$SETTINGS['OPT']['DefaultEnabled']['pt'] = "Ligado";
+$SETTINGS['OPT']['DefaultDisabled']['pt'] = "Desligado";
+
+//Settings "Preview"
+$SETTINGS['PREV']['Preview']['pt'] = "Visualiza&ccedil;&atilde;o";
+$SETTINGS['PREV']['Example']['pt'] = "<strong>Exemplo</strong>";
+$SETTINGS['PREV']['ExampleResult']['pt'] = "<strong>Resultado</strong>";
+$SETTINGS['PREV']['ExampleUsr']['pt'] = "Filme: [usr=3.5]";
+$SETTINGS['PREV']['ExampleUsrSize']['pt'] = "Filme: [usr=3.5 size=20]";
+$SETTINGS['PREV']['ExampleUsrResult']['pt'] = "Filme: ";
+$SETTINGS['PREV']['ExampleUsrList']['pt'] = "[usrlist Pizza:3 &quot;Sorvete:3.5&quot; Sujeira]";
+$SETTINGS['PREV']['ExampleUsrListResult']['pt'][1] = "Pizza:3";
+$SETTINGS['PREV']['ExampleUsrListResult']['pt'][2] = "Sorvete:3.5";
+$SETTINGS['PREV']['ExampleUsrListResult']['pt'][3] = "Filme";
+$SETTINGS['PREV']['ExampleUsrOverriddenImage']['pt'] = "Filme: [usr=3.5 img=&quot;03.png&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenText']['pt'] = "Filme: [usr=3.5 text=&quot;false&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenMax']['pt'] = "Filme: [usr=3 max=&quot;3&quot;]";
+$SETTINGS['PREV']['ExampleUsrOverriddenAll']['pt'] = "Filme: [usr=3.5 max=&quot;3&quot; text=&quot;false&quot; img=&quot;03.png&quot; size=20]";
+$SETTINGS['PREV']['ExampleUsrListOverriddenAverage']['pt'] = "[usrlist Pizza:3 &quot;Sorvete:3.5&quot; Sujeira avg=&quot;true&quot;]";
+
+?>

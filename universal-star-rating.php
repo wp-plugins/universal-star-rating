@@ -4,13 +4,13 @@
 Plugin Name: Universal Star Rating
 Plugin URI: http://www.cizero.de/?p=1142
 Description: Adds <code>[usr=10.0]</code> and <code>[usrlist NAME:RATING "ANOTHER NAME:RATING" (...)]</code> shortcode for inserting universal star ratings.
-Version: 1.9.2
+Version: 1.9.3
 Author: Mike Wigge
 Author URI: http://cizero.de
 License: GPL3
 */
 
-/*  Copyright 2013 - 2014  Mike Wigge  (email : me@cizero.de)
+/*  Copyright 2013 - 2015  Mike Wigge  (email : wordpress@cizero.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 3, as 
@@ -39,7 +39,7 @@ License: GPL3
 //                                                                            //
 //############################################################################//
 
-define('USR_VERSION','1.9.2');
+define('USR_VERSION','1.9.3');
 define('USR_DEFAULT_LANG','en');
 define('USR_DEFAULT_STAR_SIZE','12');
 define('USR_DEFAULT_MAX_STARS','5');
